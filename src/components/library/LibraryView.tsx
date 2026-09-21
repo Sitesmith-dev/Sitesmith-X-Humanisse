@@ -102,7 +102,7 @@ export function LibraryView({ items }: { items: LibraryItem[] }) {
                     </div>
                     <Ring value={o.progress} />
                   </div>
-                  <Link href={o.slug === "negotiation" ? "/comics/negotiation" : "/comics"} className="btn">{o.progress === 100 ? "Read again" : "View comic"}</Link>
+                  <Link href={`/comics/${o.slug}`} className="btn">{o.progress === 100 ? "Read again" : "View comic"}</Link>
                 </motion.article>
               </motion.li>
             ))}
