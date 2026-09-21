@@ -15,6 +15,17 @@ function subscribeReduced(cb: () => void) {
   return () => mq.removeEventListener("change", cb);
 }
 
+// Whether 3D is unavailable is decided once, so the still poster only ever appears for visitors who cannot see the scene
+let no3d: boolean | null = null;
+const cannot3d = () => {
+  if (no3d === null) {
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+    no3d = !hasWebGL() || !!saveData;
+  }
+  return no3d;
+};
+const noop = () => () => {};
+
 const info: Record<CharId, { name: string; line: string }> = {
   professor: { name: "The Professor", line: "Introduces the idea and connects the story to meaning" },
   bot: { name: "The Bot", line: "Makes the learning steps clear and connected" },
@@ -28,13 +39,13 @@ export function CharacterHero() {
   const [visible, setVisible] = useState(true);
   const [tabOn, setTabOn] = useState(true);
   const [active, setActive] = useState<CharId | null>(null);
-  const [painted, setPainted] = useState(false);
   const reduced = useSyncExternalStore(subscribeReduced, () => window.matchMedia(REDUCED).matches, () => false);
+  const unsupported = useSyncExternalStore(noop, cannot3d, () => false);
+  const showPoster = unsupported || reduced;
 
   useEffect(() => {
-    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
-    let t: ReturnType<typeof setTimeout> | undefined;
-    if (hasWebGL() && !saveData) t = setTimeout(() => setReady(true), 400); // after critical content
+    // The scene loads just after the page's critical content
+    const t = setTimeout(() => setReady(true), 400);
     const onVis = () => setTabOn(!document.hidden);
     document.addEventListener("visibilitychange", onVis);
     // Cursor is tracked across the whole window and mapped to the stage, so the characters keep following it outside the canvas too
@@ -49,16 +60,16 @@ export function CharacterHero() {
     document.addEventListener("mouseout", onLeave);
     const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting));
     if (box.current) io.observe(box.current);
-    return () => { document.removeEventListener("visibilitychange", onVis); window.removeEventListener("pointermove", onMove); document.removeEventListener("mouseout", onLeave); io.disconnect(); if (t) clearTimeout(t); };
+    return () => { clearTimeout(t); document.removeEventListener("visibilitychange", onVis); window.removeEventListener("pointermove", onMove); document.removeEventListener("mouseout", onLeave); io.disconnect(); };
   }, []);
 
   return (
     <div className={styles.wrap}>
       <div ref={box} className={styles.stage} role="img" aria-label="The Humanisse characters: the Professor, the Bot and the Cat, Chief Story Critic">
-        <div className={painted ? styles.hidden : undefined}><CharacterFallback /></div>
-        {ready && !reduced && (
+        {showPoster && <CharacterFallback />}
+        {ready && !showPoster && (
           <div className={styles.canvas}>
-            <CharacterScene active={active} reduced={reduced} running={visible && tabOn} pointer={pointer} onReady={() => setTimeout(() => setPainted(true), 250)} />
+            <CharacterScene active={active} reduced={reduced} running={visible && tabOn} pointer={pointer} />
           </div>
         )}
       </div>

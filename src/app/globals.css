@@ -68,3 +68,4 @@ img { max-width: 100%; display: block; }
 .secHead h2 { margin-bottom: 14px; }
 .secHead .lead { margin: 0; }
 @media (max-width: 640px) { .band { padding-block: 64px; } }
+@media (prefers-reduced-motion: no-preference) { [data-w] { opacity: .16; } }
