@@ -1,34 +1,40 @@
 "use client";
+import Link from "next/link";
 import { useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { Check, Plus } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Check, Plus, ShoppingBag } from "lucide-react";
+import { useCart } from "@/components/cart/CartContext";
 import styles from "./Comic.module.css";
 
-export function BuyPanel({ title, price }: { title: string; price: string }) {
-  const [open, setOpen] = useState(false);
-  const [bundle, setBundle] = useState(false);
-  const trigger = useRef<HTMLButtonElement>(null);
-  const close = () => { setOpen(false); trigger.current?.focus(); };
+// Amazon-style pair: Buy now goes straight to the cart, Add to cart stays here and the button becomes a link once it is in
+export function BuyPanel({ slug, title, price }: { slug: string; title: string; price: string }) {
+  const router = useRouter();
+  const { add, has } = useCart();
+  const inCart = has(slug);
+  const [announce, setAnnounce] = useState("");
+  const view = useRef<HTMLAnchorElement>(null);
+
+  const buyNow = () => { add(slug); router.push("/cart"); };
+  const addToCart = () => {
+    add(slug);
+    setAnnounce(`${title} added to your cart`);
+    // The button is replaced by the link, so keyboard focus follows it rather than dropping to the page
+    requestAnimationFrame(() => view.current?.focus());
+  };
+
   return (
     <div className={styles.buy}>
       <p className={styles.buyPrice}><strong>{price}</strong> <span className="demo">Sample price</span></p>
       <div className={styles.buyRow}>
-        <button ref={trigger} type="button" className="btn btn-primary btn-lg" onClick={() => setOpen(true)} aria-haspopup="dialog">Buy Comic</button>
-        <button type="button" className="btn btn-lg" aria-pressed={bundle} onClick={() => setBundle(!bundle)}>
-          {bundle ? <Check size={18} aria-hidden="true" /> : <Plus size={18} aria-hidden="true" />}
-          {bundle ? "Added to bundle" : "Add to bundle"}
-        </button>
-      </div>
-      <AnimatePresence>
-        {open && (
-          <motion.div className={styles.panel} role="dialog" aria-modal="false" aria-label="Preview notice"
-            initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-            <h3>Preview only</h3>
-            <p>Checkout for {title} will be connected in the production build, no payment is taken and nothing has been purchased</p>
-            <button type="button" className="btn" onClick={close} autoFocus>Close</button>
-          </motion.div>
+        <button type="button" className="btn btn-primary btn-lg" onClick={buyNow}><ShoppingBag size={18} aria-hidden="true" /> Buy now</button>
+        {inCart ? (
+          <Link ref={view} href="/cart" className="btn btn-lg"><Check size={18} aria-hidden="true" /> In cart, view it</Link>
+        ) : (
+          <button type="button" className="btn btn-lg" onClick={addToCart}><Plus size={18} aria-hidden="true" /> Add to cart</button>
         )}
-      </AnimatePresence>
+      </div>
+      <p className={`notice ${styles.buyNote}`}><span className="demo">Preview</span> No payment is taken and nothing has been purchased</p>
+      <p className="sr-only" aria-live="polite">{announce}</p>
     </div>
   );
 }

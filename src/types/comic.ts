@@ -11,6 +11,8 @@ export type Category = "work" | "life" | "communication";
 export type Comic = {
   slug: string;
   title: string;
+  /** One sentence, twelve words at most, the only description most visitors read on the catalogue */
+  tagline: string;
   shortDescription: string;
   theme: string;
   category: Category;

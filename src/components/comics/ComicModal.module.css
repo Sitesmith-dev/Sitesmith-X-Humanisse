@@ -1,0 +1,20 @@
+/* Backdrop covers everything including the sticky header (z 50) and the cart bar (z 60), the panel floats above it */
+.root { position: fixed; inset: 0; z-index: 90; }
+.root[data-expanded="true"] { pointer-events: none; }
+.root[data-expanded="true"] .panel { pointer-events: auto; }
+.backdrop { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 45%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.panel { position: fixed; display: flex; flex-direction: column; overflow: hidden; background: var(--paper); color: var(--ink); border: 2.5px solid var(--ink); box-shadow: 10px 10px 0 var(--ink), 0 30px 60px color-mix(in srgb, var(--ink) 35%, transparent); outline: none; }
+.scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+
+/* Controls: Expand top left, Close top right, or Back alone once expanded. The row floats over the same spot the standalone page's Back link uses */
+.chrome { position: sticky; top: 0; z-index: 5; height: 0; }
+.chromeRow { position: absolute; top: 48px; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-inline: max(20px, calc((100% - var(--wrap)) / 2 + 20px)); pointer-events: none; }
+.chromeRow > * { pointer-events: auto; }
+.close { margin-left: auto; min-width: 48px; padding: 8px 12px; gap: 0; }
+.closeText { max-width: 0; overflow: hidden; opacity: 0; white-space: nowrap; transition: max-width .2s ease, opacity .2s ease, margin .2s ease; }
+.close:hover .closeText, .close:focus-visible .closeText { max-width: 6ch; opacity: 1; margin-left: 8px; }
+
+@media (max-width: 700px) {
+  .root:not([data-expanded="true"]) .panel { inset: 8vh 4vw !important; }
+  .chromeRow { top: 40px; }
+}

@@ -4,7 +4,8 @@ import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Marquee } from "@/components/landing/Marquee";
 import { VideoPreview } from "@/components/landing/VideoPreview";
 import { Faq } from "@/components/landing/Faq";
-import { FeaturedComics, FinalCTA, Statement, Trio } from "@/components/landing/Sections";
+import { AboutUs } from "@/components/landing/AboutUs";
+import { FeaturedComics, FinalCTA, Trio } from "@/components/landing/Sections";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       <PanelTransitions />
       <Hero />
       <Marquee />
-      <Statement />
+      <AboutUs />
       <FeaturedComics />
       <HowItWorks />
       <Trio />

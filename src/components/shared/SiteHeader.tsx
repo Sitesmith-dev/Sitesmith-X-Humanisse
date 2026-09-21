@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { LogIn } from "lucide-react";
+import { CartButton } from "@/components/cart/CartButton";
 import styles from "./Shared.module.css";
 
 // Seamless header: clear at the top of the page, a soft frosted bar once you scroll,
@@ -45,6 +46,7 @@ export function SiteHeader() {
           <Link href="/comics" className={styles.link}>Comics</Link>
           <Link href="/#how-it-works" className={`${styles.link} ${styles.hideSm}`}>How It Works</Link>
           <Link href="/library" className={styles.link}>My Library</Link>
+          <CartButton />
           <Link href="/login" className="btn"><LogIn size={18} aria-hidden="true" /> Log in</Link>
         </nav>
       </div>

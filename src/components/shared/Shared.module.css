@@ -1,12 +1,25 @@
 .header { position: sticky; top: 0; z-index: 50; border-bottom: 2px solid transparent; }
-.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 24px; min-height: 68px; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 16px; min-height: 68px; }
 .logo { font: 800 1.6rem var(--font-head); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; letter-spacing: -.02em; }
-.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding: 4px 0; }
-.link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; font-weight: 700; text-decoration: none; border-radius: var(--radius); transition: background .2s; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; margin-left: auto; gap: 4px 4px; padding: 4px 0; }
+.link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px; font-weight: 700; text-decoration: none; border-radius: var(--radius); transition: background .2s; }
 .link:hover { background: var(--paper-2); }
+.cart { min-width: 44px; gap: 10px; }
+.cartIcon { position: relative; display: inline-flex; }
+.badge { position: absolute; top: -11px; right: -9px; display: grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; background: var(--coral); color: var(--white); border: 2px solid var(--paper); border-radius: 999px; font: 700 .75rem/1 var(--font-text); }
 .footer { --bg: var(--ink); position: relative; background: var(--ink); color: var(--paper); border-top: 4px solid var(--ink); padding: 88px 0 40px; }
 .footer h2 { margin-bottom: 12px; color: var(--gold); }
 .footNav { display: flex; gap: 8px 28px; flex-wrap: wrap; margin: 12px 0; }
 .footNav a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
 .note { color: rgba(255,247,227,.7); font-size: .95rem; margin: 24px 0 0; }
 @media (max-width: 640px) { .hideSm { display: none; } .nav { gap: 2px; } .link { padding: 0 8px; } }
+
+/* Document dialog: a comic panel floating over the page, scrollable inside a capped height */
+.dlgBack { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: color-mix(in srgb, var(--ink) 58%, transparent); }
+.dlg { position: relative; width: min(720px, 100%); max-height: 78vh; overflow-y: auto; overscroll-behavior: contain; padding: 26px 30px 32px; background: var(--paper); color: var(--ink); border: var(--line); border-radius: var(--radius); box-shadow: 8px 8px 0 var(--ink); outline: none; }
+.dlgHead { position: sticky; top: -26px; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin: -26px -30px 0; padding: 26px 30px 12px; background: var(--paper); border-bottom: 2px solid var(--ink); }
+.dlgHead h2 { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2rem); }
+.dlgClose { flex: none; min-width: 44px; padding: 0 14px; }
+.dlgMeta { margin: 16px 0 12px; color: var(--muted); font-size: .95rem; }
+.dlgBody p { max-width: 62ch; }
+@media (max-width: 640px) { .dlg { padding: 20px 18px 26px; } .dlgHead { top: -20px; margin: -20px -18px 0; padding: 20px 18px 10px; } }
