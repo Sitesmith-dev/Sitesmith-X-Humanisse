@@ -6,9 +6,9 @@ import type { Comic } from "@/types/comic";
 import { ComicCover } from "./ComicCover";
 import styles from "./Comic.module.css";
 
-type Props = { comic: Comic; inBundle?: boolean; onToggle?: (slug: string) => void; tilt?: boolean };
+type Props = { comic: Comic; inCart?: boolean; onToggle?: (slug: string) => void; tilt?: boolean };
 
-export function ComicCard({ comic, inBundle = false, onToggle, tilt = false }: Props) {
+export function ComicCard({ comic, inCart = false, onToggle, tilt = false }: Props) {
   const reduce = useReducedMotion();
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -33,7 +33,7 @@ export function ComicCard({ comic, inBundle = false, onToggle, tilt = false }: P
         <ul className={styles.tags} aria-label="Themes">
           {comic.tags.slice(0, 2).map((t) => <li key={t} className="tag">{t}</li>)}
         </ul>
-        <p className={styles.desc}>{comic.shortDescription}</p>
+        <p className={styles.desc}>{comic.tagline}</p>
         <p className={styles.meta}>
           <strong className={styles.price}>{comic.priceLabel}</strong>
           {comic.videoAvailable && <span className={styles.video}><Video size={18} aria-hidden="true" /> Video intro</span>}
@@ -41,9 +41,9 @@ export function ComicCard({ comic, inBundle = false, onToggle, tilt = false }: P
         <div className={styles.actions}>
           <Link href={`/comics/${comic.slug}`} className="btn btn-primary" aria-label={`View comic: ${comic.title}`}>View comic <ArrowRight size={18} aria-hidden="true" /></Link>
           {onToggle && (
-            <button type="button" className="btn" aria-pressed={inBundle} onClick={() => onToggle(comic.slug)} aria-label={`${inBundle ? "Remove" : "Add"} ${comic.title} ${inBundle ? "from" : "to"} bundle`}>
-              {inBundle ? <Check size={18} aria-hidden="true" /> : <Plus size={18} aria-hidden="true" />}
-              {inBundle ? "In bundle" : "Add"}
+            <button type="button" className="btn" aria-pressed={inCart} onClick={() => onToggle(comic.slug)} aria-label={`${inCart ? "Remove" : "Add"} ${comic.title} ${inCart ? "from" : "to"} cart`}>
+              {inCart ? <Check size={18} aria-hidden="true" /> : <Plus size={18} aria-hidden="true" />}
+              {inCart ? "Added" : "Add"}
             </button>
           )}
         </div>

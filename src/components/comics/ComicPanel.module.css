@@ -8,3 +8,4 @@
 .learn li { display: flex; gap: 12px; align-items: flex-start; }
 .learn svg { flex: none; margin-top: 4px; color: var(--coral); }
 @media (max-width: 760px) { .grid { grid-template-columns: 1fr; gap: 28px; } .cover { max-width: 300px; } }
+.topbar { display: flex; align-items: center; min-height: 48px; margin-bottom: 20px; }

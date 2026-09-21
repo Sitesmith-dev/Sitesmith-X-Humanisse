@@ -6,23 +6,7 @@ import { copy } from "@/content/preview-copy";
 import { SectionHead } from "@/components/shared/SectionHead";
 import { PopularShelf } from "./PopularShelf";
 import { Reveal } from "@/components/shared/Motion";
-import { WordReveal } from "@/components/shared/Scroll";
 import styles from "./Landing.module.css";
-
-export function Statement() {
-  return (
-    <section className="band band-paper" aria-label="Why comics"><div className={`wrap ${styles.statement}`}>
-      <WordReveal className={styles.big} text="Ideas are easier to keep when they happen to someone, so we put every idea inside a story" />
-      <Reveal>
-        <dl className={styles.stats}>
-          <div><dd>10</dd><dt>launch comics</dt></div>
-          <div><dd>10</dd><dt>video introductions</dt></div>
-          <div><dd>3</dd><dt>recurring characters</dt></div>
-        </dl>
-      </Reveal>
-    </div></section>
-  );
-}
 
 export function FeaturedComics() {
   return (
@@ -40,7 +24,7 @@ const cast = [
 
 export function Trio() {
   return (
-    <section className="band band-coral" aria-labelledby="trio-h">
+    <section id="characters" className="band band-coral" aria-labelledby="trio-h">
       <div className="wrap">
         <SectionHead id="trio-h" title="Three ways of looking at every story" lead="The Professor sets the scene, the Bot connects the dots and the Cat tests whether it works" paper />
         <ul className={styles.artCards}>

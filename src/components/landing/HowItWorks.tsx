@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Play } from "lucide-react";
 import { getComic } from "@/content/comics";
 import { copy } from "@/content/preview-copy";
+import { SET_PRICE, rupee } from "@/components/cart/pricing";
 import { ComicCover } from "@/components/comics/ComicCover";
 import { Reveal } from "@/components/shared/Motion";
 import { SectionHead } from "@/components/shared/SectionHead";
@@ -40,8 +41,8 @@ function Preview({ i }: { i: number }) {
             <span className={styles.pvSub}>Choose how to buy</span>
           </div>
         </div>
-        <span className={`${styles.pvOption} ${styles.pvOn}`}><span>Single comic</span><strong>₹199</strong></span>
-        <span className={styles.pvOption}><span>Complete set</span><strong>₹1,499</strong></span>
+        <span className={`${styles.pvOption} ${styles.pvOn}`}><span>Single comic</span><strong>{featured.priceLabel}</strong></span>
+        <span className={styles.pvOption}><span>Complete set</span><strong>{rupee(SET_PRICE)}</strong></span>
       </div>
     );
   }

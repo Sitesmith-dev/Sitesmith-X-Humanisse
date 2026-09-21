@@ -10,7 +10,7 @@ import styles from "./Landing.module.css";
 export function VideoPreview() {
   const [note, setNote] = useState(false);
   return (
-    <section className={`band band-ink ${styles.video}`} aria-labelledby="watch-h">
+    <section id="video-intro" className={`band band-ink ${styles.video}`} aria-labelledby="watch-h">
       <div className={styles.videoBg} aria-hidden="true">
         <Image src="/characters/references/professor.png" alt="" fill sizes="100vw" className={styles.bgImg} />
       </div>

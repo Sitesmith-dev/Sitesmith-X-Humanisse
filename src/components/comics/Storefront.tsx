@@ -2,23 +2,22 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, MagnifyingGlass, ShoppingBag } from "./icons";
+import { MagnifyingGlass, ShoppingBag } from "./icons";
 import { comics } from "@/content/comics";
 import { categoryLabels, type Category } from "@/types/comic";
+import { SET_PRICE, rupee, useCart } from "@/components/cart/CartContext";
 import { ComicCard } from "./ComicCard";
-import { ComicCover } from "./ComicCover";
 import styles from "./Storefront.module.css";
 
 type Cat = Category | "all";
 const cats: Cat[] = ["all", "work", "life", "communication"];
-const SET_PRICE = 1499;
-const rupee = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 export function Storefront() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<Cat>("all");
   const [sort, setSort] = useState<"featured" | "az">("featured");
-  const [bundle, setBundle] = useState<string[]>([]);
+  // The catalogue, the comic page and the header all read the same cart
+  const { has, toggle, count, total, saving, isFullSet, clear, addAll } = useCart();
 
   const list = useMemo(() => {
     const needle = q.trim().toLowerCase();
@@ -28,28 +27,11 @@ export function Storefront() {
     return sort === "az" ? [...out].sort((a, b) => a.title.localeCompare(b.title)) : out;
   }, [q, cat, sort]);
 
-  const toggle = (slug: string) => setBundle((b) => (b.includes(slug) ? b.filter((s) => s !== slug) : [...b, slug]));
-  const allIn = bundle.length === comics.length;
-  const total = allIn ? SET_PRICE : bundle.length * 199;
-  const featured = comics[0];
-
   return (
     <>
-      <section className="section wrap" style={{ paddingBottom: 24 }} aria-labelledby="feat-h">
-        <div className={styles.feature}>
-          <ComicCover comic={featured} className={styles.featureCover} priority />
-          <div>
-            <h2 id="feat-h">Start here: {featured.title}</h2>
-            <p className="lead">{featured.shortDescription}</p>
-            <p className={styles.featurePrice}><strong>{featured.priceLabel}</strong> <span className="demo">Sample price</span></p>
-            <Link href={`/comics/${featured.slug}`} className="btn btn-primary btn-lg">View comic <ArrowRight size={20} aria-hidden="true" /></Link>
-          </div>
-        </div>
-      </section>
-
       <section className="wrap" aria-labelledby="all-h" style={{ paddingBottom: 48 }}>
         <div className={styles.toolbar}>
-          <h2 id="all-h" style={{ margin: 0 }}>All comics</h2>
+          <h2 id="all-h" style={{ margin: 0, scrollMarginTop: 88 }}>All comics</h2>
           <div className={styles.controls}>
             <label className={styles.search}>
               <span>Search</span>
@@ -75,7 +57,7 @@ export function Storefront() {
         {list.length > 0 ? (
           <ul className={styles.grid}>
             {list.map((c) => (
-              <li key={c.slug}><ComicCard comic={c} inBundle={bundle.includes(c.slug)} onToggle={toggle} /></li>
+              <li key={c.slug}><ComicCard comic={c} inCart={has(c.slug)} onToggle={toggle} /></li>
             ))}
           </ul>
         ) : (
@@ -87,28 +69,29 @@ export function Storefront() {
         )}
       </section>
 
-      <section className={styles.setBand} aria-labelledby="set-h">
+      <section id="complete-set" className={styles.setBand} aria-labelledby="set-h">
         <div className={`wrap ${styles.setInner}`}>
           <div>
             <h2 id="set-h">The complete set</h2>
             <p>All ten launch comics together at a bundle price, so you can read the whole collection</p>
             <p className={styles.featurePrice}><strong>{rupee(SET_PRICE)}</strong> <span className="demo">Sample price</span></p>
           </div>
-          <button type="button" className="btn btn-lg" onClick={() => setBundle(allIn ? [] : comics.map((c) => c.slug))}>
-            {allIn ? "Remove the set" : "Add all ten to bundle"}
+          <button type="button" className="btn btn-lg" onClick={() => (isFullSet ? clear() : addAll())}>
+            {isFullSet ? "Remove the set" : "Add all ten to cart"}
           </button>
         </div>
       </section>
 
       <AnimatePresence>
-        {bundle.length > 0 && (
-          <motion.div className={styles.bar} role="region" aria-label="Your bundle" initial={{ y: 80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 80, opacity: 0 }} transition={{ duration: 0.25 }}>
-            <div className={styles.barText}>
+        {count > 0 && (
+          <motion.div className={styles.bar} role="region" aria-label="Your cart" initial={{ y: 80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 80, opacity: 0 }} transition={{ duration: 0.25 }}>
+            <div className={styles.barText} aria-live="polite">
               <ShoppingBag size={22} aria-hidden="true" />
-              <span><strong>{bundle.length} {bundle.length === 1 ? "comic" : "comics"}</strong> in your bundle, sample total <strong>{rupee(total)}</strong></span>
+              <span><strong>{count} {count === 1 ? "comic" : "comics"}</strong> in your cart, sample total <strong>{rupee(total)}</strong>{saving > 0 && <>, set price saves {rupee(saving)}</>}</span>
             </div>
             <p className={styles.barNote}>Checkout arrives in the full build</p>
-            <button type="button" className="btn" onClick={() => setBundle([])}>Clear</button>
+            <Link href="/cart" className="btn">View cart</Link>
+            <button type="button" className="btn" onClick={clear}>Clear</button>
           </motion.div>
         )}
       </AnimatePresence>

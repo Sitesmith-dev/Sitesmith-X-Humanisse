@@ -38,7 +38,10 @@ export function CharacterHero() {
   const [ready, setReady] = useState(false);
   const [visible, setVisible] = useState(true);
   const [tabOn, setTabOn] = useState(true);
-  const [active, setActive] = useState<CharId | null>(null);
+  // A click pins a character, hover or focus only previews one, and the preview wins while it exists
+  const [picked, setPicked] = useState<CharId | null>(null);
+  const [hovered, setHovered] = useState<CharId | null>(null);
+  const active = hovered ?? picked;
   const reduced = useSyncExternalStore(subscribeReduced, () => window.matchMedia(REDUCED).matches, () => false);
   const unsupported = useSyncExternalStore(noop, cannot3d, () => false);
   const showPoster = unsupported || reduced;
@@ -58,7 +61,8 @@ export function CharacterHero() {
     const onLeave = (e: MouseEvent) => { if (!e.relatedTarget) { pointer.current.x = 0; pointer.current.y = 0; } };
     window.addEventListener("pointermove", onMove, { passive: true });
     document.addEventListener("mouseout", onLeave);
-    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting));
+    // Leaving the hero also drops any hover preview, so nothing stays lit once the buttons are off screen
+    const io = new IntersectionObserver(([e]) => { setVisible(e.isIntersecting); if (!e.isIntersecting) setHovered(null); });
     if (box.current) io.observe(box.current);
     return () => { clearTimeout(t); document.removeEventListener("visibilitychange", onVis); window.removeEventListener("pointermove", onMove); document.removeEventListener("mouseout", onLeave); io.disconnect(); };
   }, []);
@@ -73,10 +77,12 @@ export function CharacterHero() {
           </div>
         )}
       </div>
-      <div className={styles.controls} role="group" aria-label="Meet the characters">
+      <div className={styles.controls} role="group" aria-label="Meet the characters"
+        onMouseLeave={() => setHovered(null)}
+        onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setHovered(null); }}>
         {(Object.keys(info) as CharId[]).map((id) => (
-          <button key={id} type="button" className="btn" aria-pressed={active === id}
-            onClick={() => setActive(active === id ? null : id)} onMouseEnter={() => setActive(id)} onFocus={() => setActive(id)}>
+          <button key={id} type="button" className="btn" aria-pressed={picked === id}
+            onClick={() => setPicked(picked === id ? null : id)} onMouseEnter={() => setHovered(id)} onFocus={() => setHovered(id)}>
             {id === "cat" ? "Cat" : id === "bot" ? "Bot" : "Professor"}
           </button>
         ))}

@@ -15,14 +15,15 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children, modal }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${card.variable}`}>
-      <body>
+    <html lang="en" className={`${display.variable} ${body.variable} ${card.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <a className="skip" href="#main">Skip to content</a>
         <MotionProvider>
           <SiteHeader />
           <main id="main">{children}</main>
+          {modal}
           <SiteFooter />
         </MotionProvider>
       </body>

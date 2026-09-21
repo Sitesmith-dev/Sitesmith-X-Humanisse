@@ -3,7 +3,7 @@ import styles from "./Shared.module.css";
 
 export function SiteFooter() {
   return (
-    <footer className={styles.footer} id="about">
+    <footer className={styles.footer}>
       <div className="wrap">
         <h2>Humanisse</h2>
         <p>
