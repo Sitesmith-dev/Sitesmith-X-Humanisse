@@ -1,0 +1,17 @@
+.card { position: relative; background: var(--white); border: 2.5px solid var(--ink); border-radius: 22px; box-shadow: 8px 8px 0 var(--ink); padding: 32px; width: 100%; max-width: 460px; }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; background: var(--paper); border: 2.5px solid var(--ink); border-radius: 14px; }
+.tab { position: relative; min-height: 48px; border: 0; background: none; font: 700 1rem var(--font-text); cursor: pointer; border-radius: 10px; color: var(--ink); }
+.tabBg { position: absolute; inset: 0; background: var(--gold); border-radius: 10px; }
+.tabText { position: relative; }
+.badge { display: flex; align-items: center; gap: 8px; font-size: .95rem; margin: 18px 0 4px; }
+.title { font-size: 2.1rem; margin: 6px 0 18px; }
+.collapse { overflow: hidden; }
+.field { display: block; margin-bottom: 16px; }
+.field > span:first-child { display: block; font-weight: 700; margin-bottom: 6px; }
+.input { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 14px; border: 2.5px solid var(--ink); border-radius: 12px; background: var(--paper); transition: box-shadow .2s, background .2s; }
+.input:focus-within { background: var(--white); box-shadow: 4px 4px 0 var(--gold); outline: 3px solid var(--plum); outline-offset: 2px; }
+.input input { flex: 1; min-width: 0; border: 0; background: none; font: inherit; color: var(--ink); height: 48px; outline: none; }
+.linkBtn { display: block; margin: 12px auto 0; min-height: 44px; border: 0; background: none; font: 600 1rem var(--font-text); text-decoration: underline; cursor: pointer; color: var(--ink); }
+.notice { margin: 12px 0 0; padding: 12px 14px; background: var(--paper-2); border: 2.5px solid var(--ink); border-radius: 12px; font-size: 1rem; }
+.card::before { content: ""; position: absolute; top: 0; right: 0; width: 120px; height: 120px; border-top-right-radius: 20px; background-image: radial-gradient(rgba(251,196,77,.9) 2px, transparent 2.2px); background-size: 12px 12px; mask-image: linear-gradient(225deg, #000, transparent 65%); -webkit-mask-image: linear-gradient(225deg, #000, transparent 65%); pointer-events: none; }
+.card > * { position: relative; }
