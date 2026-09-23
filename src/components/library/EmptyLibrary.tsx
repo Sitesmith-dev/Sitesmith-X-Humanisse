@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { comics } from "@/content/comics";

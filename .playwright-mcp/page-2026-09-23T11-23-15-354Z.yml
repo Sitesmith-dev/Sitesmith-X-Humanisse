@@ -1,0 +1,216 @@
+- generic [active] [ref=f63e1]:
+  - link "Skip to content" [ref=f63e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f63e3]:
+    - generic [ref=f63e4]:
+      - generic [ref=f63e6]:
+        - link "Humanisse Preview" [ref=f63e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f63e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f63e9]:
+          - link "Comics" [ref=f63e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "Characters" [ref=f63e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/characters
+          - link "How It Works" [ref=f63e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f63e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, empty" [ref=f63e14] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+          - link "Log in" [ref=f63e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f63e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f63e25]:
+        - generic [ref=f63e26]:
+          - generic [ref=f63e32]:
+            - paragraph [ref=f63e33]: Humanisse Press
+            - heading "Learn life through stories that stay with you" [level=1] [ref=f63e34]
+            - paragraph [ref=f63e39]: Explore ideas from comics, cinema and literature - made simple, memorable and useful
+            - generic [ref=f63e40]:
+              - link "Open the Collection" [ref=f63e41] [cursor=pointer]:
+                - /url: /concepts/vintage-reading-room/comics
+              - link "Read a Sample Chapter" [ref=f63e45] [cursor=pointer]:
+                - /url: /concepts/vintage-reading-room/comics/negotiation
+          - paragraph [ref=f63e49]: Fig I, The Professor, keeper of every Humanisse story
+        - region [ref=f63e50]:
+          - generic [ref=f63e51]:
+            - generic [ref=f63e52]:
+              - paragraph [ref=f63e53]: The Card Catalogue
+              - heading "Ideas worth keeping" [level=2] [ref=f63e54]
+              - paragraph [ref=f63e59]: Pull a drawer to read what is inside, the way you would in the reading room
+            - list [ref=f63e60]:
+              - listitem [ref=f63e61]:
+                - button "No. 01 Negotiation Find the deal both sides can live with" [ref=f63e63] [cursor=pointer]:
+                  - generic [ref=f63e66]:
+                    - generic [ref=f63e67]: No. 01
+                    - generic [ref=f63e68]: Negotiation
+                  - generic [ref=f63e69]: Find the deal both sides can live with
+              - listitem [ref=f63e71]:
+                - button "No. 02 Ethics Choose well when nobody is watching" [ref=f63e73] [cursor=pointer]:
+                  - generic [ref=f63e76]:
+                    - generic [ref=f63e77]: No. 02
+                    - generic [ref=f63e78]: Ethics
+                  - generic [ref=f63e79]: Choose well when nobody is watching
+              - listitem [ref=f63e81]:
+                - button "No. 03 Resilience Bounce back, one small step at a time" [ref=f63e83] [cursor=pointer]:
+                  - generic [ref=f63e86]:
+                    - generic [ref=f63e87]: No. 03
+                    - generic [ref=f63e88]: Resilience
+                  - generic [ref=f63e89]: Bounce back, one small step at a time
+              - listitem [ref=f63e91]:
+                - button "No. 04 Emotional Intelligence Read the room and yourself" [ref=f63e93] [cursor=pointer]:
+                  - generic [ref=f63e96]:
+                    - generic [ref=f63e97]: No. 04
+                    - generic [ref=f63e98]: Emotional Intelligence
+                  - generic [ref=f63e99]: Read the room and yourself
+        - region [ref=f63e101]:
+          - generic [ref=f63e102]:
+            - generic [ref=f63e103]:
+              - paragraph [ref=f63e104]: A Reader's Guide
+              - heading "How a story reaches you" [level=2] [ref=f63e105]
+            - list [ref=f63e110]:
+              - listitem [ref=f63e111]:
+                - generic [ref=f63e112]: "01"
+                - heading "Discover" [level=3] [ref=f63e113]
+                - paragraph [ref=f63e114]: Browse original comics by the idea you want to understand
+              - listitem [ref=f63e115]:
+                - generic [ref=f63e116]: "02"
+                - heading "Watch" [level=3] [ref=f63e117]
+                - paragraph [ref=f63e118]: A short introduction from the Professor sets up each story
+              - listitem [ref=f63e119]:
+                - generic [ref=f63e120]: "03"
+                - heading "Choose" [level=3] [ref=f63e121]
+                - paragraph [ref=f63e122]: Pick a single comic or a bundle, checkout arrives in the full build
+              - listitem [ref=f63e123]:
+                - generic [ref=f63e124]: "04"
+                - heading "Read" [level=3] [ref=f63e125]
+                - paragraph [ref=f63e126]: Open your comic in My Library and come back any time
+        - region [ref=f63e127]:
+          - generic [ref=f63e129]:
+            - paragraph [ref=f63e130]: From the Shelf
+            - heading "Popular comics" [level=2] [ref=f63e131]
+          - generic [ref=f63e137]:
+            - list "Popular comics" [ref=f63e138]:
+              - listitem [ref=f63e139]:
+                - link "Cover for Negotiation Negotiation" [ref=f63e140] [cursor=pointer]:
+                  - /url: /concepts/vintage-reading-room/comics/negotiation
+                  - img "Cover for Negotiation" [ref=f63e142]
+                  - generic [ref=f63e143]: Negotiation
+              - listitem [ref=f63e144]:
+                - generic [ref=f63e145]:
+                  - generic [aria-hidden] [ref=f63e147]:
+                    - generic [ref=f63e150]: Ethics
+                    - generic [ref=f63e151]: Binding in progress
+                  - generic [ref=f63e153]: Ethics
+              - listitem [ref=f63e154]:
+                - generic [ref=f63e155]:
+                  - generic [aria-hidden] [ref=f63e157]:
+                    - generic [ref=f63e160]: Resilience
+                    - generic [ref=f63e161]: Binding in progress
+                  - generic [ref=f63e163]: Resilience
+              - listitem [ref=f63e164]:
+                - generic [ref=f63e165]:
+                  - generic [aria-hidden] [ref=f63e167]:
+                    - generic [ref=f63e170]: Emotional Intelligence
+                    - generic [ref=f63e171]: Binding in progress
+                  - generic [ref=f63e173]: Emotional Intelligence
+              - listitem [ref=f63e174]:
+                - generic [ref=f63e175]:
+                  - generic [aria-hidden] [ref=f63e177]:
+                    - generic [ref=f63e180]: Leadership
+                    - generic [ref=f63e181]: Binding in progress
+                  - generic [ref=f63e183]: Leadership
+              - listitem [ref=f63e184]:
+                - generic [ref=f63e185]:
+                  - generic [aria-hidden] [ref=f63e187]:
+                    - generic [ref=f63e190]: Communication
+                    - generic [ref=f63e191]: Binding in progress
+                  - generic [ref=f63e193]: Communication
+              - listitem [ref=f63e194]:
+                - generic [ref=f63e195]:
+                  - generic [aria-hidden] [ref=f63e197]:
+                    - generic [ref=f63e200]: Persuasion
+                    - generic [ref=f63e201]: Binding in progress
+                  - generic [ref=f63e203]: Persuasion
+              - listitem [ref=f63e204]:
+                - generic [ref=f63e205]:
+                  - generic [aria-hidden] [ref=f63e207]:
+                    - generic [ref=f63e210]: Decision Making
+                    - generic [ref=f63e211]: Binding in progress
+                  - generic [ref=f63e213]: Decision Making
+            - generic [ref=f63e215]:
+              - button "Previous, Popular comics" [ref=f63e216] [cursor=pointer]
+              - button "Next, Popular comics" [ref=f63e219] [cursor=pointer]
+        - region [ref=f63e222]:
+          - generic [ref=f63e223]:
+            - generic [ref=f63e224]:
+              - paragraph [ref=f63e225]: A Small Portrait Gallery
+              - heading "Three ways of looking at every story" [level=2] [ref=f63e226]
+            - list [ref=f63e231]:
+              - listitem [ref=f63e232]:
+                - figure "Narrator The Professor" [ref=f63e233]:
+                  - img "The Professor" [ref=f63e235]
+                  - generic [ref=f63e236]:
+                    - generic [ref=f63e237]: Narrator
+                    - generic [ref=f63e238]: The Professor
+              - listitem [ref=f63e239]:
+                - figure "Guide The Bot" [ref=f63e240]:
+                  - img "The Bot" [ref=f63e242]
+                  - generic [ref=f63e243]:
+                    - generic [ref=f63e244]: Guide
+                    - generic [ref=f63e245]: The Bot
+              - listitem [ref=f63e246]:
+                - figure "Chief Story Critic The Cat" [ref=f63e247]:
+                  - img "The Cat" [ref=f63e249]
+                  - generic [ref=f63e250]:
+                    - generic [ref=f63e251]: Chief Story Critic
+                    - generic [ref=f63e252]: The Cat
+            - paragraph [ref=f63e253]:
+              - link "Meet the Full Cast" [ref=f63e254] [cursor=pointer]:
+                - /url: /concepts/vintage-reading-room/characters
+        - region [ref=f63e257]:
+          - generic [ref=f63e260]:
+            - generic [ref=f63e261]:
+              - paragraph [ref=f63e262]: Watch
+              - heading "A short introduction before every comic" [level=2] [ref=f63e263]
+              - paragraph [ref=f63e264]: The Professor sets the scene before each story, so you know what to watch for once the pages turn
+            - generic [ref=f63e265]:
+              - button "Play sample introduction (preview)" [ref=f63e266] [cursor=pointer]:
+                - img "The Professor introducing a comic" [ref=f63e267]
+              - paragraph [ref=f63e271]: Sample frame, every video will carry captions or a transcript
+        - region [ref=f63e272]:
+          - generic [ref=f63e273]:
+            - generic [ref=f63e274]:
+              - paragraph [ref=f63e275]: Before You Begin
+              - heading "FAQs" [level=2] [ref=f63e276]
+            - generic [ref=f63e281]:
+              - listitem [ref=f63e282]:
+                - term [ref=f63e283]: How do I read a comic
+                - definition [ref=f63e284]: Comics open inside the website with page navigation, zoom and full screen, so there is nothing to download
+              - listitem [ref=f63e285]:
+                - term [ref=f63e286]: Who is Humanisse for
+                - definition [ref=f63e287]: Anyone from about ten years old to seventy, learning alone, in a classroom or with a team
+              - listitem [ref=f63e288]:
+                - term [ref=f63e289]: Do I need an account to browse
+                - definition [ref=f63e290]: No, you can look through every comic and watch the introductions freely, an account is only needed when you buy
+              - listitem [ref=f63e291]:
+                - term [ref=f63e292]: Can I buy one comic at a time
+                - definition [ref=f63e293]: Yes, single comics and bundles are planned, and every purchase lands in your personal library
+              - listitem [ref=f63e294]:
+                - term [ref=f63e295]: Where do my comics live after I buy them
+                - definition [ref=f63e296]: In My Library, your own shelf where you can continue reading, reread a story or find related titles
+              - listitem [ref=f63e297]:
+                - term [ref=f63e298]: Is this the final website
+                - definition [ref=f63e299]: No, this is a design preview, so comics, prices, checkout and accounts are demonstration only
+        - generic [ref=f63e301]:
+          - generic [ref=f63e302]:
+            - heading "Ready to learn through a story" [level=2] [ref=f63e303]
+            - paragraph [ref=f63e304]: This is a design preview, comics, prices and checkout here are demonstration only
+          - generic [ref=f63e305]:
+            - generic [ref=f63e306]: Begin Reading
+            - link "Open the Collection" [ref=f63e307] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room/comics
+  - alert [ref=f63e311]

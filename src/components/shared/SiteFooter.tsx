@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import styles from "./Shared.module.css";
 
 export function SiteFooter() {

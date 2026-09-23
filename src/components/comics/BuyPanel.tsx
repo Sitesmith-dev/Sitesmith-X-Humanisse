@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Check, Plus, ShoppingBag } from "lucide-react";

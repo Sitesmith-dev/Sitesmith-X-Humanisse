@@ -1,0 +1,36 @@
+- generic [active] [ref=f80e1]:
+  - link "Skip to content" [ref=f80e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f80e3]:
+    - generic [ref=f80e4]:
+      - generic [ref=f80e6]:
+        - link "Humanisse Preview" [ref=f80e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f80e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f80e9]:
+          - link "Comics" [ref=f80e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "Characters" [ref=f80e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/characters
+          - link "How It Works" [ref=f80e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f80e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, empty" [ref=f80e14] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+          - link "Log in" [ref=f80e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f80e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f80e25]:
+        - generic [ref=f80e27]:
+          - paragraph [ref=f80e28]: Preview Data
+          - heading "Your Cart" [level=1] [ref=f80e29]
+          - paragraph [ref=f80e32]: Comics you have set aside, kept here until you are ready to begin
+        - generic [ref=f80e35]:
+          - heading "Your cart is empty" [level=2] [ref=f80e40]
+          - paragraph [ref=f80e41]: Open a comic and add it here, then come back when you are ready to read
+          - link "Browse Comics" [ref=f80e42] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+  - alert [ref=f80e46]

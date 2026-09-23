@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import type { CSSProperties } from "react";
 import { ArrowRight } from "lucide-react";
 import { CharacterHero } from "@/components/characters/CharacterHero";

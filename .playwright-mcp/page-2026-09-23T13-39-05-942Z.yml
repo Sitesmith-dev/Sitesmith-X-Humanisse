@@ -1,0 +1,36 @@
+- generic [active] [ref=f94e1]:
+  - link "Skip to content" [ref=f94e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f94e3]:
+    - main [ref=f94e4]:
+      - generic [ref=f94e5]:
+        - paragraph [ref=f94e6]: Humanisse preview, internal review
+        - heading "Select your design" [level=1] [ref=f94e7]
+        - paragraph [ref=f94e8]: Two directions built from the same brand, comics and characters. Open either one to explore the landing page, a catalogue sample, the Negotiation comic and a first look at My Library.
+        - list [ref=f94e9]:
+          - listitem [ref=f94e10]:
+            - link "Direction A The Living Comic Library Bright, flat colour panels with a hand-lettered, comic-shop energy Style keywords Open this direction" [ref=f94e11] [cursor=pointer]:
+              - /url: /concepts/living-library
+              - generic [ref=f94e12]: Direction A
+              - heading "The Living Comic Library" [level=2] [ref=f94e13]
+              - paragraph [ref=f94e14]: Bright, flat colour panels with a hand-lettered, comic-shop energy
+              - list "Style keywords" [ref=f94e15]:
+                - listitem [ref=f94e16]: Bold panels
+                - listitem [ref=f94e17]: Halftone texture
+                - listitem [ref=f94e18]: Playful motion
+                - listitem [ref=f94e19]: Comic-shop energy
+              - generic [ref=f94e26]: Open this direction
+          - listitem [ref=f94e30]:
+            - link "Direction B The Vintage Reading Room Cream and bottle green, gilt lettering and a well-loved storybook feel Style keywords Open this direction" [ref=f94e31] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room
+              - generic [ref=f94e32]: Direction B
+              - heading "The Vintage Reading Room" [level=2] [ref=f94e33]
+              - paragraph [ref=f94e34]: Cream and bottle green, gilt lettering and a well-loved storybook feel
+              - list "Style keywords" [ref=f94e35]:
+                - listitem [ref=f94e36]: Gilt lettering
+                - listitem [ref=f94e37]: Botanical ornament
+                - listitem [ref=f94e38]: Paper texture
+                - listitem [ref=f94e39]: Unhurried pacing
+              - generic [ref=f94e44]: Open this direction
+        - paragraph [ref=f94e48]: Design preview, every screen uses the same sample comics, prices and characters, nothing here is a real purchase or account.
+  - alert [ref=f94e49]

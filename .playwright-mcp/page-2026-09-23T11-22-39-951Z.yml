@@ -1,0 +1,131 @@
+- generic [active] [ref=f60e1]:
+  - link "Skip to content" [ref=f60e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f60e3]:
+    - generic [ref=f60e4]:
+      - generic [ref=f60e6]:
+        - link "Humanisse Preview" [ref=f60e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f60e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f60e9]:
+          - link "Comics" [ref=f60e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "Characters" [ref=f60e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/characters
+          - link "How It Works" [ref=f60e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f60e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, empty" [ref=f60e14] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+          - link "Log in" [ref=f60e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f60e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f60e25]:
+        - generic [ref=f60e27]:
+          - paragraph [ref=f60e28]: The Card Catalogue
+          - heading "Comics" [level=1] [ref=f60e29]
+          - paragraph [ref=f60e30]: Ten stories, ten ideas worth keeping, filed away for whenever you would like to read one
+        - list [ref=f60e33]:
+          - listitem [ref=f60e34]:
+            - link "Cover for Negotiation Work and leadership Negotiation Turn a stalemate into a deal both sides can live with ₹199" [ref=f60e35] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room/comics/negotiation
+              - img "Cover for Negotiation" [ref=f60e39]
+              - generic [ref=f60e40]:
+                - paragraph [ref=f60e41]: Work and leadership
+                - heading "Negotiation" [level=3] [ref=f60e42]
+                - paragraph [ref=f60e43]: Turn a stalemate into a deal both sides can live with
+                - generic [ref=f60e44]: ₹199
+          - listitem [ref=f60e45]:
+            - generic [ref=f60e46]:
+              - generic [aria-hidden] [ref=f60e50]:
+                - generic [ref=f60e53]: Ethics
+                - generic [ref=f60e54]: Binding in progress
+              - generic [ref=f60e56]:
+                - paragraph [ref=f60e57]: Everyday life
+                - heading "Ethics" [level=3] [ref=f60e58]
+                - paragraph [ref=f60e59]: Spot the moment a harmless shortcut becomes a real choice
+                - generic [ref=f60e60]: ₹199
+          - listitem [ref=f60e61]:
+            - generic [ref=f60e62]:
+              - generic [aria-hidden] [ref=f60e66]:
+                - generic [ref=f60e69]: Resilience
+                - generic [ref=f60e70]: Binding in progress
+              - generic [ref=f60e72]:
+                - paragraph [ref=f60e73]: Everyday life
+                - heading "Resilience" [level=3] [ref=f60e74]
+                - paragraph [ref=f60e75]: Absorb the blow, rest, rethink the plan and try again
+                - generic [ref=f60e76]: ₹199
+          - listitem [ref=f60e77]:
+            - generic [ref=f60e78]:
+              - generic [aria-hidden] [ref=f60e82]:
+                - generic [ref=f60e85]: Emotional Intelligence
+                - generic [ref=f60e86]: Binding in progress
+              - generic [ref=f60e88]:
+                - paragraph [ref=f60e89]: Everyday life
+                - heading "Emotional Intelligence" [level=3] [ref=f60e90]
+                - paragraph [ref=f60e91]: Name the feeling before it decides the conversation for you
+                - generic [ref=f60e92]: ₹199
+          - listitem [ref=f60e93]:
+            - generic [ref=f60e94]:
+              - generic [aria-hidden] [ref=f60e98]:
+                - generic [ref=f60e101]: Leadership
+                - generic [ref=f60e102]: Binding in progress
+              - generic [ref=f60e104]:
+                - paragraph [ref=f60e105]: Work and leadership
+                - heading "Leadership" [level=3] [ref=f60e106]
+                - paragraph [ref=f60e107]: Earn trust through small honest actions when the plan falls apart
+                - generic [ref=f60e108]: ₹199
+          - listitem [ref=f60e109]:
+            - generic [ref=f60e110]:
+              - generic [aria-hidden] [ref=f60e114]:
+                - generic [ref=f60e117]: Communication
+                - generic [ref=f60e118]: Binding in progress
+              - generic [ref=f60e120]:
+                - paragraph [ref=f60e121]: Communication
+                - heading "Communication" [level=3] [ref=f60e122]
+                - paragraph [ref=f60e123]: Say one thing clearly, then check what the other person heard
+                - generic [ref=f60e124]: ₹199
+          - listitem [ref=f60e125]:
+            - generic [ref=f60e126]:
+              - generic [aria-hidden] [ref=f60e130]:
+                - generic [ref=f60e133]: Persuasion
+                - generic [ref=f60e134]: Binding in progress
+              - generic [ref=f60e136]:
+                - paragraph [ref=f60e137]: Work and leadership
+                - heading "Persuasion" [level=3] [ref=f60e138]
+                - paragraph [ref=f60e139]: Frame an idea so people feel invited rather than pushed
+                - generic [ref=f60e140]: ₹199
+          - listitem [ref=f60e141]:
+            - generic [ref=f60e142]:
+              - generic [aria-hidden] [ref=f60e146]:
+                - generic [ref=f60e149]: Decision Making
+                - generic [ref=f60e150]: Binding in progress
+              - generic [ref=f60e152]:
+                - paragraph [ref=f60e153]: Work and leadership
+                - heading "Decision Making" [level=3] [ref=f60e154]
+                - paragraph [ref=f60e155]: Weigh the options, catch your own biases and move forward
+                - generic [ref=f60e156]: ₹199
+          - listitem [ref=f60e157]:
+            - generic [ref=f60e158]:
+              - generic [aria-hidden] [ref=f60e162]:
+                - generic [ref=f60e165]: Storytelling
+                - generic [ref=f60e166]: Binding in progress
+              - generic [ref=f60e168]:
+                - paragraph [ref=f60e169]: Communication
+                - heading "Storytelling" [level=3] [ref=f60e170]
+                - paragraph [ref=f60e171]: Give an idea a character and a turning point people remember
+                - generic [ref=f60e172]: ₹199
+          - listitem [ref=f60e173]:
+            - generic [ref=f60e174]:
+              - generic [aria-hidden] [ref=f60e178]:
+                - generic [ref=f60e181]: Conflict Resolution
+                - generic [ref=f60e182]: Binding in progress
+              - generic [ref=f60e184]:
+                - paragraph [ref=f60e185]: Everyday life
+                - heading "Conflict Resolution" [level=3] [ref=f60e186]
+                - paragraph [ref=f60e187]: Separate the person from the problem and turn an argument into repair
+                - generic [ref=f60e188]: ₹199
+  - alert [ref=f60e189]

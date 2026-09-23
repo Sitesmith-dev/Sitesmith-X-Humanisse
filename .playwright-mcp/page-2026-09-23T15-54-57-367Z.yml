@@ -1,0 +1,93 @@
+- generic [active] [ref=f102e1]:
+  - link "Skip to content" [ref=f102e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f102e3]:
+    - generic [ref=f102e4]:
+      - generic [ref=f102e6]:
+        - link "Humanisse Preview" [ref=f102e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f102e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f102e9]:
+          - link "Comics" [ref=f102e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "Characters" [ref=f102e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#gallery-h
+          - link "How It Works" [ref=f102e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f102e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, 3 comics" [ref=f102e14] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+            - generic [ref=f102e18]: "3"
+          - link "Log in" [ref=f102e19] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f102e23] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f102e26]:
+        - generic [ref=f102e28]:
+          - generic [ref=f102e29]:
+            - link "Back to the catalogue" [ref=f102e30] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room/comics
+            - img "Cover for Negotiation" [ref=f102e36]
+          - generic [ref=f102e37]:
+            - paragraph [ref=f102e38]: Chapter One
+            - heading "Negotiation" [level=1] [ref=f102e39]
+            - paragraph [ref=f102e44]: Two sides, one table and a cat who wants a treat; watch how listening, patience and small trade-offs turn a stalemate into an agreement both sides can live with, then spot the same moves in everyday conversations at work and at home
+            - paragraph [ref=f102e45]:
+              - text: “The treaty is signed once I get my treat”
+              - generic [ref=f102e46]: The Cat
+            - list [ref=f102e47]:
+              - listitem [ref=f102e48]: Listening
+              - listitem [ref=f102e49]: Trade-offs
+              - listitem [ref=f102e50]: Win-win
+            - generic [ref=f102e51]:
+              - generic [ref=f102e52]: ₹199
+              - paragraph [ref=f102e53]: Sample price
+              - button "In your cart" [ref=f102e54]
+              - link "View cart" [ref=f102e57] [cursor=pointer]:
+                - /url: /concepts/vintage-reading-room/cart
+              - paragraph [ref=f102e58]: No payment is taken and nothing has been purchased
+        - generic [ref=f102e60]:
+          - paragraph [ref=f102e61]: What You Will Learn
+          - list [ref=f102e62]:
+            - listitem [ref=f102e63]:
+              - generic [ref=f102e64]: "1"
+              - generic [ref=f102e65]: Listen for what each side needs, not only what they ask for
+            - listitem [ref=f102e66]:
+              - generic [ref=f102e67]: "2"
+              - generic [ref=f102e68]: Trade small concessions for things that matter more
+            - listitem [ref=f102e69]:
+              - generic [ref=f102e70]: "3"
+              - generic [ref=f102e71]: Stay calm and credible when the other side pushes back
+        - region [ref=f102e72]:
+          - generic [ref=f102e74]:
+            - paragraph [ref=f102e75]: From the Same Shelf
+            - heading "You might also like" [level=2] [ref=f102e76]
+          - generic [ref=f102e82]:
+            - list "You might also like" [ref=f102e83]:
+              - listitem [ref=f102e84]:
+                - generic [ref=f102e85]:
+                  - generic [aria-hidden] [ref=f102e88]:
+                    - generic [ref=f102e91]: Leadership
+                    - generic [ref=f102e92]: Binding in progress
+                  - generic [ref=f102e94]: Leadership
+                  - generic [ref=f102e95]: “Trust is a slow and steady chapter”
+              - listitem [ref=f102e96]:
+                - generic [ref=f102e97]:
+                  - generic [aria-hidden] [ref=f102e100]:
+                    - generic [ref=f102e103]: Persuasion
+                    - generic [ref=f102e104]: Binding in progress
+                  - generic [ref=f102e106]: Persuasion
+                  - generic [ref=f102e107]: “Convince me, I dare you”
+              - listitem [ref=f102e108]:
+                - generic [ref=f102e109]:
+                  - generic [aria-hidden] [ref=f102e112]:
+                    - generic [ref=f102e115]: Decision Making
+                    - generic [ref=f102e116]: Binding in progress
+                  - generic [ref=f102e118]: Decision Making
+                  - generic [ref=f102e119]: “Weighing every option, please hold”
+            - generic [ref=f102e121]:
+              - button "Previous, You might also like" [disabled] [ref=f102e122]
+              - button "Next, You might also like" [ref=f102e125] [cursor=pointer]
+  - alert [ref=f102e128]

@@ -1,0 +1,63 @@
+- generic [active] [ref=f33e1]:
+  - link "Skip to content" [ref=f33e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f33e3]:
+    - generic [ref=f33e4]:
+      - generic [ref=f33e6]:
+        - link "Humanisse Preview" [ref=f33e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f33e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f33e9]:
+          - link "Comics" [ref=f33e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "How It Works" [ref=f33e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f33e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, 3 comics" [ref=f33e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+            - generic [ref=f33e17]: "3"
+          - link "Log in" [ref=f33e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f33e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f33e25]:
+        - generic [ref=f33e29]:
+          - paragraph [ref=f33e30]: Preview Data
+          - heading "Your Cart" [level=1] [ref=f33e31]
+          - paragraph [ref=f33e34]: Comics you have set aside, kept here until you are ready to begin
+        - generic [ref=f33e39]:
+          - list [ref=f33e40]:
+            - listitem [ref=f33e41]:
+              - generic [ref=f33e43]:
+                - heading "Negotiation" [level=3] [ref=f33e44]
+                - paragraph [ref=f33e45]: ₹199
+                - paragraph [ref=f33e46]: “The treaty is signed once I get my treat”
+              - button "Remove Negotiation from your cart" [ref=f33e47] [cursor=pointer]
+            - listitem [ref=f33e51]:
+              - generic [ref=f33e52]: E
+              - generic [ref=f33e54]:
+                - heading "Ethics" [level=3] [ref=f33e55]
+                - paragraph [ref=f33e56]: ₹199
+                - paragraph [ref=f33e57]: “Every shortcut has a toll booth somewhere”
+              - button "Remove Ethics from your cart" [ref=f33e58] [cursor=pointer]
+            - listitem [ref=f33e62]:
+              - generic [ref=f33e63]: R
+              - generic [ref=f33e65]:
+                - heading "Resilience" [level=3] [ref=f33e66]
+                - paragraph [ref=f33e67]: ₹199
+                - paragraph [ref=f33e68]: “Data point one, you are still standing”
+              - button "Remove Resilience from your cart" [ref=f33e69] [cursor=pointer]
+          - generic [ref=f33e73]:
+            - generic [ref=f33e74]:
+              - generic [ref=f33e75]:
+                - term [ref=f33e76]: 3 comics
+                - definition [ref=f33e77]: ₹597
+              - generic [ref=f33e78]:
+                - term [ref=f33e79]: Total
+                - definition [ref=f33e80]: ₹597
+            - button "Begin Checkout (preview)" [ref=f33e81]
+            - link "Log in to save this list" [ref=f33e82] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room/login
+  - alert [ref=f33e87]
