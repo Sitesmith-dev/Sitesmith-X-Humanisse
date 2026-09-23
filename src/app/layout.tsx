@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/shared/SiteHeader";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { MotionProvider } from "@/components/shared/Motion";
+import { Chrome } from "@/components/shared/Chrome";
 
 const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"] });
 const body = Source_Sans_3({ variable: "--font-body", subsets: ["latin"] });
@@ -21,10 +22,10 @@ export default function RootLayout({ children, modal }: LayoutProps<"/">) {
       <body suppressHydrationWarning>
         <a className="skip" href="#main">Skip to content</a>
         <MotionProvider>
-          <SiteHeader />
+          <Chrome><SiteHeader /></Chrome>
           <main id="main">{children}</main>
           {modal}
-          <SiteFooter />
+          <Chrome><SiteFooter /></Chrome>
         </MotionProvider>
       </body>
     </html>
