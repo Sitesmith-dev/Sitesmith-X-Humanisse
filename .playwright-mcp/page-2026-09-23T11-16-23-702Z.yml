@@ -1,0 +1,53 @@
+- generic [active] [ref=f55e1]:
+  - link "Skip to content" [ref=f55e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f55e3]:
+    - generic [ref=f55e4]:
+      - generic [ref=f55e6]:
+        - link "Humanisse Preview" [ref=f55e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f55e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f55e9]:
+          - link "Comics" [ref=f55e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "Characters" [ref=f55e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/characters
+          - link "How It Works" [ref=f55e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f55e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, empty" [ref=f55e14] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+          - link "Log in" [ref=f55e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f55e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f55e25]:
+        - generic [ref=f55e27]:
+          - paragraph [ref=f55e28]: A Small Portrait Gallery
+          - heading "Meet the Characters" [level=1] [ref=f55e29]
+          - paragraph [ref=f55e32]: Three recurring faces, three ways of looking at every story
+        - generic [ref=f55e33]:
+          - generic [ref=f55e34]:
+            - img "The Professor" [ref=f55e37]
+            - generic [ref=f55e38]:
+              - paragraph [ref=f55e39]: The Narrator
+              - heading "The Professor" [level=2] [ref=f55e40]
+              - paragraph [ref=f55e41]: A warm teacher who opens every story, the Professor sets the scene and asks the question each comic is really about, before stepping aside and letting the characters answer it themselves
+              - paragraph [ref=f55e42]: “Every story has a purpose”
+          - generic [ref=f55e43]:
+            - img "The Bot" [ref=f55e46]
+            - generic [ref=f55e47]:
+              - paragraph [ref=f55e48]: The Guide
+              - heading "The Bot" [level=2] [ref=f55e49]
+              - paragraph [ref=f55e50]: Part companion, part compass, the Bot turns a tangled situation into a clear sequence you can follow, pointing out the moment a choice was made and what it led to
+              - paragraph [ref=f55e51]: “Listen, then connect the dots”
+          - generic [ref=f55e52]:
+            - img "The Cat" [ref=f55e55]
+            - generic [ref=f55e56]:
+              - paragraph [ref=f55e57]: Chief Story Critic
+              - heading "The Cat" [level=2] [ref=f55e58]
+              - paragraph [ref=f55e59]: Unimpressed until proven otherwise, the Cat asks the question every reader is quietly asking too, whether the story actually earns its ending, with a badge to prove the title is official
+              - paragraph [ref=f55e60]: “Honestly, the audacity”
+  - alert [ref=f55e61]

@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { AnimatePresence, motion } from "motion/react";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "./CartContext";

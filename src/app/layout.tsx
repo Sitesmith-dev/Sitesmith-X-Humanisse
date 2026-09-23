@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function RootLayout({ children, modal }: LayoutProps<"/">) {
+// Typed manually: the generated LayoutProps<"/"> does not yet know about the @modal parallel slot
+export default function RootLayout({ children, modal }: { children: React.ReactNode; modal: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${card.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>

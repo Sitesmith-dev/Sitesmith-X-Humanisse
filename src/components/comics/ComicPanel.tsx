@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import type { ReactNode } from "react";
 import { BookOpen, CheckCircle } from "lucide-react";
 import { comics } from "@/content/comics";

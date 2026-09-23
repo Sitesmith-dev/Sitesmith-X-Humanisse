@@ -1,0 +1,76 @@
+- generic [active] [ref=f31e1]:
+  - link "Skip to content" [ref=f31e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f31e3]:
+    - generic [ref=f31e4]:
+      - generic [ref=f31e6]:
+        - link "Humanisse Preview" [ref=f31e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f31e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f31e9]:
+          - link "Comics" [ref=f31e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "How It Works" [ref=f31e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f31e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, 3 comics" [ref=f31e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+            - generic [ref=f31e17]: "3"
+          - link "Log in" [ref=f31e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f31e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f31e25]:
+        - generic [ref=f31e29]:
+          - paragraph [ref=f31e30]: Preview Data
+          - heading "My Library" [level=1] [ref=f31e31]
+          - paragraph [ref=f31e34]: A small reading log, every comic you own kept in one place
+          - link "See an empty shelf" [ref=f31e35] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library?state=empty
+        - list [ref=f31e41]:
+          - listitem [ref=f31e42]:
+            - generic [ref=f31e45]: "3"
+            - generic [ref=f31e46]: Comics Owned
+          - listitem [ref=f31e47]:
+            - generic [ref=f31e51]: "1"
+            - generic [ref=f31e52]: Finished
+          - listitem [ref=f31e53]:
+            - generic [ref=f31e57]: "2"
+            - generic [ref=f31e58]: In Progress
+        - list [ref=f31e61]:
+          - listitem [ref=f31e62]:
+            - generic [ref=f31e64]:
+              - heading "Negotiation" [level=3] [ref=f31e65]
+              - list [ref=f31e66]:
+                - listitem [ref=f31e67]: Listening
+                - listitem [ref=f31e68]: Trade-offs
+                - listitem [ref=f31e69]: Win-win
+              - paragraph [ref=f31e70]: “The treaty is signed once I get my treat”
+              - generic [ref=f31e71]: 60%
+            - link "Continue reading" [ref=f31e76] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room/comics/negotiation
+          - listitem [ref=f31e79]:
+            - generic [ref=f31e80]: E
+            - generic [ref=f31e82]:
+              - heading "Ethics" [level=3] [ref=f31e83]
+              - list [ref=f31e84]:
+                - listitem [ref=f31e85]: Choices
+                - listitem [ref=f31e86]: Integrity
+                - listitem [ref=f31e87]: Consequences
+              - paragraph [ref=f31e88]: “Every shortcut has a toll booth somewhere”
+              - generic [ref=f31e89]: 100%
+            - generic [ref=f31e93]: Preview only
+          - listitem [ref=f31e95]:
+            - generic [ref=f31e96]: R
+            - generic [ref=f31e98]:
+              - heading "Resilience" [level=3] [ref=f31e99]
+              - list [ref=f31e100]:
+                - listitem [ref=f31e101]: Setbacks
+                - listitem [ref=f31e102]: Grit
+                - listitem [ref=f31e103]: Recovery
+              - paragraph [ref=f31e104]: “Data point one, you are still standing”
+              - generic [ref=f31e105]: 15%
+            - generic [ref=f31e109]: Preview only
+  - alert [ref=f31e111]

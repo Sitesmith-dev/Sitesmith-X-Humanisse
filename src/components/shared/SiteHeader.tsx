@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { useRef } from "react";
 import { animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { LogIn } from "lucide-react";
@@ -7,7 +7,7 @@ import { CartButton } from "@/components/cart/CartButton";
 import styles from "./Shared.module.css";
 
 // Seamless header: clear at the top of the page, a soft frosted bar once you scroll,
-// tucks away when you scroll down and slides back the moment you scroll up
+// tucks away when you scroll down and slides back the moment you scroll up.
 export function SiteHeader() {
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();

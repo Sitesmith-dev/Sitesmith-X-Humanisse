@@ -1,0 +1,51 @@
+- generic [active] [ref=f82e1]:
+  - link "Skip to content" [ref=f82e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f82e3]:
+    - generic [ref=f82e4]:
+      - generic [ref=f82e6]:
+        - link "Humanisse Preview" [ref=f82e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f82e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f82e9]:
+          - link "Comics" [ref=f82e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "Characters" [ref=f82e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/characters
+          - link "How It Works" [ref=f82e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f82e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, 1 comic" [ref=f82e14] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+            - generic [ref=f82e18]: "1"
+          - link "Log in" [ref=f82e19] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f82e23] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f82e26]:
+        - generic [ref=f82e28]:
+          - paragraph [ref=f82e29]: Preview Data
+          - heading "Your Cart" [level=1] [ref=f82e30]
+          - paragraph [ref=f82e33]: Comics you have set aside, kept here until you are ready to begin
+        - generic [ref=f82e35]:
+          - list [ref=f82e36]:
+            - listitem [ref=f82e37]:
+              - generic [ref=f82e39]:
+                - heading "Negotiation" [level=3] [ref=f82e40]
+                - paragraph [ref=f82e41]: ₹199
+                - paragraph [ref=f82e42]: “The treaty is signed once I get my treat”
+              - button "Remove Negotiation from your cart" [ref=f82e43] [cursor=pointer]
+          - generic [ref=f82e47]:
+            - generic [ref=f82e48]:
+              - generic [ref=f82e49]:
+                - term [ref=f82e50]: 1 comic
+                - definition [ref=f82e51]: ₹199
+              - generic [ref=f82e52]:
+                - term [ref=f82e53]: Total
+                - definition [ref=f82e54]: ₹199
+            - button "Begin Checkout (preview)" [ref=f82e55]
+            - link "Log in to save this list" [ref=f82e56] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room/login
+  - alert [ref=f82e61]

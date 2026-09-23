@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { legalCopy, type LegalDocKey } from "@/content/legal-copy";

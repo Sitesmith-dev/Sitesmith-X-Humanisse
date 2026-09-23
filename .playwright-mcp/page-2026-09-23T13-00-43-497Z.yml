@@ -1,0 +1,60 @@
+- generic [active] [ref=f81e1]:
+  - link "Skip to content" [ref=f81e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f81e3]:
+    - generic [ref=f81e4]:
+      - generic [ref=f81e6]:
+        - link "Humanisse Preview" [ref=f81e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f81e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f81e9]:
+          - link "Comics" [ref=f81e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "Characters" [ref=f81e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/characters
+          - link "How It Works" [ref=f81e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f81e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, empty" [ref=f81e14] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+          - link "Log in" [ref=f81e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f81e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f81e25]:
+        - generic [ref=f81e27]:
+          - generic [ref=f81e28]:
+            - link "Back to the catalogue" [ref=f81e29] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room/comics
+            - img "Cover for Negotiation" [ref=f81e35]
+          - generic [ref=f81e36]:
+            - paragraph [ref=f81e37]: Chapter One
+            - heading "Negotiation" [level=1] [ref=f81e38]
+            - paragraph [ref=f81e43]: Two sides, one table and a cat who wants a treat; watch how listening, patience and small trade-offs turn a stalemate into an agreement both sides can live with, then spot the same moves in everyday conversations at work and at home
+            - paragraph [ref=f81e44]:
+              - text: “The treaty is signed once I get my treat”
+              - generic [ref=f81e45]: The Cat
+            - list [ref=f81e46]:
+              - listitem [ref=f81e47]: Listening
+              - listitem [ref=f81e48]: Trade-offs
+              - listitem [ref=f81e49]: Win-win
+            - generic [ref=f81e50]:
+              - generic [ref=f81e51]: ₹199
+              - paragraph [ref=f81e52]: Sample price
+              - button "Add to Cart" [ref=f81e53]
+              - paragraph [ref=f81e57]: No payment is taken and nothing has been purchased
+        - generic [ref=f81e59]:
+          - paragraph [ref=f81e60]: What You Will Learn
+          - list [ref=f81e61]:
+            - listitem [ref=f81e62]:
+              - generic [ref=f81e63]: "1"
+              - generic [ref=f81e64]: Listen for what each side needs, not only what they ask for
+            - listitem [ref=f81e65]:
+              - generic [ref=f81e66]: "2"
+              - generic [ref=f81e67]: Trade small concessions for things that matter more
+            - listitem [ref=f81e68]:
+              - generic [ref=f81e69]: "3"
+              - generic [ref=f81e70]: Stay calm and credible when the other side pushes back
+  - alert [ref=f81e71]

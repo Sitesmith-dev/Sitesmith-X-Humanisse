@@ -1,0 +1,45 @@
+- generic [active] [ref=f65e1]:
+  - link "Skip to content" [ref=f65e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f65e3]:
+    - generic [ref=f65e4]:
+      - generic [ref=f65e6]:
+        - link "Humanisse Preview" [ref=f65e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f65e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f65e9]:
+          - link "Comics" [ref=f65e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "Characters" [ref=f65e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/characters
+          - link "How It Works" [ref=f65e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f65e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, empty" [ref=f65e14] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+          - link "Log in" [ref=f65e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f65e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f65e27]:
+        - generic [ref=f65e28]:
+          - paragraph [ref=f65e29]: Members Reading Room
+          - heading "Every comic, kept on your own shelf" [level=1] [ref=f65e30]
+          - paragraph [ref=f65e35]: Log in to save your cart, pick up where you left off and keep every comic you own in one place
+        - generic [ref=f65e40]:
+          - tablist [ref=f65e45]:
+            - tab "Log in" [selected] [ref=f65e46] [cursor=pointer]
+            - tab "Join" [ref=f65e48] [cursor=pointer]
+          - generic [ref=f65e49]:
+            - generic [ref=f65e50]:
+              - generic [ref=f65e51]: Email
+              - textbox "Email" [ref=f65e56]:
+                - /placeholder: you@example.com
+            - generic [ref=f65e57]:
+              - generic [ref=f65e58]: Password
+              - textbox "Password" [ref=f65e63]:
+                - /placeholder: At least 8 characters
+            - button "Log in" [ref=f65e64]
+  - alert [ref=f65e65]

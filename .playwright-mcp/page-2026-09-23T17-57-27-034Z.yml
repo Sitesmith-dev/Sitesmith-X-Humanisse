@@ -1,0 +1,260 @@
+- generic [active] [ref=f36e1]:
+  - link "Skip to content" [ref=f36e2] [cursor=pointer]:
+    - /url: "#main"
+  - main [ref=f36e3]:
+    - generic [ref=f36e4]:
+      - generic [ref=f36e6]:
+        - link "Humanisse Preview" [ref=f36e7] [cursor=pointer]:
+          - /url: /concepts/vintage-reading-room
+          - text: Humanisse
+          - generic [ref=f36e8]: Preview
+        - navigation "The Vintage Reading Room navigation" [ref=f36e9]:
+          - link "Comics" [ref=f36e10] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/comics
+          - link "How It Works" [ref=f36e11] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room#how-h
+          - link "My Library" [ref=f36e12] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/library
+          - link "Reading list, 3 comics" [ref=f36e13] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/cart
+            - generic [ref=f36e17]: "3"
+          - link "Log in" [ref=f36e18] [cursor=pointer]:
+            - /url: /concepts/vintage-reading-room/login
+        - link "All directions" [ref=f36e22] [cursor=pointer]:
+          - /url: /concepts
+      - generic [ref=f36e25]:
+        - generic [ref=f36e27]:
+          - paragraph [ref=f36e28]: The Card Catalogue
+          - heading "Comics" [level=1] [ref=f36e29]
+          - paragraph [ref=f36e30]: Ten stories, ten ideas worth keeping, filed away for whenever you would like to read one
+        - generic [ref=f36e32]:
+          - searchbox "Search the catalogue" [ref=f36e37]
+          - group "Filter by category" [ref=f36e38]:
+            - listitem [ref=f36e39]:
+              - button "All Stories" [pressed] [ref=f36e40] [cursor=pointer]
+            - listitem [ref=f36e41]:
+              - button "Work and leadership" [ref=f36e42] [cursor=pointer]
+            - listitem [ref=f36e43]:
+              - button "Everyday life" [ref=f36e44] [cursor=pointer]
+            - listitem [ref=f36e45]:
+              - button "Communication" [ref=f36e46] [cursor=pointer]
+        - list [ref=f36e49]:
+          - listitem [ref=f36e50]:
+            - link "Cover for Negotiation 01 Work and leadership Negotiation ₹199" [ref=f36e51] [cursor=pointer]:
+              - /url: /concepts/vintage-reading-room/comics/negotiation
+              - generic [ref=f36e53]:
+                - img "Cover for Negotiation" [ref=f36e55]
+                - generic [ref=f36e56]: "01"
+                - generic [aria-hidden] [ref=f36e58]:
+                  - paragraph [ref=f36e59]: Turn a stalemate into a deal both sides can live with
+                  - paragraph [ref=f36e60]:
+                    - text: “The treaty is signed once I get my treat”
+                    - generic [ref=f36e61]: The Cat
+                  - list [ref=f36e62]:
+                    - listitem [ref=f36e63]: Listening
+                    - listitem [ref=f36e64]: Trade-offs
+                    - listitem [ref=f36e65]: Win-win
+              - generic [ref=f36e66]:
+                - paragraph [ref=f36e67]: Work and leadership
+                - generic [ref=f36e68]:
+                  - heading "Negotiation" [level=3] [ref=f36e69]
+                  - generic [ref=f36e70]: ₹199
+          - listitem [ref=f36e71]:
+            - generic [ref=f36e72]:
+              - generic [ref=f36e74]:
+                - generic [aria-hidden] [ref=f36e76]:
+                  - generic [ref=f36e79]: Ethics
+                  - generic [ref=f36e80]: Binding in progress
+                - generic [ref=f36e82]: "02"
+                - generic [aria-hidden] [ref=f36e88]:
+                  - paragraph [ref=f36e89]: Spot the moment a harmless shortcut becomes a real choice
+                  - paragraph [ref=f36e90]:
+                    - text: “Every shortcut has a toll booth somewhere”
+                    - generic [ref=f36e91]: The Professor
+                  - list [ref=f36e92]:
+                    - listitem [ref=f36e93]: Choices
+                    - listitem [ref=f36e94]: Integrity
+                    - listitem [ref=f36e95]: Consequences
+                  - paragraph [ref=f36e96]: Binding in progress
+              - generic [ref=f36e97]:
+                - paragraph [ref=f36e98]: Everyday life
+                - generic [ref=f36e99]:
+                  - heading "Ethics" [level=3] [ref=f36e100]
+                  - generic [ref=f36e101]: ₹199
+          - listitem [ref=f36e102]:
+            - generic [ref=f36e103]:
+              - generic [ref=f36e105]:
+                - generic [aria-hidden] [ref=f36e107]:
+                  - generic [ref=f36e110]: Resilience
+                  - generic [ref=f36e111]: Binding in progress
+                - generic [ref=f36e113]: "03"
+                - generic [aria-hidden] [ref=f36e119]:
+                  - paragraph [ref=f36e120]: Absorb the blow, rest, rethink the plan and try again
+                  - paragraph [ref=f36e121]:
+                    - text: “Data point one, you are still standing”
+                    - generic [ref=f36e122]: The Bot
+                  - list [ref=f36e123]:
+                    - listitem [ref=f36e124]: Setbacks
+                    - listitem [ref=f36e125]: Grit
+                    - listitem [ref=f36e126]: Recovery
+                  - paragraph [ref=f36e127]: Binding in progress
+              - generic [ref=f36e128]:
+                - paragraph [ref=f36e129]: Everyday life
+                - generic [ref=f36e130]:
+                  - heading "Resilience" [level=3] [ref=f36e131]
+                  - generic [ref=f36e132]: ₹199
+          - listitem [ref=f36e133]:
+            - generic [ref=f36e134]:
+              - generic [ref=f36e136]:
+                - generic [aria-hidden] [ref=f36e138]:
+                  - generic [ref=f36e141]: Emotional Intelligence
+                  - generic [ref=f36e142]: Binding in progress
+                - generic [ref=f36e144]: "04"
+                - generic [aria-hidden] [ref=f36e150]:
+                  - paragraph [ref=f36e151]: Name the feeling before it decides the conversation for you
+                  - paragraph [ref=f36e152]:
+                    - text: “Feelings first, opinions later”
+                    - generic [ref=f36e153]: The Cat
+                  - list [ref=f36e154]:
+                    - listitem [ref=f36e155]: Empathy
+                    - listitem [ref=f36e156]: Awareness
+                    - listitem [ref=f36e157]: Self-control
+                  - paragraph [ref=f36e158]: Binding in progress
+              - generic [ref=f36e159]:
+                - paragraph [ref=f36e160]: Everyday life
+                - generic [ref=f36e161]:
+                  - heading "Emotional Intelligence" [level=3] [ref=f36e162]
+                  - generic [ref=f36e163]: ₹199
+          - listitem [ref=f36e164]:
+            - generic [ref=f36e165]:
+              - generic [ref=f36e167]:
+                - generic [aria-hidden] [ref=f36e169]:
+                  - generic [ref=f36e172]: Leadership
+                  - generic [ref=f36e173]: Binding in progress
+                - generic [ref=f36e175]: "05"
+                - generic [aria-hidden] [ref=f36e181]:
+                  - paragraph [ref=f36e182]: Earn trust through small honest actions when the plan falls apart
+                  - paragraph [ref=f36e183]:
+                    - text: “Trust is a slow and steady chapter”
+                    - generic [ref=f36e184]: The Professor
+                  - list [ref=f36e185]:
+                    - listitem [ref=f36e186]: Vision
+                    - listitem [ref=f36e187]: Trust
+                    - listitem [ref=f36e188]: Example
+                  - paragraph [ref=f36e189]: Binding in progress
+              - generic [ref=f36e190]:
+                - paragraph [ref=f36e191]: Work and leadership
+                - generic [ref=f36e192]:
+                  - heading "Leadership" [level=3] [ref=f36e193]
+                  - generic [ref=f36e194]: ₹199
+          - listitem [ref=f36e195]:
+            - generic [ref=f36e196]:
+              - generic [ref=f36e198]:
+                - generic [aria-hidden] [ref=f36e200]:
+                  - generic [ref=f36e203]: Communication
+                  - generic [ref=f36e204]: Binding in progress
+                - generic [ref=f36e206]: "06"
+                - generic [aria-hidden] [ref=f36e212]:
+                  - paragraph [ref=f36e213]: Say one thing clearly, then check what the other person heard
+                  - paragraph [ref=f36e214]:
+                    - text: “Message sent is not message understood”
+                    - generic [ref=f36e215]: The Bot
+                  - list [ref=f36e216]:
+                    - listitem [ref=f36e217]: Clarity
+                    - listitem [ref=f36e218]: Listening
+                    - listitem [ref=f36e219]: Feedback
+                  - paragraph [ref=f36e220]: Binding in progress
+              - generic [ref=f36e221]:
+                - paragraph [ref=f36e222]: Communication
+                - generic [ref=f36e223]:
+                  - heading "Communication" [level=3] [ref=f36e224]
+                  - generic [ref=f36e225]: ₹199
+          - listitem [ref=f36e226]:
+            - generic [ref=f36e227]:
+              - generic [ref=f36e229]:
+                - generic [aria-hidden] [ref=f36e231]:
+                  - generic [ref=f36e234]: Persuasion
+                  - generic [ref=f36e235]: Binding in progress
+                - generic [ref=f36e237]: "07"
+                - generic [aria-hidden] [ref=f36e243]:
+                  - paragraph [ref=f36e244]: Frame an idea so people feel invited rather than pushed
+                  - paragraph [ref=f36e245]:
+                    - text: “Convince me, I dare you”
+                    - generic [ref=f36e246]: The Cat
+                  - list [ref=f36e247]:
+                    - listitem [ref=f36e248]: Influence
+                    - listitem [ref=f36e249]: Stories
+                    - listitem [ref=f36e250]: Trust
+                  - paragraph [ref=f36e251]: Binding in progress
+              - generic [ref=f36e252]:
+                - paragraph [ref=f36e253]: Work and leadership
+                - generic [ref=f36e254]:
+                  - heading "Persuasion" [level=3] [ref=f36e255]
+                  - generic [ref=f36e256]: ₹199
+          - listitem [ref=f36e257]:
+            - generic [ref=f36e258]:
+              - generic [ref=f36e260]:
+                - generic [aria-hidden] [ref=f36e262]:
+                  - generic [ref=f36e265]: Decision Making
+                  - generic [ref=f36e266]: Binding in progress
+                - generic [ref=f36e268]: "08"
+                - generic [aria-hidden] [ref=f36e274]:
+                  - paragraph [ref=f36e275]: Weigh the options, catch your own biases and move forward
+                  - paragraph [ref=f36e276]:
+                    - text: “Weighing every option, please hold”
+                    - generic [ref=f36e277]: The Bot
+                  - list [ref=f36e278]:
+                    - listitem [ref=f36e279]: Judgement
+                    - listitem [ref=f36e280]: Bias
+                    - listitem [ref=f36e281]: Options
+                  - paragraph [ref=f36e282]: Binding in progress
+              - generic [ref=f36e283]:
+                - paragraph [ref=f36e284]: Work and leadership
+                - generic [ref=f36e285]:
+                  - heading "Decision Making" [level=3] [ref=f36e286]
+                  - generic [ref=f36e287]: ₹199
+          - listitem [ref=f36e288]:
+            - generic [ref=f36e289]:
+              - generic [ref=f36e291]:
+                - generic [aria-hidden] [ref=f36e293]:
+                  - generic [ref=f36e296]: Storytelling
+                  - generic [ref=f36e297]: Binding in progress
+                - generic [ref=f36e299]: "09"
+                - generic [aria-hidden] [ref=f36e305]:
+                  - paragraph [ref=f36e306]: Give an idea a character and a turning point people remember
+                  - paragraph [ref=f36e307]:
+                    - text: “Every idea deserves a proper character”
+                    - generic [ref=f36e308]: The Professor
+                  - list [ref=f36e309]:
+                    - listitem [ref=f36e310]: Narrative
+                    - listitem [ref=f36e311]: Memory
+                    - listitem [ref=f36e312]: Connection
+                  - paragraph [ref=f36e313]: Binding in progress
+              - generic [ref=f36e314]:
+                - paragraph [ref=f36e315]: Communication
+                - generic [ref=f36e316]:
+                  - heading "Storytelling" [level=3] [ref=f36e317]
+                  - generic [ref=f36e318]: ₹199
+          - listitem [ref=f36e319]:
+            - generic [ref=f36e320]:
+              - generic [ref=f36e322]:
+                - generic [aria-hidden] [ref=f36e324]:
+                  - generic [ref=f36e327]: Conflict Resolution
+                  - generic [ref=f36e328]: Binding in progress
+                - generic [ref=f36e330]: "10"
+                - generic [aria-hidden] [ref=f36e336]:
+                  - paragraph [ref=f36e337]: Separate the person from the problem and turn an argument into repair
+                  - paragraph [ref=f36e338]:
+                    - text: “Put the claws away and talk”
+                    - generic [ref=f36e339]: The Cat
+                  - list [ref=f36e340]:
+                    - listitem [ref=f36e341]: Mediation
+                    - listitem [ref=f36e342]: Respect
+                    - listitem [ref=f36e343]: Repair
+                  - paragraph [ref=f36e344]: Binding in progress
+              - generic [ref=f36e345]:
+                - paragraph [ref=f36e346]: Everyday life
+                - generic [ref=f36e347]:
+                  - heading "Conflict Resolution" [level=3] [ref=f36e348]
+                  - generic [ref=f36e349]: ₹199
+  - alert [ref=f36e350]

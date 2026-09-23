@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { MagnifyingGlass, ShoppingBag } from "./icons";
