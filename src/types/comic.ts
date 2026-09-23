@@ -23,6 +23,8 @@ export type Comic = {
   priceLabel: string;
   videoAvailable: boolean;
   mood: ComicMood;
+  /** Reading pages in order. `src` is empty until the client supplies real artwork. */
+  pages: { id: string; src?: string }[];
 };
 
 export const categoryLabels: Record<Category, string> = {

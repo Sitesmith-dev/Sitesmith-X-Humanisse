@@ -9,3 +9,6 @@
 .learn svg { flex: none; margin-top: 4px; color: var(--coral); }
 @media (max-width: 760px) { .grid { grid-template-columns: 1fr; gap: 28px; } .cover { max-width: 300px; } }
 .topbar { display: flex; align-items: center; min-height: 48px; margin-bottom: 20px; }
+/* Kept below the buy actions with a rule between them, so Preview is never mistaken for a purchase */
+.preview { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 24px; padding-top: 22px; border-top: 2.5px solid rgba(21, 16, 20, .35); }
+.previewNote { margin: 0; font-size: .95rem; color: var(--ink); }

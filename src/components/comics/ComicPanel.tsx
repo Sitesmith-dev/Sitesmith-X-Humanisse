@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { CheckCircle } from "lucide-react";
+import { BookOpen, CheckCircle } from "lucide-react";
 import { comics } from "@/content/comics";
 import { categoryLabels, type Comic } from "@/types/comic";
 import { BuyPanel } from "./BuyPanel";
@@ -29,6 +29,12 @@ export function ComicPanel({ comic, topbar }: { comic: Comic; topbar?: ReactNode
                 {comic.tags.map((t) => <li key={t} className="tag">{t}</li>)}
               </ul>
               <BuyPanel slug={comic.slug} title={comic.title} price={comic.priceLabel} />
+              {comic.pages.length > 0 && (
+                <div className={styles.preview}>
+                  <Link href={`/read/${comic.slug}`} className="btn"><BookOpen size={18} aria-hidden="true" /> Preview</Link>
+                  <p className={styles.previewNote}>Read the first pages in the full screen reader</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
