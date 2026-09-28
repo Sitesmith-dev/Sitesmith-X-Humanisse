@@ -1,6 +1,7 @@
 "use client";
 import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, ShoppingBag, X } from "lucide-react";
 import { comics, getComic } from "@/content/comics";
@@ -8,10 +9,18 @@ import { ComicCover } from "@/components/comics/ComicCover";
 import { SET_PRICE, rupee, useCart } from "./CartContext";
 import styles from "./Cart.module.css";
 
-// Line items on the left, a sticky order summary on the right, and a checkout that only ever shows a preview notice
+// Line items on the left, a sticky order summary on the right, and a checkout that sends signed-out visitors to log in
+// and, until payments exist, only ever shows signed-in readers a preview notice
 export function CartView() {
   const { items, ready, remove, count, subtotal, total, isFullSet, saving, addAll } = useCart();
   const [note, setNote] = useState(false);
+  const router = useRouter();
+  // Asked at the moment of the click, so a login from another tab is always seen
+  const checkout = async () => {
+    const session = await fetch("/api/session", { cache: "no-store" }).then((r) => r.json()).catch(() => null);
+    if (session?.signedIn) setNote(true);
+    else router.push("/login?next=/cart");
+  };
   const lines = items.map(getComic).filter((c) => c !== undefined);
 
   if (!ready) return <section className="section wrap" aria-busy="true" aria-label="Loading your cart" />;
@@ -68,7 +77,7 @@ export function CartView() {
           {isFullSet && <div className={`${styles.row} ${styles.saving}`}><dt>Complete set saving</dt><dd>&minus;{rupee(saving)}</dd></div>}
           <div className={`${styles.row} ${styles.total}`}><dt>Total</dt><dd>{rupee(total)}</dd></div>
         </dl>
-        <button type="button" className="btn btn-primary btn-lg" onClick={() => setNote(true)} aria-describedby="checkout-note">Checkout</button>
+        <button type="button" className="btn btn-primary btn-lg" onClick={checkout} aria-describedby="checkout-note">Checkout</button>
         <p id="checkout-note" className={styles.checkNote} aria-live="polite">
           {note && <span className="notice"><span className="demo">Preview</span> Payments arrive in the production build, nothing has been charged</span>}
         </p>

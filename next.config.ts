@@ -6,7 +6,8 @@ import type { NextConfig } from "next";
 // is unnecessary risk surface for a preview and is revisited when this becomes the production build.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  // React's development build uses eval() to rebuild error call stacks; production never does, so only dev allows it
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self' data:",

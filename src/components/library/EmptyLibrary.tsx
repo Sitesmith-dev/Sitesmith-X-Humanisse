@@ -6,13 +6,14 @@ import { comics } from "@/content/comics";
 import { ComicCarousel } from "@/components/comics/ComicCarousel";
 import styles from "./Library.module.css";
 
-export function EmptyLibrary() {
+// demo: the design-preview version with its "Preview data" label, used by the concept previews
+export function EmptyLibrary({ demo = false }: { demo?: boolean }) {
   return (
     <>
       <section className={styles.hero}>
                 <div className={`wrap ${styles.heroGrid}`}>
           <div>
-            <p><span className="demo">Preview data</span></p>
+            {demo && <p><span className="demo">Preview data</span></p>}
             <h1 className={styles.h1}>Your shelf is waiting</h1>
             <p className="lead">The Cat is unimpressed, but not for long, comics you buy will be kept here for you to read again</p>
             <Link href="/comics" className="btn btn-primary btn-lg">Browse Comics <ArrowRight size={20} aria-hidden="true" /></Link>
