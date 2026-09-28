@@ -2,14 +2,16 @@
 import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { useRef } from "react";
 import { animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { LogIn } from "lucide-react";
+import { LogIn, LogOut } from "lucide-react";
 import { CartButton } from "@/components/cart/CartButton";
+import { useSession } from "@/components/auth/useSession";
 import styles from "./Shared.module.css";
 
 // Seamless header: clear at the top of the page, a soft frosted bar once you scroll,
 // tucks away when you scroll down and slides back the moment you scroll up.
 export function SiteHeader() {
   const reduce = useReducedMotion();
+  const session = useSession();
   const { scrollY } = useScroll();
   const y = useMotionValue("0%");
   const last = useRef(0);
@@ -47,7 +49,11 @@ export function SiteHeader() {
           <Link href="/#how-it-works" className={`${styles.link} ${styles.hideSm}`}>How It Works</Link>
           <Link href="/library" className={styles.link}>My Library</Link>
           <CartButton />
-          <Link href="/login" className="btn"><LogIn size={18} aria-hidden="true" /> Log in</Link>
+          {session?.signedIn ? (
+            <form method="post" action="/auth/signout"><button type="submit" className="btn"><LogOut size={18} aria-hidden="true" /> Log out</button></form>
+          ) : (
+            <Link href="/login" className="btn"><LogIn size={18} aria-hidden="true" /> Log in</Link>
+          )}
         </nav>
       </div>
     </motion.header>

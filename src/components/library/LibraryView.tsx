@@ -17,10 +17,10 @@ const filters: { id: Filter; label: string }[] = [
   { id: "done", label: "Completed" },
 ];
 
-function Ring({ value }: { value: number }) {
+function Ring({ value, demo }: { value: number; demo: boolean }) {
   const r = 22, c = 2 * Math.PI * r;
   return (
-    <svg className={styles.ring} viewBox="0 0 56 56" role="img" aria-label={`${value} percent read (demo)`}>
+    <svg className={styles.ring} viewBox="0 0 56 56" role="img" aria-label={`${value} percent read${demo ? " (demo)" : ""}`}>
       <circle cx="28" cy="28" r={r} fill="none" stroke="rgba(21,16,20,.15)" strokeWidth="6" />
       <motion.circle cx="28" cy="28" r={r} fill="none" stroke="var(--ink)" strokeWidth="6" strokeLinecap="round" strokeDasharray={c} rotate={-90} style={{ transformOrigin: "28px 28px" }}
         initial={{ strokeDashoffset: c }} whileInView={{ strokeDashoffset: c * (1 - value / 100) }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} />
@@ -29,7 +29,8 @@ function Ring({ value }: { value: number }) {
   );
 }
 
-export function LibraryView({ items }: { items: LibraryItem[] }) {
+// demo: the design-preview version with its preview labels, used by the concept previews
+export function LibraryView({ items, demo = false }: { items: LibraryItem[]; demo?: boolean }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [note, setNote] = useState(false);
   const owned = items.map((i) => ({ ...i, comic: getComic(i.slug)! }));
@@ -44,10 +45,10 @@ export function LibraryView({ items }: { items: LibraryItem[] }) {
       <section className={styles.hero}>
                 <div className={`wrap ${styles.heroGrid}`}>
           <Reveal>
-            <p><span className="demo">Preview data</span></p>
+            {demo && <p><span className="demo">Preview data</span></p>}
             <h1 className={styles.h1}>Welcome back to your library</h1>
             <p className="lead">Pick up where you left off, revisit a favourite or find your next story</p>
-            <Link href="/login" className="btn"><LogIn size={18} aria-hidden="true" /> Log in (preview)</Link>
+            {demo && <Link href="/login" className="btn"><LogIn size={18} aria-hidden="true" /> Log in (preview)</Link>}
           </Reveal>
           <Reveal delay={0.15}>
             <dl className={styles.stats}>
@@ -66,12 +67,21 @@ export function LibraryView({ items }: { items: LibraryItem[] }) {
             <ComicCover comic={current.comic} className={styles.contCover} />
             <div className={styles.contBody}>
                             <h3>{current.comic.title}</h3>
-              <div className={styles.bar} role="progressbar" aria-valuenow={current.progress} aria-valuemin={0} aria-valuemax={100} aria-label="Demonstration progress">
+              <div className={styles.bar} role="progressbar" aria-valuenow={current.progress} aria-valuemin={0} aria-valuemax={100} aria-label={demo ? "Demonstration progress" : "Reading progress"}>
                 <motion.div initial={{ width: 0 }} whileInView={{ width: `${current.progress}%` }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} />
               </div>
-              <p className={styles.small}>{current.progress}% read (demo)</p>
-              <button type="button" className="btn btn-primary btn-lg" onClick={() => setNote(true)}><BookOpen size={20} aria-hidden="true" /> Continue Reading</button>
-              <p className={styles.small} aria-live="polite">{note ? "Preview only, the protected reader arrives in the production build" : "The reader opens right here in the website"}</p>
+              <p className={styles.small}>{current.progress}% read{demo && " (demo)"}</p>
+              {demo ? (
+                <>
+                  <button type="button" className="btn btn-primary btn-lg" onClick={() => setNote(true)}><BookOpen size={20} aria-hidden="true" /> Continue Reading</button>
+                  <p className={styles.small} aria-live="polite">{note ? "Preview only, the protected reader arrives in the production build" : "The reader opens right here in the website"}</p>
+                </>
+              ) : (
+                <>
+                  <Link href={`/read/${current.slug}`} className="btn btn-primary btn-lg"><BookOpen size={20} aria-hidden="true" /> Continue Reading</Link>
+                  <p className={styles.small}>The reader opens right here in the website</p>
+                </>
+              )}
             </div>
           </div>
         </Reveal>
@@ -100,7 +110,7 @@ export function LibraryView({ items }: { items: LibraryItem[] }) {
                       <h3>{o.comic.title}</h3>
                       <p className={styles.small}>{o.progress === 100 ? <><CheckCircle2 size={16} aria-hidden="true" /> Completed</> : "In progress"}</p>
                     </div>
-                    <Ring value={o.progress} />
+                    <Ring value={o.progress} demo={demo} />
                   </div>
                   <Link href={`/comics/${o.slug}`} className="btn">{o.progress === 100 ? "Read again" : "View comic"}</Link>
                 </motion.article>

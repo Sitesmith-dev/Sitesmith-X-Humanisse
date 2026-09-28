@@ -15,7 +15,7 @@ export function LibraryExperience({ searchParams }: { searchParams?: { state?: s
   const empty = searchParams?.state === "empty";
   return (
     <>
-      {empty ? <EmptyLibrary /> : <LibraryView items={demoItems} />}
+      {empty ? <EmptyLibrary demo /> : <LibraryView items={demoItems} demo />}
       <p className="wrap" style={{ margin: "32px auto" }}>
         <Link href={empty ? "/library" : "/library?state=empty"} className="btn">
           {empty ? "See populated library" : "See empty library"}
