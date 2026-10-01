@@ -29,7 +29,7 @@ export function Storefront() {
 
   return (
     <>
-      <section className="wrap" aria-labelledby="all-h" style={{ paddingBottom: 48 }}>
+      <section id="all-comics" className="wrap" aria-labelledby="all-h" style={{ paddingBottom: 48 }}>
         <div className={styles.toolbar}>
           <h2 id="all-h" style={{ margin: 0, scrollMarginTop: 88 }}>All comics</h2>
           <div className={styles.controls}>
@@ -45,13 +45,13 @@ export function Storefront() {
               </select>
             </label>
           </div>
-        </div>
-        <div className={styles.chips} role="group" aria-label="Filter by topic">
-          {cats.map((c) => (
-            <button key={c} type="button" aria-pressed={cat === c} className={styles.chip} onClick={() => setCat(c)}>
-              {c === "all" ? "All topics" : categoryLabels[c]}
-            </button>
-          ))}
+          <div className={styles.chips} role="group" aria-label="Filter by topic">
+            {cats.map((c) => (
+              <button key={c} type="button" aria-pressed={cat === c} className={styles.chip} onClick={() => setCat(c)}>
+                {c === "all" ? "All topics" : categoryLabels[c]}
+              </button>
+            ))}
+          </div>
         </div>
         <p className={styles.count} aria-live="polite">{list.length} {list.length === 1 ? "comic" : "comics"}</p>
         {list.length > 0 ? (

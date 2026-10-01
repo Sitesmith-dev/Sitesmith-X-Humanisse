@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import type { CSSProperties } from "react";
 import { ArrowRight } from "lucide-react";
 import { getComic } from "@/content/comics";
@@ -32,7 +32,7 @@ export function ComicsHero() {
           <p className="lead">Ten stories, ten ideas worth keeping, so pick one, watch its short introduction, then read it in your library</p>
           <p className="notice"><span className="demo">Preview</span> Titles, descriptions, covers and prices are samples</p>
           <div className={styles.actions}>
-            <Link href="#all-h" className="btn btn-primary btn-lg">Browse all ten <ArrowRight size={20} aria-hidden="true" /></Link>
+            <Link href="#all-comics" className="btn btn-primary btn-lg">Browse all ten <ArrowRight size={20} aria-hidden="true" /></Link>
             <Link href="#complete-set" className="btn btn-lg">The complete set</Link>
           </div>
         </div>
