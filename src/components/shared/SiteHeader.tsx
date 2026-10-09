@@ -46,7 +46,6 @@ export function SiteHeader() {
         <Link href="/" className={styles.logo} aria-label="Humanisse home">Humanisse</Link>
         <nav aria-label="Main" className={styles.nav}>
           <Link href="/comics" className={styles.link}>Comics</Link>
-          <Link href="/#how-it-works" className={`${styles.link} ${styles.hideSm}`}>How It Works</Link>
           <Link href="/library" className={styles.link}>My Library</Link>
           <CartButton />
           {session?.signedIn ? (

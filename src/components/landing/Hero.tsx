@@ -1,7 +1,7 @@
 import { SiteLink as Link } from "@/components/shared/SiteLink";
 import type { CSSProperties } from "react";
 import { ArrowRight } from "lucide-react";
-import { CharacterHero } from "@/components/characters/CharacterHero";
+import { BrandPlate } from "./BrandPlate";
 import { Parallax } from "@/components/shared/Scroll";
 import { copy } from "@/content/preview-copy";
 import styles from "./Landing.module.css";
@@ -23,13 +23,10 @@ export function Hero() {
           <p className={`lead ${styles.fadeUp}`} style={delay(0.55)}>{copy.support}</p>
           <div className={`${styles.actions} ${styles.fadeUp}`} style={delay(0.7)}>
             <Link href="/comics" className="btn btn-primary btn-lg">{copy.primaryCta} <ArrowRight size={20} aria-hidden="true" /></Link>
-            <Link href="/#how-it-works" className="btn btn-lg">{copy.secondaryCta}</Link>
           </div>
         </div>
         <div className={`${styles.stageBox} ${styles.fadeUp}`} style={delay(0.3)}>
-          <span className={`${styles.bubble} ${styles.b1}`}>Facts inform</span>
-          <span className={`${styles.bubble} ${styles.b2}`}>Stories transform</span>
-          <Parallax speed={0.1}><CharacterHero /></Parallax>
+          <Parallax speed={0.1}><BrandPlate /></Parallax>
         </div>
       </div>
     </section>

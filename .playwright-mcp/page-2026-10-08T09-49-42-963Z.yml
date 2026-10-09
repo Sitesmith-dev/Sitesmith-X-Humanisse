@@ -1,0 +1,325 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Humanisse home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - text: Humanisse
+      - navigation "Main" [ref=e6]:
+        - link "Comics" [ref=e7] [cursor=pointer]:
+          - /url: /comics
+        - link "How It Works" [ref=e8] [cursor=pointer]:
+          - /url: /#how-it-works
+        - link "My Library" [ref=e9] [cursor=pointer]:
+          - /url: /library
+        - link "Cart, 3 comics" [ref=e10] [cursor=pointer]:
+          - /url: /cart
+          - generic [aria-hidden] [ref=e17]: "3"
+          - generic [ref=e18]: Cart
+        - link "Log in" [ref=e19] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e23]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - heading "Learning should be experienced, not just explained" [level=1] [ref=e27]:
+          - generic [ref=e29]: Learning
+          - generic [ref=e31]: should
+          - generic [ref=e33]: be
+          - generic [ref=e35]: experienced,
+          - generic [ref=e37]: not
+          - generic [ref=e39]: just
+          - generic [ref=e41]: explained
+        - paragraph [ref=e42]: Comics and storytelling that turn human skills into stories you understand, question and apply
+        - generic [ref=e43]:
+          - link "Browse Comics" [ref=e44] [cursor=pointer]:
+            - /url: /comics
+          - link "See How It Works" [ref=e47] [cursor=pointer]:
+            - /url: /#how-it-works
+      - generic [ref=e50]:
+        - figure [ref=e51]
+        - figure [ref=e52]
+        - figure [ref=e53]
+        - generic [ref=e54]: Facts inform, stories transform
+    - region "Comic subjects" [ref=e55]:
+      - generic [ref=e56]:
+        - list [ref=e57]:
+          - listitem [ref=e58]: Negotiation
+          - listitem [ref=e61]: Ethics
+          - listitem [ref=e64]: Resilience
+          - listitem [ref=e67]: Emotional Intelligence
+          - listitem [ref=e70]: Leadership
+          - listitem [ref=e73]: Communication
+          - listitem [ref=e76]: Persuasion
+          - listitem [ref=e79]: Decision Making
+          - listitem [ref=e82]: Storytelling
+          - listitem [ref=e85]: Conflict Resolution
+        - list [aria-hidden] [ref=e88]:
+          - listitem [ref=e89]: Negotiation
+          - listitem [ref=e92]: Ethics
+          - listitem [ref=e95]: Resilience
+          - listitem [ref=e98]: Emotional Intelligence
+          - listitem [ref=e101]: Leadership
+          - listitem [ref=e104]: Communication
+          - listitem [ref=e107]: Persuasion
+          - listitem [ref=e110]: Decision Making
+          - listitem [ref=e113]: Storytelling
+          - listitem [ref=e116]: Conflict Resolution
+    - region [ref=e119]:
+      - generic [ref=e120]:
+        - heading "About us" [level=2] [ref=e121]
+        - paragraph [ref=e122]:
+          - generic [ref=e123]: Ideas
+          - generic [ref=e124]: are
+          - generic [ref=e125]: easier
+          - generic [ref=e126]: to
+          - generic [ref=e127]: keep
+          - generic [ref=e128]: when
+          - generic [ref=e129]: they
+          - generic [ref=e130]: happen
+          - generic [ref=e131]: to
+          - generic [ref=e132]: someone,
+          - generic [ref=e133]: so
+          - generic [ref=e134]: we
+          - generic [ref=e135]: put
+          - generic [ref=e136]: every
+          - generic [ref=e137]: idea
+          - generic [ref=e138]: inside
+          - generic [ref=e139]: a
+          - generic [ref=e140]: story
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - paragraph [ref=e143]: Humanisse is a learning company. We teach life and professional skills through original comics, cinema and literature, because a lesson that arrives inside a story is one you remember long after the page is closed
+            - paragraph [ref=e144]: Every story is built around three recurring characters. The Professor introduces the idea, the Bot connects the dots and the Cat, our Chief Story Critic, asks whether it truly works. Together they turn negotiation, ethics, resilience and more into scenes you can picture and reuse
+            - paragraph [ref=e145]: The comics are written for readers from about ten years old through to teams in training rooms, so the same story can open a classroom discussion, a leadership workshop or a quiet evening read
+            - paragraph [ref=e146]:
+              - generic [ref=e147]: Placeholder
+              - text: This copy is sample text, final wording comes from Humanisse
+          - list [ref=e149]:
+            - listitem [ref=e150]:
+              - link "10 launch comics Browse every comic" [ref=e151] [cursor=pointer]:
+                - /url: /comics
+                - generic [ref=e152]: "10"
+                - generic [ref=e153]: launch comics
+                - generic [ref=e154]: Browse every comic
+            - listitem [ref=e158]:
+              - link "10 video introductions See a sample introduction" [ref=e159] [cursor=pointer]:
+                - /url: /#video-intro
+                - generic [ref=e160]: "10"
+                - generic [ref=e161]: video introductions
+                - generic [ref=e162]: See a sample introduction
+            - listitem [ref=e166]:
+              - link "3 recurring characters Meet the cast" [ref=e167] [cursor=pointer]:
+                - /url: /#characters
+                - generic [ref=e168]: "3"
+                - generic [ref=e169]: recurring characters
+                - generic [ref=e170]: Meet the cast
+        - navigation "Terms, legal and help" [ref=e174]:
+          - button "T&C" [ref=e175] [cursor=pointer]
+          - button "Legal" [ref=e176] [cursor=pointer]
+          - link "FAQ" [ref=e177] [cursor=pointer]:
+            - /url: /#faq
+    - region [ref=e178]:
+      - generic [ref=e179]:
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - heading "Popular comics" [level=2] [ref=e182]
+            - paragraph [ref=e183]: Fresh off the shelf, pick a cover and step into the story
+          - link "See all" [ref=e185] [cursor=pointer]:
+            - /url: /comics
+        - list "Popular comics" [ref=e188]:
+          - listitem [ref=e189]:
+            - link "Negotiation, ₹199" [ref=e190] [cursor=pointer]:
+              - /url: /comics/negotiation
+              - img "Placeholder cover for Negotiation" [ref=e192]
+              - generic [ref=e193]: Negotiation
+              - generic [ref=e194]: ₹199
+          - listitem [ref=e195]:
+            - link "Ethics, ₹199" [ref=e196] [cursor=pointer]:
+              - /url: /comics/ethics
+              - generic [aria-hidden] [ref=e198]:
+                - generic: E
+                - generic [ref=e200]: Ethics
+                - generic [ref=e201]: Cover coming soon
+              - generic [ref=e202]: Ethics
+              - generic [ref=e203]: ₹199
+          - listitem [ref=e204]:
+            - link "Resilience, ₹199" [ref=e205] [cursor=pointer]:
+              - /url: /comics/resilience
+              - generic [aria-hidden] [ref=e207]:
+                - generic: R
+                - generic [ref=e208]: Resilience
+                - generic [ref=e209]: Cover coming soon
+              - generic [ref=e210]: Resilience
+              - generic [ref=e211]: ₹199
+          - listitem [ref=e212]:
+            - link "Emotional Intelligence, ₹199" [ref=e213] [cursor=pointer]:
+              - /url: /comics/emotional-intelligence
+              - generic [aria-hidden] [ref=e215]:
+                - generic: E
+                - generic [ref=e216]: Emotional Intelligence
+                - generic [ref=e217]: Cover coming soon
+              - generic [ref=e218]: Emotional Intelligence
+              - generic [ref=e219]: ₹199
+          - listitem [ref=e220]:
+            - link "Leadership, ₹199" [ref=e221] [cursor=pointer]:
+              - /url: /comics/leadership
+              - generic [aria-hidden] [ref=e223]:
+                - generic: L
+                - generic [ref=e225]: Leadership
+                - generic [ref=e226]: Cover coming soon
+              - generic [ref=e227]: Leadership
+              - generic [ref=e228]: ₹199
+          - listitem [ref=e229]:
+            - link "Communication, ₹199" [ref=e230] [cursor=pointer]:
+              - /url: /comics/communication
+              - generic [aria-hidden] [ref=e232]:
+                - generic: C
+                - generic [ref=e233]: Communication
+                - generic [ref=e234]: Cover coming soon
+              - generic [ref=e235]: Communication
+              - generic [ref=e236]: ₹199
+    - region [ref=e237]:
+      - generic [ref=e238]:
+        - generic [ref=e240]:
+          - heading "How it works" [level=2] [ref=e241]
+          - paragraph [ref=e242]: Four simple steps from curiosity to a story you can keep
+        - list [ref=e243]:
+          - listitem [ref=e244]:
+            - article [ref=e246]:
+              - generic [ref=e248]:
+                - generic [ref=e249]:
+                  - img "Placeholder cover for Negotiation" [ref=e252]
+                  - generic [aria-hidden] [ref=e255]:
+                    - generic: E
+                    - generic [ref=e257]: Ethics
+                  - generic [aria-hidden] [ref=e260]:
+                    - generic: R
+                    - generic [ref=e261]: Resilience
+                - list [ref=e262]:
+                  - listitem [ref=e263]: Negotiation
+                  - listitem [ref=e264]: Ethics
+                  - listitem [ref=e265]: Resilience
+              - generic [ref=e266]:
+                - heading "Discover" [level=3] [ref=e267]:
+                  - generic [aria-hidden] [ref=e268]: "1"
+                  - text: Discover
+                - paragraph [ref=e269]: Browse original comics by the idea you want to understand
+          - listitem [ref=e270]:
+            - article [ref=e272]:
+              - img "The Professor introducing a comic" [ref=e275]
+              - generic [ref=e279]:
+                - heading "Watch" [level=3] [ref=e280]:
+                  - generic [aria-hidden] [ref=e281]: "2"
+                  - text: Watch
+                - paragraph [ref=e282]: A short introduction from the Professor sets up each story
+          - listitem [ref=e283]:
+            - article [ref=e285]:
+              - generic [aria-hidden] [ref=e287]:
+                - generic [ref=e292]:
+                  - strong [ref=e293]: Negotiation
+                  - generic [ref=e294]: Choose how to buy
+                - generic [ref=e295]:
+                  - generic [ref=e296]: Single comic
+                  - strong [ref=e297]: ₹199
+                - generic [ref=e298]:
+                  - generic [ref=e299]: Complete set
+                  - strong [ref=e300]: ₹1,499
+              - generic [ref=e301]:
+                - heading "Choose" [level=3] [ref=e302]:
+                  - generic [aria-hidden] [ref=e303]: "3"
+                  - text: Choose
+                - paragraph [ref=e304]: Pick a single comic or a bundle, checkout arrives in the full build
+          - listitem [ref=e305]:
+            - article [ref=e307]:
+              - generic [aria-hidden] [ref=e309]:
+                - generic [ref=e314]:
+                  - strong [ref=e315]: Negotiation
+                  - generic [ref=e316]: 60% read
+                - generic [ref=e319]: Continue Reading
+              - generic [ref=e320]:
+                - heading "Read" [level=3] [ref=e321]:
+                  - generic [aria-hidden] [ref=e322]: "4"
+                  - text: Read
+                - paragraph [ref=e323]: Open your comic in My Library and come back any time
+    - region [ref=e324]:
+      - generic [ref=e325]:
+        - generic [ref=e327]:
+          - heading "Three ways of looking at every story" [level=2] [ref=e328]
+          - paragraph [ref=e329]: The Professor sets the scene, the Bot connects the dots and the Cat tests whether it works
+        - list [ref=e330]:
+          - listitem [ref=e331]:
+            - article [ref=e333]:
+              - img "The Professor, a warm teacher with grey hair and a colourful sweater, holding a book" [ref=e335]
+              - generic [ref=e336]:
+                - generic [ref=e337]: Introduces the idea
+                - heading "The Professor" [level=3] [ref=e338]
+                - paragraph [ref=e339]: Presents a situation and connects it to what it means
+          - listitem [ref=e340]:
+            - article [ref=e342]:
+              - img "The Bot, a friendly floating robot with a white moustache and beard" [ref=e344]
+              - generic [ref=e345]:
+                - generic [ref=e346]: Connects the dots
+                - heading "The Bot" [level=3] [ref=e347]
+                - paragraph [ref=e348]: Turns the situation into a clear sequence you can follow
+          - listitem [ref=e349]:
+            - article [ref=e351]:
+              - img "The Cat, a black cat with golden eyes wearing a Chief Story Critic badge" [ref=e353]
+              - generic [ref=e354]:
+                - generic [ref=e355]: Chief Story Critic
+                - heading "The Cat" [level=3] [ref=e356]
+                - paragraph [ref=e357]: Asks whether the story truly works, with dry humour
+    - region [ref=e358]:
+      - generic [ref=e360]:
+        - generic [ref=e362]:
+          - heading "A short introduction before every comic" [level=2] [ref=e363]
+          - paragraph [ref=e364]: The Professor explains the idea and why it matters, so you know what to look for when you start reading
+        - generic [ref=e365]:
+          - generic [ref=e366]:
+            - img "The Professor introducing a comic" [ref=e368]
+            - button "Play sample introduction (preview)" [ref=e369] [cursor=pointer]: Watch the Introduction
+          - paragraph [ref=e372]: Sample frame, every video will have captions or a transcript
+    - region [ref=e373]:
+      - generic [ref=e374]:
+        - generic [ref=e375]:
+          - generic [ref=e377]:
+            - heading "Frequently asked questions" [level=2] [ref=e378]
+            - paragraph [ref=e379]: Quick answers about reading, buying and who Humanisse is for
+          - img "The Bot, smiling" [ref=e381]
+        - list [ref=e382]:
+          - listitem [ref=e383]:
+            - generic [ref=e385]:
+              - button "How do I read a comic" [expanded] [ref=e386] [cursor=pointer]
+              - region "How do I read a comic" [ref=e391]:
+                - paragraph [ref=e392]: Comics open inside the website with page navigation, zoom and full screen, so there is nothing to download
+          - listitem [ref=e393]:
+            - button "Who is Humanisse for" [ref=e396] [cursor=pointer]
+          - listitem [ref=e399]:
+            - button "Do I need an account to browse" [ref=e402] [cursor=pointer]
+          - listitem [ref=e405]:
+            - button "Can I buy one comic at a time" [ref=e408] [cursor=pointer]
+          - listitem [ref=e411]:
+            - button "Where do my comics live after I buy them" [ref=e414] [cursor=pointer]
+          - listitem [ref=e417]:
+            - button "Is this the final website" [ref=e420] [cursor=pointer]
+    - generic [ref=e424]:
+      - generic [ref=e425]:
+        - heading "Ready to learn through a story" [level=2] [ref=e426]
+        - paragraph [ref=e427]: Pick a comic and see how it reads, this is a design preview so nothing here is a real purchase
+      - generic [ref=e429]:
+        - generic [ref=e431]: Start here
+        - link "Browse Comics" [ref=e432] [cursor=pointer]:
+          - /url: /comics
+  - contentinfo [ref=e435]:
+    - generic [ref=e436]:
+      - heading "Humanisse" [level=2] [ref=e437]
+      - paragraph [ref=e438]: A learning company that uses original comics, cinema and literature to make important life and professional ideas simple, memorable and enjoyable
+      - navigation "Footer" [ref=e439]:
+        - link "Comics" [ref=e440] [cursor=pointer]:
+          - /url: /comics
+        - link "My Library" [ref=e441] [cursor=pointer]:
+          - /url: /library
+        - link "Log in" [ref=e442] [cursor=pointer]:
+          - /url: /login
+      - paragraph [ref=e443]: Design preview, all comics, prices and actions are demonstration content
+  - alert [ref=e444]

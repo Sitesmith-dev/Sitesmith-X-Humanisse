@@ -1,0 +1,74 @@
+- generic [active] [ref=f2e1]:
+  - link "Skip to content" [ref=f2e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f2e3]:
+    - generic [ref=f2e4]:
+      - link "Humanisse home" [ref=f2e5] [cursor=pointer]:
+        - /url: /
+        - text: Humanisse
+      - navigation "Main" [ref=f2e6]:
+        - link "Comics" [ref=f2e7] [cursor=pointer]:
+          - /url: /comics
+        - link "My Library" [ref=f2e8] [cursor=pointer]:
+          - /url: /library
+        - link "Cart, 3 comics" [ref=f2e9] [cursor=pointer]:
+          - /url: /cart
+          - generic [aria-hidden] [ref=f2e16]: "3"
+        - link "Log in" [ref=f2e17] [cursor=pointer]:
+          - /url: /login
+  - main [ref=f2e21]:
+    - generic [ref=f2e23]:
+      - text: For You
+      - heading "You invest in your career, your knowledge and your skills, but how often do you invest in the way you think, communicate and respond" [level=1] [ref=f2e24]
+      - paragraph [ref=f2e25]: Some of the most important skills in life are rarely taught through a textbook, how to handle a difficult conversation, how to negotiate, how to recover from setbacks
+      - paragraph [ref=f2e26]:
+        - generic [ref=f2e27]: Preview
+        - text: This is sample copy for review, final wording comes from Humanisse
+    - generic [ref=f2e29]:
+      - heading "The Humanisse personal journey" [level=2] [ref=f2e30]
+      - list [ref=f2e31]:
+        - listitem [ref=f2e32]:
+          - article [ref=f2e34]:
+            - generic [ref=f2e35]: "01"
+            - heading "Career Growth" [level=3] [ref=f2e36]
+            - paragraph [ref=f2e37]: Technical expertise may get you noticed, what helps you grow
+            - paragraph [ref=f2e38]: Explore negotiation, communication, storytelling, decision making, leadership and influence
+        - listitem [ref=f2e39]:
+          - article [ref=f2e41]:
+            - generic [ref=f2e42]: "02"
+            - heading "Better Conversations" [level=3] [ref=f2e43]
+            - paragraph [ref=f2e44]: Are you saying what you mean and understanding what others mean
+            - paragraph [ref=f2e45]: Develop active listening, empathy, emotional intelligence and difficult conversation skills
+        - listitem [ref=f2e46]:
+          - article [ref=f2e48]:
+            - generic [ref=f2e49]: "03"
+            - heading "Better Decisions" [level=3] [ref=f2e50]
+            - paragraph [ref=f2e51]: What influences the choices you make
+            - paragraph [ref=f2e52]: Explore cognitive biases, problem solving, critical thinking and decision making through relatable situations
+        - listitem [ref=f2e53]:
+          - article [ref=f2e55]:
+            - generic [ref=f2e56]: "04"
+            - heading "Resilience & Personal Growth" [level=3] [ref=f2e57]
+            - paragraph [ref=f2e58]: When things do not go according to plan, what do you do next
+            - paragraph [ref=f2e59]: Understand setbacks, emotional responses, adaptability and constructive ways to approach challenges
+        - listitem [ref=f2e60]:
+          - article [ref=f2e62]:
+            - generic [ref=f2e63]: "05"
+            - heading "Lifelong Learning" [level=3] [ref=f2e64]
+            - paragraph [ref=f2e65]: Learning does not have to stop when formal education ends
+            - paragraph [ref=f2e66]: Explore one human capability at a time, at your own pace, through accessible and engaging stories
+      - link "See the comics behind this" [ref=f2e67] [cursor=pointer]:
+        - /url: /comics
+  - contentinfo [ref=f2e70]:
+    - generic [ref=f2e71]:
+      - heading "Humanisse" [level=2] [ref=f2e72]
+      - paragraph [ref=f2e73]: A learning company that uses original comics, cinema and literature to make important life and professional ideas simple, memorable and enjoyable
+      - navigation "Footer" [ref=f2e74]:
+        - link "Comics" [ref=f2e75] [cursor=pointer]:
+          - /url: /comics
+        - link "My Library" [ref=f2e76] [cursor=pointer]:
+          - /url: /library
+        - link "Log in" [ref=f2e77] [cursor=pointer]:
+          - /url: /login
+      - paragraph [ref=f2e78]: Design preview, all comics, prices and actions are demonstration content
+  - alert [ref=f2e79]
