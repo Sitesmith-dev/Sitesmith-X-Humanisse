@@ -1,9 +1,9 @@
 import { SiteLink as Link } from "@/components/shared/SiteLink";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { comics } from "@/content/comics";
 import { copy } from "@/content/preview-copy";
 import { SectionHead } from "@/components/shared/SectionHead";
+import { CastFlipCard } from "./CastFlipCard";
 import { PopularShelf } from "./PopularShelf";
 import { Reveal } from "@/components/shared/Motion";
 import styles from "./Landing.module.css";
@@ -17,30 +17,33 @@ export function FeaturedComics() {
 }
 
 const cast = [
-  { id: "professor", role: "Introduces the idea", name: "The Professor", text: "Presents a situation and connects it to what it means", alt: "The Professor, a warm teacher with grey hair and a colourful sweater, holding a book", pos: "50% 25%" },
-  { id: "bot", role: "Connects the dots", name: "The Bot", text: "Turns the situation into a clear sequence you can follow", alt: "The Bot, a friendly floating robot with a white moustache and beard", pos: "50% 45%" },
-  { id: "cat", role: "Chief Story Critic", name: "The Cat", text: "Asks whether the story truly works, with dry humour", alt: "The Cat, a black cat with golden eyes wearing a Chief Story Critic badge", pos: "50% 35%" },
+  {
+    id: "professor", role: "Introduces the idea", name: "The Professor", text: "Presents a situation and connects it to what it means",
+    bio: "A warm teacher who opens every story, setting the scene before stepping aside and letting the characters answer the question themselves",
+    quote: "Every story has a reason", alt: "The Professor, a warm teacher with grey hair and a colourful sweater, holding a book", pos: "50% 25%", accent: "gold",
+  },
+  {
+    id: "bot", role: "Connects the dots", name: "The Bot", text: "Turns the situation into a clear sequence you can follow",
+    bio: "Part companion, part compass, turning a tangled moment into a sequence you can actually follow, one clear step at a time",
+    quote: "Let's connect the dots", alt: "The Bot, a friendly floating robot with a white moustache and beard", pos: "50% 45%", accent: "plum",
+  },
+  {
+    id: "cat", role: "Chief Story Critic", name: "The Cat", text: "Asks whether the story truly works, with dry humour",
+    bio: "Unimpressed until a story earns it, with a badge to prove the judgement is official and a coffee that is never quite good enough",
+    quote: "Honestly, the audacity", alt: "The Cat, an illustrated ginger Persian with golden eyes, Chief Story Critic", pos: "50% 30%", accent: "ink",
+  },
 ] as const;
 
 export function Trio() {
   return (
     <section id="characters" className="band band-coral" aria-labelledby="trio-h">
       <div className="wrap">
-        <SectionHead id="trio-h" title="Three ways of looking at every story" lead="The Professor sets the scene, the Bot connects the dots and the Cat tests whether it works" paper />
+        <SectionHead id="trio-h" title="Three ways of looking at every story" lead="Tap a card to turn it over and meet who is behind it" paper />
         <ul className={styles.artCards}>
           {cast.map((c, i) => (
             <li key={c.id}>
               <Reveal delay={i * 0.08} className={styles.fill}>
-                <article className={styles.artCard}>
-                  <div className={styles.artImg}>
-                    <Image src={`/characters/references/${c.id}.png`} alt={c.alt} fill sizes="(max-width: 900px) 100vw, 380px" style={{ objectFit: "cover", objectPosition: c.pos }} />
-                  </div>
-                  <div className={styles.artBody}>
-                    <span className={styles.artRole}>{c.role}</span>
-                    <h3>{c.name}</h3>
-                    <p>{c.text}</p>
-                  </div>
-                </article>
+                <CastFlipCard {...c} />
               </Reveal>
             </li>
           ))}

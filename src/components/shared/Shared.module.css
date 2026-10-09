@@ -10,7 +10,8 @@
 .footer { --bg: var(--ink); position: relative; background: var(--ink); color: var(--paper); border-top: 4px solid var(--ink); padding: 88px 0 40px; }
 .footer h2 { margin-bottom: 12px; color: var(--gold); }
 .footNav { display: flex; gap: 8px 28px; flex-wrap: wrap; margin: 12px 0; }
-.footNav a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
+.footNav a, .footNav button { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none; color: inherit; font: 700 1rem var(--font-text); cursor: pointer; }
+.footNav a:hover, .footNav button:hover { color: var(--gold); }
 .note { color: rgba(255,247,227,.7); font-size: .95rem; margin: 24px 0 0; }
 @media (max-width: 640px) { .hideSm { display: none; } .nav { gap: 2px; } .link { padding: 0 8px; } }
 

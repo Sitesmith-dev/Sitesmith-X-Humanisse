@@ -1,10 +1,11 @@
 import { PanelTransitions } from "@/components/shared/PanelTransitions";
+import { AudienceSection } from "@/components/landing/AudienceSection";
+import { Community } from "@/components/landing/Community";
 import { Hero } from "@/components/landing/Hero";
-import { HowItWorks } from "@/components/landing/HowItWorks";
-import { Marquee } from "@/components/landing/Marquee";
+import { LearningIdeology } from "@/components/landing/LearningIdeology";
 import { VideoPreview } from "@/components/landing/VideoPreview";
+import { Vision } from "@/components/landing/Vision";
 import { Faq } from "@/components/landing/Faq";
-import { AboutUs } from "@/components/landing/AboutUs";
 import { FeaturedComics, FinalCTA, Trio } from "@/components/landing/Sections";
 
 export default function Home() {
@@ -12,12 +13,13 @@ export default function Home() {
     <>
       <PanelTransitions />
       <Hero />
-      <Marquee />
-      <AboutUs />
-      <FeaturedComics />
-      <HowItWorks />
+      <Vision />
       <Trio />
       <VideoPreview />
+      <FeaturedComics />
+      <LearningIdeology />
+      <AudienceSection />
+      <Community />
       <Faq />
       <FinalCTA />
     </>

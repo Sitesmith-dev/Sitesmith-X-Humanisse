@@ -1,8 +1,7 @@
 export const copy = {
-  headline: "Learn life through stories that stay with you",
-  support: "Explore ideas from comics, cinema and literature - made simple, memorable and useful",
+  headline: "Learning should be experienced, not just explained",
+  support: "Comics and storytelling that turn human skills into stories you understand, question and apply",
   primaryCta: "Browse Comics",
-  secondaryCta: "See How It Works",
   steps: [
     { title: "Discover", text: "Browse original comics by the idea you want to understand" },
     { title: "Watch", text: "A short introduction from the Professor sets up each story" },
