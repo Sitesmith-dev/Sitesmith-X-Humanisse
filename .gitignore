@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# client PDFs and the temporary renders made from them (scripts/build-comic-assets.mjs); never committed or deployed
+/Comics PDFS/
+/.comic-build/
+*.pdf
+*.xlsx
+~$*.xlsx

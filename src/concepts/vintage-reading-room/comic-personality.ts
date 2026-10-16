@@ -2,15 +2,11 @@
 // giving each catalogue entry its own personality beyond a shared tagline and price
 export const personality: Record<string, { voice: "The Professor" | "The Bot" | "The Cat"; line: string }> = {
   negotiation: { voice: "The Cat", line: "The treaty is signed once I get my treat" },
-  ethics: { voice: "The Professor", line: "Every shortcut has a toll booth somewhere" },
+  "ethics-sustainability": { voice: "The Professor", line: "Every shortcut has a toll booth somewhere" },
   resilience: { voice: "The Bot", line: "Data point one, you are still standing" },
   "emotional-intelligence": { voice: "The Cat", line: "Feelings first, opinions later" },
-  leadership: { voice: "The Professor", line: "Trust is a slow and steady chapter" },
-  communication: { voice: "The Bot", line: "Message sent is not message understood" },
-  persuasion: { voice: "The Cat", line: "Convince me, I dare you" },
-  "decision-making": { voice: "The Bot", line: "Weighing every option, please hold" },
+  "decision-sciences": { voice: "The Bot", line: "Weighing every option, please hold" },
   storytelling: { voice: "The Professor", line: "Every idea deserves a proper character" },
-  "conflict-resolution": { voice: "The Cat", line: "Put the claws away and talk" },
 };
 
 // Five cloth tones shared with the comic cover placeholders, so a card's spine always matches its binding

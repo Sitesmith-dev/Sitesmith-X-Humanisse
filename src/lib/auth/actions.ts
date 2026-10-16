@@ -3,10 +3,15 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { safeNext } from "./redirect";
+import { checkName } from "./names";
 import { claimThisDevice } from "./session";
 
 export type AuthMode = "login" | "signup" | "forgot";
-export type AuthState = { mode: AuthMode; kind: "error" | "success"; message: string } | null;
+export type AuthState =
+  | { mode: AuthMode; kind: "error" | "success"; message: string }
+  // Signing up with an email that already has an account
+  | { mode: "signup"; kind: "exists"; email: string }
+  | null;
 
 const MIN_PASSWORD = 8;
 
@@ -47,12 +52,28 @@ export async function authenticate(_prev: AuthState, form: FormData): Promise<Au
   if (password.length < MIN_PASSWORD) return fail(`Your password needs at least ${MIN_PASSWORD} characters`);
 
   if (mode === "signup") {
-    const name = String(form.get("name") ?? "").trim();
+    // Both halves end up on every reader page, so they are checked here as well as in the form
+    const first = checkName(form.get("firstName"), "first");
+    if ("error" in first) return fail(first.error);
+    const last = checkName(form.get("lastName"), "last");
+    if ("error" in last) return fail(last.error);
+    const first_name = first.value;
+    const last_name = last.value;
+    // The button stays disabled until the two match, but that is only a convenience, so check again here
+    if (password !== String(form.get("confirm") ?? "")) return fail("The two passwords don't match");
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
-      options: { data: { full_name: name }, emailRedirectTo: `${await siteOrigin()}/auth/confirm?next=/library` },
+      // The header reads full_name. A database trigger copies first and last into public.profiles, which the reader
+      // stamps on every page, because this metadata stays editable by the account holder and profiles does not
+      options: { data: { first_name, last_name, full_name: `${first_name} ${last_name}` }, emailRedirectTo: `${await siteOrigin()}/auth/confirm?next=/library` },
     });
+    // With "Confirm email" on, Supabase hides an existing account by answering with a stand-in user that has no
+    // identities and sending no email. With it off, it returns an error instead. Either way, nothing was sent
+    const exists = error
+      ? error.code === "user_already_exists" || error.message.toLowerCase().includes("already registered")
+      : !!data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0;
+    if (exists) return { mode, kind: "exists", email };
     if (error) return fail(friendly(error.message));
     // With "Confirm email" switched off in Supabase the account is signed in straight away
     if (data.session) {

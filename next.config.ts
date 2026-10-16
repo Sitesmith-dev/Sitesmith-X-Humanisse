@@ -32,6 +32,11 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactCompiler: true,
   poweredByHeader: false,
+  // The reader's pages are read from comic-pages/ at request time, so they have to travel with the deployed route.
+  // Keys are globs, hence the escaped brackets
+  outputFileTracingIncludes: {
+    "/api/comic-pages/\\[slug\\]/\\[file\\]": ["./comic-pages/**/*"],
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

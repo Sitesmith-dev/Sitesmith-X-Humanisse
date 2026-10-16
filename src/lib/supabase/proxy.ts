@@ -1,8 +1,9 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-// Pages a signed-out visitor is sent to the login page from
-const PROTECTED = ["/library"];
+// Pages a signed-out visitor is sent to the login page from. The reader is one because every page it shows is
+// stamped with the reader's name and email, so there has to be someone signed in to stamp
+const PROTECTED = ["/library", "/read"];
 
 // Runs before every page. It keeps the login cookie fresh, enforces one signed-in device per account, and sends
 // visitors to the right place: signed-out readers away from their library, signed-in readers away from /login.

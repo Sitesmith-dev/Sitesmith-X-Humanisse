@@ -1,0 +1,95 @@
+/* About Us, The Learning Ideology and Community. Same language as the audience pages: gold pagehead, bands, ink-outlined cards */
+.fill { position: relative; width: 100%; height: 100%; }
+.head { margin-bottom: 36px; }
+.head h2 { margin: 0; }
+.prose { max-width: 62ch; font-size: 1.25rem; line-height: 1.7; color: var(--ink); }
+.prose p:last-child { margin-bottom: 0; }
+.statement { margin: 0; max-width: 40ch; font: 800 clamp(1.5rem, 2.8vw, 2.2rem)/1.3 var(--font-head); letter-spacing: -.01em; }
+.label { display: inline-block; margin: 0 0 16px; padding: 4px 14px; border: 2px solid var(--ink); border-radius: 999px; background: var(--gold); color: var(--ink); font: 700 .8rem var(--font-text); letter-spacing: .1em; text-transform: uppercase; }
+.labelDark { border-color: var(--gold); background: none; color: var(--gold); }
+.card { display: flex; flex-direction: column; gap: 10px; height: 100%; padding: 26px 28px; background: var(--white); color: var(--ink); border: var(--line); border-radius: var(--radius); box-shadow: var(--pop); }
+.card h3 { margin: 0; font-size: 1.3rem; }
+.card p { margin: 0; color: var(--muted); }
+.cardOnDark { box-shadow: 7px 7px 0 var(--gold); background: var(--paper); }
+.num { font: 800 1.3rem var(--font-head); color: var(--coral); }
+.onDark { color: var(--paper); }
+ol.chain { justify-content: flex-start; margin: 0; }
+
+/* Vision and Mission: two statements side by side */
+.pair { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.pair .card { padding: 32px 34px 36px; background: var(--paper); }
+.pair li:nth-child(2) .card { background: color-mix(in srgb, var(--gold) 22%, var(--white)); }
+.pairLabel { align-self: flex-start; margin: 0; }
+.pair .statement { max-width: none; font-size: clamp(1.35rem, 2.3vw, 1.85rem); color: var(--ink); }
+@media (max-width: 760px) { .pair { grid-template-columns: 1fr; } }
+
+/* Grids. Odd last items span the row so nothing sits stranded */
+.grid2 { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.grid3 { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+@media (min-width: 701px) { .grid2 > li:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@media (max-width: 960px) { .grid3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+/* Five steps: five across, then three over two (the two centred), then two with the fifth spanning, then one */
+.five { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 1099px) {
+  .five { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .five > li { grid-column: span 2; }
+  .five > li:nth-child(4) { grid-column: 2 / span 2; }
+}
+@media (max-width: 760px) {
+  .five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .five > li, .five > li:nth-child(4) { grid-column: auto; }
+  .five > li:nth-child(5) { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) { .five { grid-template-columns: 1fr; } }
+.step { height: 100%; padding: 22px 20px; background: rgba(255,247,227,.08); border: 2px solid rgba(255,247,227,.3); border-radius: var(--radius); color: var(--paper); }
+.step .num { display: block; margin-bottom: 8px; font-size: 1.6rem; color: var(--gold); }
+.step h3 { margin: 0 0 8px; font-size: 1.2rem; color: var(--paper); }
+.step p { margin: 0; color: rgba(255,247,227,.82); font-size: .98rem; line-height: 1.55; }
+
+/* About: "What we do" */
+.lead { margin: 0 0 36px; }
+.sub { margin: 36px 0 14px; font-weight: 700; font-size: 1.1rem; }
+.sub:first-child { margin-top: 0; }
+.closingBox { margin: 48px 0 0; font: 800 clamp(1.4rem, 2.6vw, 2rem)/1.2 var(--font-head); }
+
+/* About: the founder */
+.quote { position: relative; margin: 0; max-width: 62ch; }
+.quote blockquote { margin: 0; font-size: clamp(1.1rem, 1.6vw, 1.25rem); line-height: 1.8; color: var(--ink); }
+.quote blockquote p { max-width: none; margin: 0; }
+.quote figcaption { margin-top: 20px; font-weight: 700; color: var(--ink); }
+.quote figcaption::before { content: "— "; }
+.founderLine { margin: 48px 0 0; max-width: 34ch; font: 800 clamp(1.35rem, 2.4vw, 1.8rem)/1.3 var(--font-head); }
+
+/* About: products, each card one large link */
+.product { display: flex; flex-direction: column; gap: 10px; height: 100%; padding: 26px 28px; background: var(--paper); color: var(--ink); border: var(--line); border-radius: var(--radius); box-shadow: 7px 7px 0 var(--gold); text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
+.product:hover { transform: translate(-2px, -2px); box-shadow: 9px 9px 0 var(--gold); }
+.product:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.product h3 { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; font-size: 1.35rem; }
+.product h3 svg { flex: none; color: var(--coral); }
+.product p { margin: 0; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .product { transition: none; } .product:hover { transform: none; } }
+
+/* Learning Ideology: the four-step model joined by arrows */
+.model { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.model > li { position: relative; }
+.model > li:not(:last-child)::after { content: "→" / ""; position: absolute; top: 50%; right: -17px; z-index: 1; translate: 0 -50%; font: 800 1.4rem var(--font-head); color: var(--gold); }
+.model .step h3 { font-size: clamp(1.4rem, 2vw, 1.75rem); font-weight: 800; }
+@media (max-width: 900px) {
+  .model { grid-template-columns: 1fr; gap: 34px; }
+  .model > li:not(:last-child)::after { content: "↓" / ""; top: auto; right: auto; bottom: -32px; left: 24px; translate: none; }
+}
+
+/* Closings on the ink band */
+.centre { text-align: center; }
+.centre .closingText, .centre p { margin-inline: auto; }
+.closingText { margin: 0 0 32px; max-width: 30ch; font: 800 clamp(1.7rem, 3.4vw, 2.6rem)/1.2 var(--font-head); color: var(--paper); }
+.lines { margin: 0 0 32px; max-width: none; font: 800 clamp(1.5rem, 3vw, 2.3rem)/1.25 var(--font-head); color: var(--paper); }
+.lines span { display: block; }
+.tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.tags li { background: var(--gold); }
+
+/* Community: the idea as a speech bubble, the same shape as the comics hero bubbles */
+.bubble { position: relative; display: inline-block; max-width: 34ch; margin: 0 0 14px; padding: 22px 28px; background: var(--white); border: var(--line); border-radius: 22px; box-shadow: 5px 5px 0 var(--ink); font: 800 clamp(1.3rem, 2.4vw, 1.75rem)/1.35 var(--font-head); color: var(--ink); }
+.bubble::after { content: ""; position: absolute; bottom: -12px; left: 34px; width: 18px; height: 18px; background: inherit; border-right: var(--line); border-bottom: var(--line); rotate: 45deg; }

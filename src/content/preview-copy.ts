@@ -9,10 +9,10 @@ export const copy = {
     { title: "Read", text: "Open your comic in My Library and come back any time" },
   ],
   themes: [
-    { slug: "negotiation", title: "Negotiation", text: "Find the deal both sides can live with" },
-    { slug: "ethics", title: "Ethics", text: "Choose well when nobody is watching" },
-    { slug: "resilience", title: "Resilience", text: "Bounce back, one small step at a time" },
-    { slug: "emotional-intelligence", title: "Emotional Intelligence", text: "Read the room and yourself" },
+    { slug: "negotiation", title: "Negotiation", text: "Negotiation is more than getting what you want." },
+    { slug: "resilience", title: "Resilience", text: "Fall. Learn. Adapt. Rise." },
+    { slug: "storytelling", title: "Storytelling", text: "Facts inform. Stories inspire." },
+    { slug: "ethics-sustainability", title: "Ethics & Sustainability", text: "Good decisions create profits. Responsible decisions create a better future." },
   ],
   audiences: [
     { title: "Personal learning", text: "Useful ideas you can read at your own pace" },

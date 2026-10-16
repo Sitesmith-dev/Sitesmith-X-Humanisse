@@ -12,7 +12,7 @@ import styles from "./vintage.module.css";
 
 const demoOwned = [
   { slug: "negotiation", progress: 60 },
-  { slug: "ethics", progress: 100 },
+  { slug: "ethics-sustainability", progress: 100 },
   { slug: "resilience", progress: 15 },
 ];
 

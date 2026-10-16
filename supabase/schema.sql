@@ -63,3 +63,56 @@ $$;
 
 revoke all on function public.claim_session() from public, anon;
 grant execute on function public.claim_session() to authenticated;
+
+-- ─── Profiles: the name printed on the reader ────────────────────────────────
+-- Copied once from the signup form by a trigger. Readers can read their own row but there is no insert, update
+-- or delete policy, so the name on their pages cannot be edited from the browser afterwards.
+create table if not exists public.profiles (
+  id         uuid        primary key references auth.users (id) on delete cascade,
+  first_name text        not null default '',
+  last_name  text        not null default '',
+  created_at timestamptz not null default now()
+);
+
+alter table public.profiles enable row level security;
+
+drop policy if exists "Readers see their own profile" on public.profiles;
+create policy "Readers see their own profile" on public.profiles
+  for select to authenticated using ((select auth.uid()) = id);
+
+create or replace function public.handle_new_user()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  meta jsonb := coalesce(new.raw_user_meta_data, '{}'::jsonb);
+  fn text := btrim(coalesce(meta ->> 'first_name', ''));
+  ln text := btrim(coalesce(meta ->> 'last_name', ''));
+  full_name text := btrim(coalesce(meta ->> 'full_name', ''));
+begin
+  -- Accounts made before first/last were collected only have a single name, so split it at the first space
+  if fn = '' and full_name <> '' then
+    fn := split_part(full_name, ' ', 1);
+    ln := btrim(substr(full_name, length(fn) + 1));
+  end if;
+  insert into public.profiles (id, first_name, last_name) values (new.id, left(fn, 40), left(ln, 40))
+  on conflict (id) do nothing;
+  return new;
+end;
+$$;
+
+revoke all on function public.handle_new_user() from public, anon, authenticated;
+
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created after insert on auth.users
+  for each row execute function public.handle_new_user();
+
+-- One-off backfill for accounts that already exist
+insert into public.profiles (id, first_name, last_name)
+select u.id,
+       left(split_part(btrim(coalesce(u.raw_user_meta_data ->> 'full_name', '')), ' ', 1), 40),
+       left(btrim(substr(btrim(coalesce(u.raw_user_meta_data ->> 'full_name', '')), length(split_part(btrim(coalesce(u.raw_user_meta_data ->> 'full_name', '')), ' ', 1)) + 1)), 40)
+from auth.users u
+on conflict (id) do nothing;
