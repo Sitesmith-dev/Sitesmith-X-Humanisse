@@ -1,6 +1,6 @@
 import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { ArrowRight } from "lucide-react";
-import { comics } from "@/content/comics";
+import { getComic } from "@/content/comics";
 import { copy } from "@/content/preview-copy";
 import { SectionHead } from "@/components/shared/SectionHead";
 import { CastFlipCard } from "./CastFlipCard";
@@ -8,10 +8,13 @@ import { PopularShelf } from "./PopularShelf";
 import { Reveal } from "@/components/shared/Motion";
 import styles from "./Landing.module.css";
 
+// A hand-picked six. Every comic but Critical Reading has its real cover, so none of these shows a placeholder
+const featured = ["negotiation", "storytelling", "ethics-sustainability", "active-listening", "resilience", "decision-sciences"].map((s) => getComic(s)!);
+
 export function FeaturedComics() {
   return (
     <section className={`band band-plum ${styles.featured}`} aria-labelledby="feat-h">
-      <PopularShelf comics={comics.slice(0, 6)} />
+      <PopularShelf comics={featured} />
     </section>
   );
 }

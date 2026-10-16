@@ -6,13 +6,13 @@ import { ComicCover } from "./ComicCover";
 import { Parallax } from "@/components/shared/Scroll";
 import styles from "./ComicsHero.module.css";
 
-// Five covers fanned on a lit podium, Negotiation centre and forward since it is the one finished cover, the rest carry the styled placeholder
+// Five of the client's covers fanned on a lit podium, Negotiation centre and forward
 const fan = [
-  { slug: "resilience", pos: styles.farLeft, d: 0.2 },
-  { slug: "ethics", pos: styles.left, d: 0.1 },
+  { slug: "active-listening", pos: styles.farLeft, d: 0.2 },
+  { slug: "ethics-sustainability", pos: styles.left, d: 0.1 },
   { slug: "negotiation", pos: styles.centre, d: 0 },
-  { slug: "leadership", pos: styles.right, d: 0.1 },
-  { slug: "communication", pos: styles.farRight, d: 0.2 },
+  { slug: "storytelling", pos: styles.right, d: 0.1 },
+  { slug: "resilience", pos: styles.farRight, d: 0.2 },
 ].map((c) => ({ ...c, comic: getComic(c.slug)! }));
 
 const delay = (s: number) => ({ "--d": `${s}s` }) as CSSProperties;
@@ -30,7 +30,7 @@ export function ComicsHero() {
             <p className={styles.sub}>Ten stories, ten ideas worth keeping</p>
           </div>
           <p className="lead">Ten stories, ten ideas worth keeping, so pick one, watch its short introduction, then read it in your library</p>
-          <p className="notice"><span className="demo">Preview</span> Titles, descriptions, covers and prices are samples</p>
+          <p className="notice"><span className="demo">Preview</span> Prices are samples, final prices come from Humanisse</p>
           <div className={styles.actions}>
             <Link href="#all-comics" className="btn btn-primary btn-lg">Browse all ten <ArrowRight size={20} aria-hidden="true" /></Link>
             <Link href="#complete-set" className="btn btn-lg">The complete set</Link>

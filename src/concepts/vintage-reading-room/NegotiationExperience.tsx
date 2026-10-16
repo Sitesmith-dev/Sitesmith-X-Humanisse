@@ -33,7 +33,7 @@ export function NegotiationExperience() {
             <p className={styles.kicker}>Chapter One</p>
             <h1 className={styles.h1small}>{comic.title}</h1>
             <Ornament className={styles.heroOrnament} />
-            <p className={styles.lead}>{comic.shortDescription}</p>
+            <p className={styles.lead}>{comic.strapline}</p>
             {personality[comic.slug] && (
               <p className={styles.chapterVoice} style={{ margin: "0 0 16px" }}>&ldquo;{personality[comic.slug].line}&rdquo; <span>{personality[comic.slug].voice}</span></p>
             )}

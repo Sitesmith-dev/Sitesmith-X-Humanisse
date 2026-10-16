@@ -2,7 +2,9 @@
 .card { display: flex; flex-direction: column; height: 100%; color: var(--ink); font-family: var(--font-cardtext); background: var(--white); border: var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--pop); transition: box-shadow .2s; }
 .card:hover { box-shadow: 8px 8px 0 var(--ink); }
 .coverLink { display: block; }
-.cover { container-type: inline-size; border-bottom: var(--line); background: var(--paper); aspect-ratio: 3 / 4; overflow: hidden; position: relative; }
+/* The shape of the client's covers (2:3), so a cover fills its box without losing its title off the top. Active Listening is a
+   touch squarer (A4) and loses a sliver of its white side margin instead */
+.cover { container-type: inline-size; border-bottom: var(--line); background: var(--paper); aspect-ratio: 2 / 3; overflow: hidden; position: relative; }
 .cover img { width: 100%; height: 100%; object-fit: cover; }
 .placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4cqw; padding: 5cqw; text-align: center; background: var(--accent); overflow: hidden; }
 .ptitle { position: relative; max-width: 96%; font: 700 clamp(.56rem, 7.6cqw, 1.5rem)/1.15 var(--font-cardtext); overflow-wrap: normal; word-break: normal; hyphens: none; color: var(--ink); background: var(--paper); padding: .4em .55em .4em .65em; border: var(--line); border-left-width: max(4px, 3cqw); border-left-style: solid; border-left-color: var(--accent2); border-radius: 8px; box-shadow: 3px 3px 0 var(--ink); rotate: -3deg; }

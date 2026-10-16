@@ -7,7 +7,7 @@ export function ComicCover({ comic, priority = false, className = "" }: { comic:
   return (
     <div className={`${styles.cover} ${className}`} style={style} data-texture={comic.mood.texture}>
       {comic.coverImage ? (
-        <Image src={comic.coverImage} alt={`Placeholder cover for ${comic.title}`} width={432} height={624} priority={priority} style={{ width: "100%", height: "100%" }} />
+        <Image src={comic.coverImage} alt={`Cover of ${comic.title}`} width={432} height={624} priority={priority} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       ) : (
         <div className={styles.placeholder} aria-hidden="true">
           <span className={styles.burst} />

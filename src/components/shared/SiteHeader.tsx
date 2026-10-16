@@ -49,7 +49,9 @@ export function SiteHeader() {
           <Link href="/library" className={styles.link}>My Library</Link>
           <CartButton />
           {session?.signedIn ? (
-            <form method="post" action="/auth/signout"><button type="submit" className="btn"><LogOut size={18} aria-hidden="true" /> Log out</button></form>
+            <form method="post" action="/auth/signout">
+              <button type="submit" className="btn"><LogOut size={18} aria-hidden="true" /> Log out</button>
+            </form>
           ) : (
             <Link href="/login" className="btn"><LogIn size={18} aria-hidden="true" /> Log in</Link>
           )}

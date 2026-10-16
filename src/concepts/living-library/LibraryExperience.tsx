@@ -6,9 +6,9 @@ import type { LibraryItem } from "@/types/library";
 
 const demoItems: LibraryItem[] = [
   { slug: "negotiation", progress: 60 },
-  { slug: "ethics", progress: 100 },
+  { slug: "ethics-sustainability", progress: 100 },
   { slug: "resilience", progress: 15 },
-  { slug: "leadership", progress: 35 },
+  { slug: "storytelling", progress: 35 },
 ];
 
 export function LibraryExperience({ searchParams }: { searchParams?: { state?: string } }) {

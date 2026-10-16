@@ -1,11 +1,14 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Maximize, Minimize, Scan, X, ZoomIn, ZoomOut } from "lucide-react";
 import type { Comic } from "@/types/comic";
-import { PageWatermark } from "./PageWatermark";
-import { ReaderPage, ReaderPagePlaceholder } from "./ReaderPagePlaceholder";
+import { PageWatermark, STAMP_OPACITY } from "./PageWatermark";
+import { buildStamp, type Holder } from "./stamp";
+import { useStampGuard } from "./useStampGuard";
+import { ReaderPage, ReaderThumb } from "./ReaderPagePlaceholder";
 import { ViewMenu, type MenuItem } from "./ViewMenu";
 import styles from "./Reader.module.css";
 
@@ -40,8 +43,10 @@ function useMedia(query: string) {
   return useSyncExternalStore(subscribe, () => window.matchMedia(query).matches, () => false);
 }
 
-export function Reader({ comic }: { comic: Comic }) {
+export function Reader({ comic, holder }: { comic: Comic; holder: Holder }) {
   const router = useRouter();
+  // Who these pages are for, printed three ways: tiled over every page, along the foot of every page, and under the stage
+  const stamp = useMemo(() => buildStamp(holder), [holder]);
   const reduce = useReducedMotion();
   const pages = comic.pages;
   const total = pages.length;
@@ -66,6 +71,9 @@ export function Reader({ comic }: { comic: Comic }) {
   const [zoom, setZoom] = useState(FIT);
   const [away, setAway] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
+  // Bumped when a reader resumes after the stamp was tampered with, so the pages are rebuilt from scratch
+  const [generation, setGeneration] = useState(0);
+  const guard = useStampGuard(root, stamp, STAMP_OPACITY);
   const isFull = useSyncExternalStore(subscribeFullscreen, () => !!document.fullscreenElement, () => false);
   const canFull = useSyncExternalStore(neverChanges, () => document.fullscreenEnabled, () => false);
 
@@ -90,9 +98,11 @@ export function Reader({ comic }: { comic: Comic }) {
   const unit = units[unitIndex] ?? [0];
   const atFirst = unitIndex <= 0;
   const atLast = unitIndex >= units.length - 1;
-  const counter = unit.length > 1
+  // While the reader holds only the cover and the next two pages, it says so
+  const counter = (unit.length > 1
     ? `Pages ${unit[0] + 1}–${unit[unit.length - 1] + 1} of ${total}`
-    : `Page ${unit[0] + 1} of ${total}`;
+    : `Page ${unit[0] + 1} of ${total}`) + (comic.preview ? " · Preview" : "");
+  const previewEnded = comic.preview && atLast && !atFirst;
 
   const jumpTo = useCallback((target: number) => {
     setDir(target >= page ? 1 : -1);
@@ -248,7 +258,8 @@ export function Reader({ comic }: { comic: Comic }) {
 
   const scale = ZOOMS[zoom];
   const sizes = mode === "spread" ? "(max-width: 1100px) 45vw, 38vw" : "(max-width: 820px) 90vw, 60vw";
-  const surface = { "--accent": comic.mood.accent, "--accent2": comic.mood.secondaryAccent, "--zoom": scale } as React.CSSProperties;
+  // Pages take the comic's own shape, so the artwork is never cropped or stretched to fit a fixed one
+  const surface = { "--accent": comic.mood.accent, "--accent2": comic.mood.secondaryAccent, "--zoom": scale, "--page-ar": comic.pageAspect, "--stamp-alpha": STAMP_OPACITY } as React.CSSProperties;
 
   return (
     <div
@@ -297,113 +308,144 @@ export function Reader({ comic }: { comic: Comic }) {
         </div>
       </div>
 
-      <div className={styles.body}>
-        {sidebar !== "hidden" && (
-          <aside className={styles.sidebar} data-view={sidebar} aria-label={sidebar === "thumbnails" ? "Page thumbnails" : "Contact sheet"}>
-            <p className={styles.sidebarHead}>{sidebar === "thumbnails" ? "Pages" : "All pages"}</p>
-            <ul className={styles.thumbs} data-view={sidebar}>
-              {pages.map((p, i) => (
-                <li key={p.id}>
-                  <button
-                    type="button"
-                    ref={(el) => { thumbEls.current[i] = el; }}
-                    className={styles.thumb}
-                    aria-current={unit.includes(i) ? "true" : undefined}
-                    aria-label={`Page ${i + 1}`}
-                    onClick={() => jumpTo(i)}
-                  >
-                    <span className={styles.thumbArt}>
-                      <ReaderPagePlaceholder index={i} number={i + 1} />
-                      <PageWatermark />
-                    </span>
-                    <span className={styles.thumbNumber}>{i + 1}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        )}
-
-        <div className={styles.stageWrap}>
-          <button type="button" className={`${styles.edge} ${styles.edgePrev}`} onClick={() => step(-1)} disabled={atFirst} aria-label="Previous page">
-            <ChevronLeft size={30} aria-hidden="true" />
-          </button>
-
-          {mode === "scroll" ? (
-            <div ref={scroller} className={styles.scrollStage} data-away={away || undefined}>
-              {pages.map((p, i) => (
-                <div
-                  key={p.id}
-                  ref={(el) => { pageEls.current[i] = el; }}
-                  data-page={i}
-                  className={styles.scrollPage}
-                >
-                  <div className={styles.leaf} data-side="solo">
-                    <ReaderPage src={p.src} index={i} number={i + 1} title={comic.title} sizes={sizes} />
-                    <PageWatermark />
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className={styles.stage} data-away={away || undefined}>
-              <motion.div
-                key={unitIndex}
-                className={styles.spread}
-                style={{ "--ar": mode === "spread" ? 1.5 : 0.75 } as React.CSSProperties}
-                data-zoomed={scale > 1 || undefined}
-                initial={reduce ? false : { opacity: 0, x: dir * 28 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: reduce ? 0 : TURN, ease: EASE }}
-                onPointerDown={onPointerDown}
-                onPointerUp={onPointerUp}
-              >
-                {/* The blank half of an opening or closing spread, so a lone page keeps its side of the book */}
-                {mode === "spread" && unit.length === 1 && unit[0] === 0 && <div className={styles.blank} aria-hidden="true" />}
-                {unit.map((i) => (
-                  <div
-                    key={pages[i].id}
-                    className={styles.leaf}
-                    data-side={mode === "single" ? "solo" : unit.length === 1 ? (unit[0] === 0 ? "right" : "left") : i === unit[0] ? "left" : "right"}
-                  >
-                    <ReaderPage src={pages[i].src} index={i} number={i + 1} title={comic.title} sizes={sizes} />
-                    <PageWatermark />
-                  </div>
-                ))}
-                {mode === "spread" && unit.length === 1 && unit[0] !== 0 && <div className={styles.blank} aria-hidden="true" />}
-              </motion.div>
-            </div>
-          )}
-
-          <button type="button" className={`${styles.edge} ${styles.edgeNext}`} onClick={() => step(1)} disabled={atLast} aria-label="Next page">
-            <ChevronRight size={30} aria-hidden="true" />
-          </button>
-
-          {away && (
-            <div className={styles.awayNote}>
-              <span>Paused while you are away, come back to this tab to keep reading</span>
-            </div>
-          )}
-
-          <AnimatePresence>
-            {notice && (
-              <motion.div
-                className={styles.shortcutNote}
-                role="status"
-                aria-live="polite"
-                initial={reduce ? { opacity: 1 } : { opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduce ? { opacity: 1 } : { opacity: 0, y: 10 }}
-                transition={{ duration: reduce ? 0 : 0.2, ease: EASE }}
-              >
-                <span>{notice}</span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-
       <p className={styles.printNotice}>{CANNOT_PRINT}</p>
+
+      {/* Everything a tamperer can reach lives in this one frame, last in the reader. When the stamp is tampered with,
+          React swaps the whole frame rather than inserting next to nodes that may have been deleted, and Reload swaps
+          it again for a freshly built one */}
+      <div key={guard.tampered ? "paused" : `live-${generation}`} className={styles.frame}>
+        {guard.tampered ? (
+          <div className={styles.paused} role="alert">
+            <div className={styles.pausedCard}>
+              <p>Something changed on this page, so reading has been paused. Reload to continue.</p>
+              <button type="button" className="btn btn-primary" onClick={() => { setGeneration((g) => g + 1); guard.resume(); }}>Reload</button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className={styles.body}>
+              {sidebar !== "hidden" && (
+                <aside className={styles.sidebar} data-view={sidebar} aria-label={sidebar === "thumbnails" ? "Page thumbnails" : "Contact sheet"}>
+                  <p className={styles.sidebarHead}>{sidebar === "thumbnails" ? "Pages" : "All pages"}</p>
+                  <ul className={styles.thumbs} data-view={sidebar}>
+                    {pages.map((p, i) => (
+                      <li key={p.id}>
+                        <button
+                          type="button"
+                          ref={(el) => { thumbEls.current[i] = el; }}
+                          className={styles.thumb}
+                          aria-current={unit.includes(i) ? "true" : undefined}
+                          aria-label={`Page ${i + 1}`}
+                          onClick={() => jumpTo(i)}
+                        >
+                          <span className={styles.thumbArt}>
+                            <ReaderThumb src={p.src} index={i} number={i + 1} />
+                            <PageWatermark stamp={stamp} aspect={comic.pageAspect} />
+                          </span>
+                          <span className={styles.thumbNumber}>{i + 1}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              )}
+
+              <div className={styles.stageWrap}>
+                <button type="button" className={`${styles.edge} ${styles.edgePrev}`} onClick={() => step(-1)} disabled={atFirst} aria-label="Previous page">
+                  <ChevronLeft size={30} aria-hidden="true" />
+                </button>
+
+                {mode === "scroll" ? (
+                  <div ref={scroller} className={styles.scrollStage} data-away={away || undefined} data-stage>
+                    {pages.map((p, i) => (
+                      <div
+                        key={p.id}
+                        ref={(el) => { pageEls.current[i] = el; }}
+                        data-page={i}
+                        className={styles.scrollPage}
+                      >
+                        <div className={styles.leaf} data-side="solo" data-leaf>
+                          <ReaderPage src={p.src} index={i} number={i + 1} title={comic.title} sizes={sizes} />
+                          <PageWatermark stamp={stamp} aspect={comic.pageAspect} />
+                          <p className={styles.stampLine} data-stamp="line">{stamp.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className={styles.stage} data-away={away || undefined} data-stage>
+                    <motion.div
+                      key={unitIndex}
+                      className={styles.spread}
+                      style={{ "--ar": mode === "spread" ? comic.pageAspect * 2 : comic.pageAspect } as React.CSSProperties}
+                      data-zoomed={scale > 1 || undefined}
+                      // The same starting point on the server and the client, so hydration matches. Under reduced motion the
+                      // zero-length transition below makes the turn instant
+                      initial={{ opacity: 0, x: dir * 28 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: reduce ? 0 : TURN, ease: EASE }}
+                      onPointerDown={onPointerDown}
+                      onPointerUp={onPointerUp}
+                    >
+                      {/* The blank half of an opening or closing spread, so a lone page keeps its side of the book */}
+                      {mode === "spread" && unit.length === 1 && unit[0] === 0 && <div className={styles.blank} aria-hidden="true" />}
+                      {unit.map((i) => (
+                        <div
+                          key={pages[i].id}
+                          className={styles.leaf}
+                          data-side={mode === "single" ? "solo" : unit.length === 1 ? (unit[0] === 0 ? "right" : "left") : i === unit[0] ? "left" : "right"}
+                          data-leaf
+                        >
+                          <ReaderPage src={pages[i].src} index={i} number={i + 1} title={comic.title} sizes={sizes} />
+                          <PageWatermark stamp={stamp} aspect={comic.pageAspect} />
+                          <p className={styles.stampLine} data-stamp="line">{stamp.text}</p>
+                        </div>
+                      ))}
+                      {mode === "spread" && unit.length === 1 && unit[0] !== 0 && <div className={styles.blank} aria-hidden="true" />}
+                    </motion.div>
+                  </div>
+                )}
+
+                <button type="button" className={`${styles.edge} ${styles.edgeNext}`} onClick={() => step(1)} disabled={atLast} aria-label="Next page">
+                  <ChevronRight size={30} aria-hidden="true" />
+                </button>
+
+                {away && (
+                  <div className={styles.awayNote}>
+                    <span>Paused while you are away, come back to this tab to keep reading</span>
+                  </div>
+                )}
+
+                <AnimatePresence>
+                  {notice && (
+                    <motion.div
+                      className={styles.shortcutNote}
+                      role="status"
+                      aria-live="polite"
+                      initial={reduce ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={reduce ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                      transition={{ duration: reduce ? 0 : 0.2, ease: EASE }}
+                    >
+                      <span>{notice}</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+            {/* Space for this is kept the whole time, so the pages never jump when it appears on the last page or spread */}
+            {comic.preview && (
+              <div className={styles.previewEnd} hidden={!previewEnded || undefined}>
+                {previewEnded && (
+                  <p role="status">End of the preview <Link href={`/comics/${comic.slug}`} className={styles.previewBack}>Back to {comic.title}</Link></p>
+                )}
+              </div>
+            )}
+            {/* Under the stage, inside the reader so it is in a fullscreen capture too, and the backstop for a whole-window one */}
+            <p className={styles.stampFoot} data-stamp="foot">{stamp.text}</p>
+          </>
+        )}
+      </div>
     </div>
   );
 }

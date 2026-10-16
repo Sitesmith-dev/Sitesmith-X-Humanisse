@@ -1,18 +1,14 @@
 "use client";
 import { useState } from "react";
+import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { ArrowRight } from "lucide-react";
+import { ideology } from "@/content/ideology";
 import { AnimatePresence, motion } from "motion/react";
 import { Reveal } from "@/components/shared/Motion";
 import styles from "./Landing.module.css";
 
-const journey = ["Story", "Reflect", "Apply"];
-
-const principles = [
-  { title: "Simple", text: "Complex ideas, told as a scene you can picture in one read" },
-  { title: "Memorable", text: "A story stays with you long after a slide deck is forgotten" },
-  { title: "Human", text: "Built on emotions and choices, not frameworks and jargon" },
-  { title: "Useful", text: "Every page leaves you with something to try the same day" },
-] as const;
+const journey = ideology.philosophy;
+const principles = ideology.principles;
 
 export function LearningIdeology() {
   const [active, setActive] = useState(0);
@@ -20,8 +16,8 @@ export function LearningIdeology() {
     <section id="learning-ideology" className="band band-paper" aria-labelledby="ideology-h">
       <div className="wrap">
         <Reveal className={styles.ideologyCenter}>
-          <h2 id="ideology-h" className="capBox">One idea, told the way it sticks</h2>
-          <p className="lead">The same shelf, every time: story first, reflection second, a habit by the end</p>
+          <h2 id="ideology-h" className="capBox">{ideology.philosophyTitle}</h2>
+          <p className="lead">{ideology.belief}</p>
           <ol className={styles.journey}>
             {journey.map((step, i) => (
               <li key={step}>
@@ -39,6 +35,10 @@ export function LearningIdeology() {
               ))}
             </div>
             <div className={styles.principlePanel}>
+              {/* Every text stacked invisibly in the same cell, so the panel is always as tall as the longest and never jumps */}
+              <div className={styles.principleSizer} aria-hidden="true">
+                {principles.map((p) => <p key={p.title}>{p.text}</p>)}
+              </div>
               <AnimatePresence mode="wait">
                 <motion.p
                   key={principles[active].title}
@@ -52,6 +52,7 @@ export function LearningIdeology() {
               </AnimatePresence>
             </div>
           </div>
+          <Link href="/learning-ideology" className="btn" style={{ marginTop: 32 }}>Read the full learning ideology <ArrowRight size={18} aria-hidden="true" /></Link>
         </Reveal>
       </div>
     </section>

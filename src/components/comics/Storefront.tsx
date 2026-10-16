@@ -23,7 +23,7 @@ export function Storefront() {
     const needle = q.trim().toLowerCase();
     const out = comics.filter((c) =>
       (cat === "all" || c.category === cat) &&
-      (!needle || c.title.toLowerCase().includes(needle) || c.tags.some((t) => t.toLowerCase().includes(needle)) || c.shortDescription.toLowerCase().includes(needle)));
+      (!needle || [c.title, c.tagline, c.strapline, c.description, ...c.tags].some((t) => t.toLowerCase().includes(needle))));
     return sort === "az" ? [...out].sort((a, b) => a.title.localeCompare(b.title)) : out;
   }, [q, cat, sort]);
 

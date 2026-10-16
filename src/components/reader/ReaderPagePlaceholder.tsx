@@ -66,6 +66,10 @@ export function ReaderPagePlaceholder({ index, number }: { index: number; number
   );
 }
 
+// Pages from the login-protected route skip the image optimizer: it would fetch them without the reader's login,
+// and re-encoding a page that is already sized for the reader gains nothing
+const isProtected = (src: string) => src.startsWith("/api/comic-pages/");
+
 /** One page of the reader: the real artwork when the content has it, the drawn placeholder until then and if the file fails to load. */
 export function ReaderPage({ src, index, number, title, sizes }: { src?: string; index: number; number: number; title: string; sizes: string }) {
   const [failed, setFailed] = useState(false);
@@ -76,10 +80,29 @@ export function ReaderPage({ src, index, number, title, sizes }: { src?: string;
       alt={`${title}, page ${number}`}
       fill
       sizes={sizes}
+      unoptimized={isProtected(src)}
       draggable={false}
       style={{ objectFit: "contain" }}
       onError={() => setFailed(true)}
       priority={index < 2}
+    />
+  );
+}
+
+/** The small version of a page for the sidebar, from the same route (`2.webp` has `2-thumb.webp`), falling back to the drawn placeholder */
+export function ReaderThumb({ src, index, number }: { src?: string; index: number; number: number }) {
+  const [failed, setFailed] = useState(false);
+  if (!src || failed) return <ReaderPagePlaceholder index={index} number={number} />;
+  return (
+    <Image
+      src={src.replace(/\.webp$/, "-thumb.webp")}
+      alt=""
+      fill
+      sizes="120px"
+      unoptimized={isProtected(src)}
+      draggable={false}
+      style={{ objectFit: "contain" }}
+      onError={() => setFailed(true)}
     />
   );
 }

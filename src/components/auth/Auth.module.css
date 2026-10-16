@@ -5,7 +5,7 @@
 .tabText { position: relative; }
 .badge { display: flex; align-items: center; gap: 8px; font-size: .95rem; margin: 18px 0 4px; }
 .title { font-size: 2.1rem; margin: 6px 0 18px; }
-.collapse { overflow: hidden; }
+.collapse { overflow: hidden; padding: 4px 6px; margin: -4px -6px; }
 .field { display: block; margin-bottom: 16px; }
 .field > span:first-child { display: block; font-weight: 700; margin-bottom: 6px; }
 .input { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 14px; border: 2.5px solid var(--ink); border-radius: 12px; background: var(--paper); transition: box-shadow .2s, background .2s; }
@@ -15,3 +15,25 @@
 .notice { margin: 12px 0 0; padding: 12px 14px; background: var(--paper-2); border: 2.5px solid var(--ink); border-radius: 12px; font-size: 1rem; }
 .card::before { content: ""; position: absolute; top: 0; right: 0; width: 120px; height: 120px; border-top-right-radius: 20px; background-image: radial-gradient(rgba(251,196,77,.9) 2px, transparent 2.2px); background-size: 12px 12px; mask-image: linear-gradient(225deg, #000, transparent 65%); -webkit-mask-image: linear-gradient(225deg, #000, transparent 65%); pointer-events: none; }
 .card > * { position: relative; }
+
+/* Password fields: the eye on the right, and no second reveal icon from the browser */
+.input input::-ms-reveal, .input input::-ms-clear { display: none; }
+.eye { flex: none; display: grid; place-items: center; width: 44px; height: 44px; margin-right: -8px; padding: 0; border: 0; border-radius: 10px; background: none; color: var(--ink); cursor: pointer; }
+.eye:hover { background: var(--paper-2); }
+
+/* Live check between Password and Confirm password. Its height is kept so the form doesn't jump when it appears */
+.match { --ok: #1F7A3D; display: flex; align-items: center; height: 20px; margin: -8px 0 4px; font-size: .95rem; font-weight: 700; line-height: 1.2; }
+.matchOk, .matchNo { display: inline-flex; align-items: center; gap: 6px; }
+.matchOk { color: var(--ok); }
+.matchNo { color: var(--coral); }
+
+/* "You already have an account" */
+.notice strong { display: block; }
+.notice p { margin: 4px 0 12px; }
+.noticeActions { display: flex; flex-wrap: wrap; gap: 10px; }
+.noticeActions button { flex: 1 1 150px; min-height: 44px; }
+
+/* First and last name side by side from about 480px, stacked below that */
+.nameRow { display: grid; grid-template-columns: 1fr; column-gap: 12px; }
+.nameRow > .field { min-width: 0; }
+@media (min-width: 480px) { .nameRow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

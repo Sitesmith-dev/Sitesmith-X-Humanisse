@@ -12,3 +12,6 @@
 /* Kept below the buy actions with a rule between them, so Preview is never mistaken for a purchase */
 .preview { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 24px; padding-top: 22px; border-top: 2.5px solid rgba(21, 16, 20, .35); }
 .previewNote { margin: 0; font-size: .95rem; color: var(--ink); }
+.tagline { font: 700 1.35rem/1.3 var(--font-head); color: var(--ink); margin: -4px 0 12px; }
+/* The last line of the client's blurb, read as the comic's final word */
+.closing { max-width: 44ch; margin: 24px 0 0; padding: 4px 0 4px 18px; border-left: 4px solid var(--gold); font: 800 1.3rem/1.4 var(--font-head); }

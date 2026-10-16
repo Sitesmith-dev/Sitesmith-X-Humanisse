@@ -24,7 +24,8 @@ export function ComicPanel({ comic, topbar }: { comic: Comic; topbar?: ReactNode
             <div>
               <p className={styles.crumbs}><Link href="/comics">Comics</Link> / {categoryLabels[comic.category]}</p>
               <h1 id="comic-h">{comic.title}</h1>
-              <p className="lead">{comic.shortDescription}</p>
+              <p className={styles.tagline}>{comic.tagline}</p>
+              <p className="lead">{comic.strapline}</p>
               <ul className={styles.tags} aria-label="Concepts">
                 {comic.tags.map((t) => <li key={t} className="tag">{t}</li>)}
               </ul>
@@ -32,12 +33,17 @@ export function ComicPanel({ comic, topbar }: { comic: Comic; topbar?: ReactNode
               {comic.pages.length > 0 && (
                 <div className={styles.preview}>
                   <Link href={`/read/${comic.slug}`} className="btn"><BookOpen size={18} aria-hidden="true" /> Preview</Link>
-                  <p className={styles.previewNote}>Read the first pages in the full screen reader</p>
+                  <p className={styles.previewNote}>Read the cover and first two pages in the full screen reader</p>
                 </div>
               )}
             </div>
           </div>
         </div>
+      </section>
+      <section className="section wrap" aria-labelledby="about-h">
+        <h2 id="about-h">About this comic</h2>
+        <p>{comic.description}</p>
+        {comic.closing && <p className={styles.closing}>{comic.closing}</p>}
       </section>
       <VideoPreview />
       <section className="section wrap" aria-labelledby="learn-h">
