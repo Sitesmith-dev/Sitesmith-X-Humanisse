@@ -20,11 +20,11 @@ export const copy = {
     { title: "Organisations", text: "Fresh material for leadership and communication programmes" },
   ],
   faq: [
-    { q: "How do I read a comic", a: "Comics open inside the website with page navigation, zoom and full screen, so there is nothing to download" },
-    { q: "Who is Humanisse for", a: "Anyone from about ten years old to seventy, learning alone, in a classroom or with a team" },
-    { q: "Do I need an account to browse", a: "No, you can look through every comic and watch the introductions freely, an account is only needed when you buy" },
-    { q: "Can I buy one comic at a time", a: "Yes, single comics and bundles are planned, and every purchase lands in your personal library" },
-    { q: "Where do my comics live after I buy them", a: "In My Library, your own shelf where you can continue reading, reread a story or find related titles" },
-    { q: "Is this the final website", a: "No, this is a design preview, so comics, prices, checkout and accounts are demonstration only" },
+    { q: "How do I read a comic?", a: "Comics open inside the website with page navigation, zoom and full screen, so there is nothing to download" },
+    { q: "Who is Humanisse for?", a: "Anyone from about ten years old to seventy, learning alone, in a classroom or with a team" },
+    { q: "Do I need an account to browse?", a: "No, you can look through every comic and watch the introductions freely, an account is only needed when you buy" },
+    { q: "Can I buy one comic at a time?", a: "Yes, single comics and bundles are planned, and every purchase lands in your personal library" },
+    { q: "Where do my comics live after I buy them?", a: "In My Library, your own shelf where you can continue reading, reread a story or find related titles" },
+    { q: "Is this the final website?", a: "No, this is a design preview, so comics, prices, checkout and accounts are demonstration only" },
   ],
 } as const;
