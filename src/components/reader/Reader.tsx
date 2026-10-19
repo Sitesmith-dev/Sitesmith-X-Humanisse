@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ChevronLeft, ChevronRight, Maximize, Minimize, Scan, X, ZoomIn, ZoomOut } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize, Minimize, X, ZoomIn, ZoomOut } from "lucide-react";
 import type { Comic } from "@/types/comic";
 import { PageWatermark, STAMP_OPACITY } from "./PageWatermark";
 import { buildStamp, type Holder } from "./stamp";
@@ -284,9 +284,6 @@ export function Reader({ comic, holder }: { comic: Comic; holder: Holder }) {
           <div className={styles.zoom} role="group" aria-label="Zoom">
             <button type="button" className={`btn ${styles.toolBtn}`} onClick={() => setZoom((z) => Math.max(0, z - 1))} disabled={zoom === 0} aria-label="Zoom out">
               <ZoomOut size={20} aria-hidden="true" />
-            </button>
-            <button type="button" className={`btn ${styles.toolBtn}`} onClick={() => setZoom(FIT)} aria-label="Zoom to fit">
-              <Scan size={20} aria-hidden="true" /><span className={styles.toolLabel}>Fit</span>
             </button>
             <button type="button" className={`btn ${styles.toolBtn}`} onClick={() => setZoom((z) => Math.min(ZOOMS.length - 1, z + 1))} disabled={zoom === ZOOMS.length - 1} aria-label="Zoom in">
               <ZoomIn size={20} aria-hidden="true" />

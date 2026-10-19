@@ -1,0 +1,9 @@
+/* The cart header holds the display in the free space right of its copy, from just past the lead line to the
+   content edge, over the band's full height. Too narrow for it below 1000px, where the copy takes the width */
+.head { position: relative; }
+.stage { --edge: max(20px, calc((100% - var(--wrap)) / 2 + 20px)); position: absolute; top: 0; bottom: 0; left: calc(var(--edge) + 640px); right: var(--edge); pointer-events: none; user-select: none; }
+.cover { position: absolute; left: 50%; top: 50%; width: 132px; margin: -99px 0 0 -66px; border: var(--line); border-radius: 12px; box-shadow: 4px 4px 0 var(--ink); overflow: hidden; background: var(--paper); transform-origin: 50% 100%; }
+.cover > * { border-bottom: 0; }
+.set { position: absolute; inset: 0; display: grid; place-items: center; }
+.shelf { display: flex; }
+@media (max-width: 999.98px) { .stage { display: none; } }

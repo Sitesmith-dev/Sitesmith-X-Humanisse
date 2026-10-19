@@ -18,6 +18,26 @@
 .setBand { scroll-margin-top: 80px; background-color: var(--gold); background-image: radial-gradient(rgba(21,16,20,.14) 1.3px, transparent 1.4px); background-size: 10px 10px; border-block: var(--line); padding: 48px 0; margin-bottom: 80px; }
 .setInner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
 .setInner p { margin-bottom: 8px; }
+/* The boxed set of spines, faded: standing on the band's bottom rule in its own row on narrower screens, and
+   centred behind the button once the copy and the button share a row. An invisible copy of the widest label
+   sizes the button's area, so the set holds still when the label switches between add and remove */
+.setAction { display: contents; }
+.setSizer { display: none; }
+.shelfCell { order: 3; flex-basis: 100%; display: flex; justify-content: center; margin-bottom: -48px; opacity: .55; pointer-events: none; user-select: none; }
+.shelf { display: flex; filter: drop-shadow(4px 0 0 var(--ink)); }
+.spine { display: flex; flex-direction: column; align-items: center; width: 36px; height: 214px; border: 2px solid var(--ink); border-radius: 4px; color: var(--paper); overflow: hidden; }
+.spine + .spine { margin-left: -2px; }
+.spineArt { flex: none; width: 100%; height: 40px; border-bottom: 2px solid var(--ink); background-color: var(--gold); background-image: radial-gradient(rgba(21,16,20,.18) 1.2px, transparent 1.3px); background-size: 6px 6px; }
+.spineArt img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.spineTitle { flex: 1; display: flex; align-items: center; margin: 8px 0 4px; padding-block: 6px; border-block: 2px solid var(--gold); writing-mode: vertical-rl; font: 800 .78rem/1.05 var(--font-head); letter-spacing: .01em; text-align: center; }
+.spineNo { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-bottom: 7px; border: 2px solid var(--ink); border-radius: 50%; background: var(--gold); color: var(--ink); font: 800 .68rem var(--font-head); }
+@media (min-width: 1100px) {
+  .setBand { overflow-x: clip; }
+  .setAction { display: grid; align-items: center; justify-items: end; align-self: stretch; position: relative; isolation: isolate; }
+  .setAction > * { grid-area: 1 / 1; }
+  .setSizer { display: inline-flex; visibility: hidden; pointer-events: none; }
+  .shelfCell { position: absolute; left: 50%; top: 50%; translate: -50% -50%; z-index: -1; margin: 0; }
+}
 .bar { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 12px 16px; background: var(--ink); color: var(--paper); border-radius: var(--radius); box-shadow: 0 12px 32px rgba(0,0,0,.3); }
 .barText { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 220px; }
 .barNote { margin: 0; font-size: .95rem; opacity: .85; }

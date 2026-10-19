@@ -61,7 +61,7 @@ export function FinalCTA() {
     <section className={`band band-gold ${styles.final}`}>
       <div className={`wrap ${styles.finalRow}`}>
         <Reveal>
-          <h2 className="capBox capBox-paper">Ready to learn through a story</h2>
+          <h2 className="capBox capBox-paper">Ready to learn through a story?</h2>
           <p className={styles.finalText}>Pick a comic and see how it reads, this is a design preview so nothing here is a real purchase</p>
         </Reveal>
         <Reveal delay={0.1}>

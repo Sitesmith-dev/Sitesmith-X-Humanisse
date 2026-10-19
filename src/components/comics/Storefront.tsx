@@ -7,6 +7,7 @@ import { comics } from "@/content/comics";
 import { categoryLabels, type Category } from "@/types/comic";
 import { SET_PRICE, rupee, useCart } from "@/components/cart/CartContext";
 import { ComicCard } from "./ComicCard";
+import { SetShelf } from "./SetShelf";
 import styles from "./Storefront.module.css";
 
 type Cat = Category | "all";
@@ -76,9 +77,13 @@ export function Storefront() {
             <p>All ten launch comics together at a bundle price, so you can read the whole collection</p>
             <p className={styles.featurePrice}><strong>{rupee(SET_PRICE)}</strong> <span className="demo">Sample price</span></p>
           </div>
-          <button type="button" className="btn btn-lg" onClick={() => (isFullSet ? clear() : addAll())}>
-            {isFullSet ? "Remove the set" : "Add all ten to cart"}
-          </button>
+          <div className={styles.setAction}>
+            <SetShelf />
+            <span className={`btn btn-lg ${styles.setSizer}`} aria-hidden="true">Add all ten to cart</span>
+            <button type="button" className="btn btn-lg" onClick={() => (isFullSet ? clear() : addAll())}>
+              {isFullSet ? "Remove the set" : "Add all ten to cart"}
+            </button>
+          </div>
         </div>
       </section>
 

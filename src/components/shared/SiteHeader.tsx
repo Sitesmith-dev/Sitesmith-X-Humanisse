@@ -1,11 +1,13 @@
 "use client";
 import { SiteLink as Link } from "@/components/shared/SiteLink";
-import { useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { LogIn, LogOut } from "lucide-react";
 import { CartButton } from "@/components/cart/CartButton";
 import { useSession } from "@/components/auth/useSession";
 import styles from "./Shared.module.css";
+
+export const SHOW_HEADER = "humanisse:show-header";
 
 // Seamless header: clear at the top of the page, a soft frosted bar once you scroll,
 // tucks away when you scroll down and slides back the moment you scroll up.
@@ -21,14 +23,31 @@ export function SiteHeader() {
   const blur = useTransform(scrollY, [0, 80], ["blur(0px)", "blur(14px)"]);
   const borderColor = useTransform(scrollY, [0, 80], ["rgba(21,16,20,0)", "rgba(21,16,20,0.9)"]);
 
-  const setHidden = (h: boolean) => {
+  const setHidden = useCallback((h: boolean) => {
     if (hidden.current === h) return;
     hidden.current = h;
     animate(y, h ? "-105%" : "0%", { duration: 0.3, ease: [0.16, 1, 0.3, 1] });
-  };
+  }, [y]);
+
+  // A scroll that should land just below the header (the footer's FAQ link) asks it to stay in view until that
+  // scroll has finished, so scrolling down to the section does not tuck the header away
+  const pinned = useRef(false);
+  useEffect(() => {
+    let release: ReturnType<typeof setTimeout>;
+    const unpin = () => { pinned.current = false; last.current = window.scrollY; clearTimeout(release); };
+    const show = () => {
+      pinned.current = true;
+      setHidden(false);
+      window.addEventListener("scrollend", unpin, { once: true });
+      clearTimeout(release);
+      release = setTimeout(unpin, 1500); // browsers without scrollend, or a scroll of zero distance
+    };
+    window.addEventListener(SHOW_HEADER, show);
+    return () => { window.removeEventListener(SHOW_HEADER, show); window.removeEventListener("scrollend", unpin); clearTimeout(release); };
+  }, [setHidden]);
 
   useMotionValueEvent(scrollY, "change", (now) => {
-    if (reduce) return;
+    if (reduce || pinned.current) return;
     const delta = now - last.current;
     last.current = now;
     if (now < 120) setHidden(false);
