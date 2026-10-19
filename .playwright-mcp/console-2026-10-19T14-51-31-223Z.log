@@ -1,0 +1,8 @@
+[  231903ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://www.humanisseedu.com/api/session:0
+[  231903ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://www.humanisseedu.com/api/session:0
+[  231903ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://www.humanisseedu.com/library?_rsc=06-xOMt1G1KBpSOK:0
+[  231905ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://www.humanisseedu.com/login?_rsc=06-xOMt1G1KBpSOK:0
+[  231906ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://www.humanisseedu.com/comics?_rsc=wylz0bg4MgTlNXJg:0
+[  231906ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://www.humanisseedu.com/?_rsc=h7IePjoXgYx4wXhl:0
+[  267627ms] [VERBOSE] [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o @ https://www.humanisseedu.com/login/reset:0
+[  340598ms] [VERBOSE] [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o @ https://www.humanisseedu.com/login/reset:0

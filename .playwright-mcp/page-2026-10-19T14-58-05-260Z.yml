@@ -1,0 +1,72 @@
+- generic [active] [ref=f35e1]:
+  - link "Skip to content" [ref=f35e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f35e3]:
+    - generic [ref=f35e4]:
+      - link "Humanisse home" [ref=f35e5] [cursor=pointer]:
+        - /url: /
+        - text: Humanisse
+      - navigation "Main" [ref=f35e6]:
+        - link "Comics" [ref=f35e7] [cursor=pointer]:
+          - /url: /comics
+        - link "My Library" [ref=f35e8] [cursor=pointer]:
+          - /url: /library
+        - link "Cart, empty" [ref=f35e9] [cursor=pointer]:
+          - /url: /cart
+        - link "Log in" [ref=f35e16] [cursor=pointer]:
+          - /url: /login
+  - main [ref=f35e20]:
+    - generic [ref=f35e24]:
+      - generic [ref=f35e25]:
+        - paragraph: Your reading room
+        - heading "Every comic you own, waiting where you left it" [level=2] [ref=f35e26]
+        - paragraph [ref=f35e27]: Log in to pick up your story, track your progress and find what to read next
+        - generic [ref=f35e29]:
+          - figure [ref=f35e30]
+          - figure [ref=f35e31]
+          - figure [ref=f35e32]
+      - generic [ref=f35e34]:
+        - tablist "Account" [ref=f35e35]:
+          - tab "Log in" [selected] [ref=f35e36] [cursor=pointer]
+          - tab "Create account" [ref=f35e38] [cursor=pointer]
+        - heading "Welcome back" [level=1] [ref=f35e39]
+        - generic [ref=f35e40]:
+          - generic [ref=f35e41]:
+            - generic [ref=f35e42]: Email
+            - textbox "Email" [ref=f35e47]:
+              - /placeholder: you@example.com
+          - generic [ref=f35e49]:
+            - generic [ref=f35e50]: Password
+            - generic [ref=f35e51]:
+              - textbox "Password Show password" [ref=f35e55]:
+                - /placeholder: At least 8 characters
+              - button "Show password" [ref=f35e56] [cursor=pointer]
+          - button "Log in" [ref=f35e60] [cursor=pointer]
+          - button "Forgot password" [ref=f35e61] [cursor=pointer]
+  - contentinfo [ref=f35e62]:
+    - generic [ref=f35e63]:
+      - heading "Humanisse" [level=2] [ref=f35e64]
+      - paragraph [ref=f35e65]: A learning company that uses original comics, cinema and literature to make important life and professional ideas simple, memorable and enjoyable
+      - navigation "Footer" [ref=f35e66]:
+        - link "About Us" [ref=f35e67] [cursor=pointer]:
+          - /url: /about
+        - link "Comics" [ref=f35e68] [cursor=pointer]:
+          - /url: /comics
+        - link "Learning Ideology" [ref=f35e69] [cursor=pointer]:
+          - /url: /learning-ideology
+        - link "For Corporates" [ref=f35e70] [cursor=pointer]:
+          - /url: /for-corporates
+        - link "For Campus" [ref=f35e71] [cursor=pointer]:
+          - /url: /for-campus
+        - link "For Individuals" [ref=f35e72] [cursor=pointer]:
+          - /url: /for-individuals
+        - link "Community" [ref=f35e73] [cursor=pointer]:
+          - /url: /community
+        - link "My Library" [ref=f35e74] [cursor=pointer]:
+          - /url: /library
+        - link "FAQ" [ref=f35e75] [cursor=pointer]:
+          - /url: /#faq
+        - button "T&C" [ref=f35e76] [cursor=pointer]
+        - button "Legal" [ref=f35e77] [cursor=pointer]
+      - paragraph [ref=f35e78]: Design preview, all comics, prices and actions are demonstration content
+  - alert [ref=f35e79]
