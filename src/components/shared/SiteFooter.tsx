@@ -49,35 +49,39 @@ export function SiteFooter() {
   return (
     <footer className={styles.footer}>
       <div className="wrap">
-        <div className={styles.footTop}>
-          <h2>Humanisse</h2>
-          <p className={styles.blurb}>
-            A learning company that uses original comics, cinema and literature to make important
-            life and professional ideas simple, memorable and enjoyable
-          </p>
-        </div>
-        <nav aria-label="Footer" className={styles.footGrid}>
-          <div className={styles.footCol}>
-            <h3>Explore</h3>
-            <ul>{explore.map((p) => <li key={p.href}>{pageLink(p.href, p.label)}</li>)}</ul>
+        <div className={styles.footMain}>
+          <div className={styles.footBrand}>
+            <h2>Humanisse</h2>
+            <p>A learning company that uses original comics, cinema and literature to make important life and professional ideas simple, memorable and enjoyable</p>
           </div>
-          {groups.map((g) => (
-            <div key={g.label} className={styles.footCol}>
-              <h3>{g.label}</h3>
-              <ul>{g.items.map((p) => <li key={p.href}>{pageLink(p.href, p.label)}</li>)}</ul>
+          <nav aria-label="Footer" className={styles.footGrid}>
+            <div className={styles.footCol}>
+              <h3>Explore</h3>
+              <ul>{explore.map((p) => <li key={p.href}>{pageLink(p.href, p.label)}</li>)}</ul>
             </div>
-          ))}
-          <div className={styles.footCol}>
-            <h3>Account</h3>
-            <ul>
-              <li>{pageLink("/library", "My Library")}</li>
-              {session?.signedIn === false && <li>{pageLink("/login", "Log in")}</li>}
-              <li><Link href="/#faq" scroll={false} onClick={(e) => jumpTo(e, toFaq)}>FAQ</Link></li>
-              <li><button type="button" onClick={() => setDoc("terms")} aria-haspopup="dialog">Terms</button></li>
-              <li><button type="button" onClick={() => setDoc("legal")} aria-haspopup="dialog">Legal</button></li>
-            </ul>
-          </div>
-        </nav>
+            {groups.map((g) => (
+              <div key={g.label} className={styles.footCol}>
+                <h3>{g.label}</h3>
+                <ul>{g.items.map((p) => <li key={p.href}>{pageLink(p.href, p.label)}</li>)}</ul>
+              </div>
+            ))}
+            <div className={styles.footCol}>
+              <h3>Account</h3>
+              <ul>
+                <li>{pageLink("/library", "My Library")}</li>
+                {session?.signedIn === false && <li>{pageLink("/login", "Log in")}</li>}
+                <li><Link href="/#faq" scroll={false} onClick={(e) => jumpTo(e, toFaq)}>FAQ</Link></li>
+              </ul>
+            </div>
+            <div className={styles.footCol}>
+              <h3>Legal</h3>
+              <ul>
+                <li><button type="button" onClick={() => setDoc("terms")} aria-haspopup="dialog">Terms</button></li>
+                <li><button type="button" onClick={() => setDoc("legal")} aria-haspopup="dialog">Legal</button></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
         <p className={styles.note}>Design preview, all comics, prices and actions are demonstration content</p>
       </div>
       <DocDialog open={doc === "terms"} doc={legalCopy.terms} onClose={() => setDoc(null)} />
