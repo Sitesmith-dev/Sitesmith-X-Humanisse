@@ -6,14 +6,12 @@ import { legalCopy, type LegalDocKey } from "@/content/legal-copy";
 import { DocDialog } from "@/components/shared/DocDialog";
 import { useSession } from "@/components/auth/useSession";
 import { SHOW_HEADER } from "@/components/shared/SiteHeader";
-import { isGroup, primaryNav } from "@/content/navigation";
+import { isGroup, primaryNav, type NavGroup, type NavItem } from "@/content/navigation";
 import styles from "./Shared.module.css";
 
 export function SiteFooter() {
   const [doc, setDoc] = useState<LegalDocKey | null>(null);
   const session = useSession();
-  // Every page from the header, the three audience pages flattened in among them
-  const pages = primaryNav.flatMap((item) => (isGroup(item) ? item.items : [item]));
 
   // Next's own scroll would align the top of the new page's content with the viewport, leaving the sticky
   // header scrolled past, so the footer's links skip it and scroll themselves once the new page has rendered,
@@ -45,21 +43,40 @@ export function SiteFooter() {
   }
   const pageLink = (href: string, label: string) => <Link key={href} href={href} scroll={false} onClick={(e) => jumpTo(e, toTop)}>{label}</Link>;
 
+  const explore = primaryNav.filter((i): i is NavItem => !isGroup(i));
+  const groups = primaryNav.filter((i): i is NavGroup => isGroup(i));
+
   return (
     <footer className={styles.footer}>
       <div className="wrap">
-        <h2>Humanisse</h2>
-        <p>
-          A learning company that uses original comics, cinema and literature to make important
-          life and professional ideas simple, memorable and enjoyable
-        </p>
-        <nav aria-label="Footer" className={styles.footNav}>
-          {pages.map((p) => pageLink(p.href, p.label))}
-          {pageLink("/library", "My Library")}
-          {session?.signedIn === false && pageLink("/login", "Log in")}
-          <Link href="/#faq" scroll={false} onClick={(e) => jumpTo(e, toFaq)}>FAQ</Link>
-          <button type="button" onClick={() => setDoc("terms")} aria-haspopup="dialog">T&amp;C</button>
-          <button type="button" onClick={() => setDoc("legal")} aria-haspopup="dialog">Legal</button>
+        <div className={styles.footTop}>
+          <h2>Humanisse</h2>
+          <p className={styles.blurb}>
+            A learning company that uses original comics, cinema and literature to make important
+            life and professional ideas simple, memorable and enjoyable
+          </p>
+        </div>
+        <nav aria-label="Footer" className={styles.footGrid}>
+          <div className={styles.footCol}>
+            <h3>Explore</h3>
+            <ul>{explore.map((p) => <li key={p.href}>{pageLink(p.href, p.label)}</li>)}</ul>
+          </div>
+          {groups.map((g) => (
+            <div key={g.label} className={styles.footCol}>
+              <h3>{g.label}</h3>
+              <ul>{g.items.map((p) => <li key={p.href}>{pageLink(p.href, p.label)}</li>)}</ul>
+            </div>
+          ))}
+          <div className={styles.footCol}>
+            <h3>Account</h3>
+            <ul>
+              <li>{pageLink("/library", "My Library")}</li>
+              {session?.signedIn === false && <li>{pageLink("/login", "Log in")}</li>}
+              <li><Link href="/#faq" scroll={false} onClick={(e) => jumpTo(e, toFaq)}>FAQ</Link></li>
+              <li><button type="button" onClick={() => setDoc("terms")} aria-haspopup="dialog">Terms</button></li>
+              <li><button type="button" onClick={() => setDoc("legal")} aria-haspopup="dialog">Legal</button></li>
+            </ul>
+          </div>
         </nav>
         <p className={styles.note}>Design preview, all comics, prices and actions are demonstration content</p>
       </div>
