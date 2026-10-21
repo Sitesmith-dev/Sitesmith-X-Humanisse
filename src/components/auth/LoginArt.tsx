@@ -7,7 +7,7 @@ import styles from "./LoginArt.module.css";
 
 gsap.registerPlugin(useGSAP);
 
-// GSAP drives the endless sun-ray spin, the panel entrance and the gentle float, all skipped for reduced motion
+// GSAP drives the sun-ray spin and the panel entrance, all skipped for reduced motion. The panels stay put once they land
 export function LoginArt({ children }: { children: ReactNode }) {
   const root = useRef<HTMLElement>(null);
   useGSAP(() => {
@@ -18,7 +18,6 @@ export function LoginArt({ children }: { children: ReactNode }) {
         .from("[data-panel]", { y: 46, opacity: 0, scale: 0.92, duration: 0.7, stagger: 0.12 })
         .from("[data-pop]", { scale: 0, opacity: 0, rotate: -12, duration: 0.5, stagger: 0.12, ease: "back.out(2.4)" }, "-=0.3")
         .from("[data-card]", { x: 40, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.1);
-      gsap.to("[data-float]", { y: -9, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: -1, stagger: { each: 0.5, from: "random" } });
     });
   }, { scope: root });
 
@@ -34,16 +33,16 @@ export function LoginArt({ children }: { children: ReactNode }) {
           <div className={styles.comic} aria-hidden="true">
             <span className={styles.caption} data-pop>Meanwhile, in your library</span>
             <div className={styles.panels}>
-              <figure className={`${styles.panel} ${styles.big}`} data-panel data-float>
-                <Image src="/characters/posters/bot.jpg" alt="" fill sizes="260px" style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
+              <figure className={`${styles.panel} ${styles.big}`} data-panel>
+                <Image src="/characters/decision/bot.webp" alt="" fill sizes="260px" style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
                 <span className={`${styles.bubble} ${styles.bA}`} data-pop>Welcome back</span>
               </figure>
-              <figure className={styles.panel} data-panel data-float>
-                <Image src="/characters/posters/professor.jpg" alt="" fill sizes="200px" style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
+              <figure className={styles.panel} data-panel>
+                <Image src="/characters/decision/professor.webp" alt="" fill sizes="200px" style={{ objectFit: "cover", objectPosition: "50% 28%" }} />
                 <span className={`${styles.bubble} ${styles.bB}`} data-pop>Where were we</span>
               </figure>
-              <figure className={styles.panel} data-panel data-float>
-                <Image src="/characters/posters/cat.jpg" alt="" fill sizes="200px" style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
+              <figure className={styles.panel} data-panel>
+                <Image src="/characters/decision/cat.webp" alt="" fill sizes="200px" style={{ objectFit: "cover", objectPosition: "50% 38%" }} />
                 <span className={`${styles.bubble} ${styles.bC}`} data-pop>Read on</span>
               </figure>
             </div>

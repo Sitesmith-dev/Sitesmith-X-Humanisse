@@ -65,14 +65,14 @@ export function SiteHeader() {
         <Link href="/" className={styles.logo} aria-label="Humanisse home">Humanisse</Link>
         <nav aria-label="Main" className={styles.nav}>
           <Link href="/comics" className={styles.link}>Comics</Link>
-          <Link href="/library" className={styles.link}>My Library</Link>
+          <Link href="/library" prefetch={false} className={`${styles.link} ${styles.hideSm}`}>My Library</Link>
           <CartButton />
           {session?.signedIn ? (
             <form method="post" action="/auth/signout">
               <button type="submit" className="btn"><LogOut size={18} aria-hidden="true" /> Log out</button>
             </form>
           ) : (
-            <Link href="/login" className="btn"><LogIn size={18} aria-hidden="true" /> Log in</Link>
+            <Link href="/login" prefetch={false} className={`btn ${styles.login}`}><LogIn size={18} aria-hidden="true" /> Log in</Link>
           )}
         </nav>
       </div>
