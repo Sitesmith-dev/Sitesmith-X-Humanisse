@@ -9,22 +9,26 @@
 .badge { position: absolute; top: -11px; right: -9px; display: grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; background: var(--coral); color: var(--white); border: 2px solid var(--paper); border-radius: 999px; font: 700 .75rem/1 var(--font-text); }
 .footer { --bg: var(--ink); position: relative; background: var(--ink); color: var(--paper); border-top: 4px solid var(--ink); padding: 88px 0 40px; }
 .footer h2 { margin-bottom: 12px; color: var(--gold); }
-.footTop { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 32px; margin-bottom: 18px; }
-.footTop h2 { margin: 0; }
-.footTop p { margin: 0; max-width: 56ch; color: rgba(255,247,227,.82); }
-.footGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 14px; padding-top: 18px; border-top: 1.5px solid rgba(255,247,227,.25); }
-@media (min-width: 760px) { .footGrid { grid-template-columns: repeat(4, max-content); gap: 18px 64px; } }
-.footCol h3 { margin: 0 0 6px; font: 700 .8rem/1.2 var(--font-text); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+.footMain { display: grid; gap: 22px; }
+.footBrand h2 { margin: 0 0 6px; }
+.footBrand p { margin: 0; max-width: 44ch; font-size: .95rem; line-height: 1.5; color: rgba(255,247,227,.8); }
+.footGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; padding-top: 20px; border-top: 1.5px solid rgba(255,247,227,.25); }
+.footCol h3 { margin: 0 0 4px; font: 700 .8rem/1.2 var(--font-text); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
 .footCol ul { list-style: none; margin: 0; padding: 0; }
 .footCol a, .footCol button { display: inline-flex; align-items: center; min-height: 40px; padding: 0; border: 0; background: none; color: var(--paper); font: 600 .95rem/1.25 var(--font-text); text-decoration: none; cursor: pointer; text-align: left; }
 .footCol a:hover, .footCol button:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 4px; }
-.note { color: rgba(255,247,227,.7); font-size: .95rem; margin: 24px 0 0; }
+/* Tablet: the four link groups share one row under the brand. Laptop: the brand moves to the left of them */
+@media (min-width: 640px) { .footGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 24px; } }
+@media (min-width: 1000px) {
+  .footMain { grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr); gap: 56px; align-items: start; }
+  .footGrid { padding-top: 0; border-top: 0; }
+}
+.note { max-width: none; margin: 24px 0 0; padding-top: 16px; border-top: 1.5px solid rgba(255,247,227,.18); color: rgba(255,247,227,.7); font-size: .9rem; }
 @media (max-width: 640px) {
   .hideSm { display: none; } .nav { gap: 2px; flex-wrap: nowrap; } .link { padding: 0 8px; }
   .logo { font-size: 1.35rem; } .bar { gap: 0 8px; flex-wrap: nowrap; }
   .login { min-height: 44px; padding: 6px 12px; font-size: .95rem; }
-  .blurb { display: none; }
-  .footer { padding: 28px 0 20px; } .footTop { margin-bottom: 10px; } .note { margin-top: 12px; }
+  .footer { padding: 32px 0 20px; } .note { margin-top: 16px; }
 }
 
 /* Document dialog: a comic panel floating over the page, scrollable inside a capped height */

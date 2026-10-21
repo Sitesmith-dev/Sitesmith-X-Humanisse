@@ -21,7 +21,10 @@
 .burst span { display: block; max-width: 6.5ch; text-align: center; font: 800 .8rem/1.05 var(--font-head); color: var(--white); }
 
 @media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr; gap: 48px; }
+  /* The form comes first on a phone, so Log in and Create account are on screen the moment the page opens */
+  .page { padding: 24px 0 40px; min-height: 0; align-items: flex-start; }
+  .grid { grid-template-columns: 1fr; gap: 36px; }
+  .grid > :last-child { order: -1; }
   .panels { height: 280px; }
   .burst { left: 12px; top: 30px; width: 72px; height: 72px; }
   .burst span { font-size: .9rem; }
