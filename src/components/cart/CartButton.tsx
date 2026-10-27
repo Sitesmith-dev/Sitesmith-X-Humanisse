@@ -1,7 +1,6 @@
 "use client";
 import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { AnimatePresence, motion } from "motion/react";
-import { ShoppingCart } from "lucide-react";
 import { useCart } from "./CartContext";
 import styles from "@/components/shared/Shared.module.css";
 
@@ -12,9 +11,8 @@ export function CartButton() {
   const name = count === 0 ? "Cart, empty" : `Cart, ${count} ${count === 1 ? "comic" : "comics"}`;
   return (
     <Link href="/cart" className={`${styles.link} ${styles.cart}`} aria-label={name}>
-      <span className={styles.cartIcon}>
-        <ShoppingCart size={20} aria-hidden="true" />
-        <AnimatePresence>
+      Cart
+      <AnimatePresence>
           {count > 0 && (
             <motion.span key="badge" className={styles.badge} aria-hidden="true"
               initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0, opacity: 0 }}
@@ -22,9 +20,7 @@ export function CartButton() {
               {count}
             </motion.span>
           )}
-        </AnimatePresence>
-      </span>
-      <span className={styles.hideSm}>Cart</span>
+      </AnimatePresence>
     </Link>
   );
 }

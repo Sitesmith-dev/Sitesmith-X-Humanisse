@@ -6,7 +6,7 @@
 .link:hover { background: var(--paper-2); }
 .cart { min-width: 44px; gap: 10px; }
 .cartIcon { position: relative; display: inline-flex; }
-.badge { position: absolute; top: -11px; right: -9px; display: grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; background: var(--coral); color: var(--white); border: 2px solid var(--paper); border-radius: 999px; font: 700 .75rem/1 var(--font-text); }
+.badge { display: grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; background: var(--coral); color: var(--white); border-radius: 999px; font: 700 .75rem/1 var(--font-text); }
 .footer { --bg: var(--ink); position: relative; background: var(--ink); color: var(--paper); border-top: 4px solid var(--ink); padding: 88px 0 40px; }
 .footer h2 { margin-bottom: 12px; color: var(--gold); }
 .footMain { display: grid; gap: 22px; }
