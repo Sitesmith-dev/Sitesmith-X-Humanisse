@@ -41,3 +41,4 @@ next-env.d.ts
 *.pdf
 *.xlsx
 ~$*.xlsx
+*.mp4

@@ -2,9 +2,8 @@
 import { SiteLink as Link } from "@/components/shared/SiteLink";
 import { useCallback, useEffect, useRef } from "react";
 import { animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { LogIn, LogOut } from "lucide-react";
+import { MenuSheet } from "./MenuSheet";
 import { CartButton } from "@/components/cart/CartButton";
-import { useSession } from "@/components/auth/useSession";
 import styles from "./Shared.module.css";
 
 export const SHOW_HEADER = "humanisse:show-header";
@@ -13,7 +12,6 @@ export const SHOW_HEADER = "humanisse:show-header";
 // tucks away when you scroll down and slides back the moment you scroll up.
 export function SiteHeader() {
   const reduce = useReducedMotion();
-  const session = useSession();
   const { scrollY } = useScroll();
   const y = useMotionValue("0%");
   const last = useRef(0);
@@ -64,16 +62,10 @@ export function SiteHeader() {
       <div className={`wrap ${styles.bar}`}>
         <Link href="/" className={styles.logo} aria-label="Humanisse home">Humanisse</Link>
         <nav aria-label="Main" className={styles.nav}>
-          <Link href="/comics" className={styles.link}>Comics</Link>
-          <Link href="/library" prefetch={false} className={`${styles.link} ${styles.hideSm}`}>My Library</Link>
+          <Link href="/comics" className={`${styles.link} ${styles.hideSm}`}>Comics</Link>
+          <Link href="/library" prefetch={false} className={styles.link}>Library</Link>
           <CartButton />
-          {session?.signedIn ? (
-            <form method="post" action="/auth/signout">
-              <button type="submit" className="btn"><LogOut size={18} aria-hidden="true" /> Log out</button>
-            </form>
-          ) : (
-            <Link href="/login" prefetch={false} className={`btn ${styles.login}`}><LogIn size={18} aria-hidden="true" /> Log in</Link>
-          )}
+          <MenuSheet />
         </nav>
       </div>
     </motion.header>
